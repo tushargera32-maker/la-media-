@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Reveal, MaskReveal } from "@/components/motion/Motion";
+import { Reveal } from "@/components/motion/Motion";
 import { Media, Eyebrow, ArrowLink } from "@/components/ui/Primitives";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { BRAND } from "@/lib/content";
@@ -37,9 +37,9 @@ export default function PartnerPage() {
             </div>
           </Reveal>
         </div>
-        <MaskReveal className="h-full">
+        <Reveal className="h-full">
           <Media label="PARTNER - ARCHITECTURAL SPACE - 4:3" ratio="4/3" src="/capability-4.jpg" className="h-full min-h-[260px]" />
-        </MaskReveal>
+        </Reveal>
       </section>
 
       {/* 02 - BRAND ------------------------------------------------- */}
