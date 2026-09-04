@@ -39,12 +39,21 @@ const PRESS_HIGHLIGHTS: PressHighlight[] = [
 
 export function PressSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % PRESS_HIGHLIGHTS.length);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -53,17 +62,27 @@ export function PressSection() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
-    const cardWidth = 420;
-    const gap = 24;
-    const scrollPosition = activeIndex * (cardWidth + gap);
+    // Only scroll if the container is already in viewport
+    const rect = scrollContainer.getBoundingClientRect();
+    const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
 
-    scrollContainer.scrollTo({
-      left: scrollPosition,
-      behavior: 'smooth',
-    });
+    if (!isInViewport) return; // Don't auto-scroll if section not visible
+
+    const card = scrollContainer.children[activeIndex] as HTMLElement | undefined;
+    // scrollIntoView centers by the card's real rendered size on any
+    // screen, instead of a hand-computed offset that only matched the
+    // desktop card width and left mobile permanently mis-centered.
+    card?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }, [activeIndex]);
 
   const getCardStyle = (index: number) => {
+    // On mobile only one card fits in view at a time - the blur/scale
+    // treatment for neighbors just left every card looking permanently
+    // hazy, since the "clear" one kept scrolling out of sync.
+    if (isMobile) {
+      return { opacity: 1, scale: 1, blur: 0, zIndex: 10 };
+    }
+
     const distance = Math.abs(index - activeIndex);
 
     if (distance === 0) {
@@ -108,7 +127,7 @@ export function PressSection() {
         <div className="relative">
           <div
             ref={scrollRef}
-            className="flex items-center justify-center gap-6 overflow-x-hidden py-8"
+            className="flex snap-x snap-mandatory items-center gap-6 overflow-x-auto py-8 md:justify-center md:overflow-x-hidden"
           >
             {PRESS_HIGHLIGHTS.map((highlight, index) => {
               const style = getCardStyle(index);
@@ -116,7 +135,7 @@ export function PressSection() {
               return (
                 <article
                   key={highlight.id}
-                  className="panel min-w-[380px] max-w-[420px] flex-shrink-0 p-8 transition-all duration-700"
+                  className="panel w-[85vw] max-w-[420px] flex-shrink-0 snap-center p-6 transition-all duration-700 sm:min-w-[380px] sm:p-8"
                   style={{
                     opacity: style.opacity,
                     transform: `scale(${style.scale})`,

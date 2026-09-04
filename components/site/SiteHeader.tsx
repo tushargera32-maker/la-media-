@@ -37,73 +37,87 @@ export function SiteHeader() {
   }, [open]);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-        solid ? "bg-navy/90 backdrop-blur-xl border-b border-hairline" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-shell items-center justify-between gap-6 px-gutter py-5">
-        <Link href="/" className="flex items-center gap-3" aria-label="LA Media and Communications, home">
-          <span className="text-[26px] font-bold leading-none tracking-[0.08em]">LA</span>
-          <span className="hidden text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-bone sm:block">
-            Media &amp;<br />Communications
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-9 lg:flex">
-          {LINKS.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`relative py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-bone ${
-                  active ? "text-copper" : "text-mist"
-                }`}
-              >
-                {link.label}
-                {active && <span className="absolute -bottom-1 left-0 h-px w-full bg-copper" />}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="flex items-center gap-4">
-          <Link href="/register" className="btn btn-line hidden md:inline-flex">
-            Let&rsquo;s connect <Arrow />
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/*
+        The blur/background lives on this inner div, not <header> itself.
+        backdrop-filter creates a containing block for `position: fixed`
+        descendants - if it sat on <header>, the mobile nav panel (fixed,
+        rendered inside this component) would anchor to the header's own
+        box instead of the viewport once scrolled, breaking it.
+      */}
+      <div
+        className={`transition-colors duration-500 ${
+          solid ? "bg-navy/90 backdrop-blur-xl border-b border-hairline" : "bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-shell items-center justify-between gap-6 px-gutter py-5">
+          <Link href="/" className="flex items-center gap-3" aria-label="LA Media and Communications, home">
+            <span className="text-[26px] font-bold leading-none tracking-[0.08em]">LA</span>
+            <span className="hidden text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-bone sm:block">
+              Media &amp;<br />Communications
+            </span>
           </Link>
 
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="grid h-10 w-10 place-items-center rounded-full border border-hairline transition-colors duration-300 hover:border-mist"
-          >
-            <span className="grid gap-[5px]">
-              <span className={`block h-px w-4 bg-bone transition-transform duration-300 ${open ? "translate-y-[6px] rotate-45" : ""}`} />
-              <span className={`block h-px w-4 bg-bone transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
-              <span className={`block h-px w-4 bg-bone transition-transform duration-300 ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
-            </span>
-          </button>
+          <nav className="hidden items-center gap-9 lg:flex">
+            {LINKS.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-bone ${
+                    active ? "text-copper" : "text-mist"
+                  }`}
+                >
+                  {link.label}
+                  {active && <span className="absolute -bottom-1 left-0 h-px w-full bg-copper" />}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <Link href="/register" className="btn btn-line hidden md:inline-flex">
+              Let&rsquo;s connect <Arrow />
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="grid h-10 w-10 place-items-center rounded-full border border-hairline transition-colors duration-300 hover:border-mist"
+            >
+              <span className="grid gap-[5px]">
+                <span className={`block h-px w-4 bg-bone transition-transform duration-300 ${open ? "translate-y-[6px] rotate-45" : ""}`} />
+                <span className={`block h-px w-4 bg-bone transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
+                <span className={`block h-px w-4 bg-bone transition-transform duration-300 ${open ? "-translate-y-[6px] -rotate-45" : ""}`} />
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
-      {open && (
-        <>
-          {/* Backdrop with blur */}
-          <div
-            className="fixed inset-0 z-40 bg-navy/80 backdrop-blur-md"
-            onClick={() => setOpen(false)}
-          />
+      <>
+        {/* Backdrop */}
+        <div
+          className={`fixed inset-0 z-40 bg-navy/80 transition-opacity duration-300 ${
+            open ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+          onClick={() => setOpen(false)}
+          aria-hidden={!open}
+        />
 
-          {/* Sliding Menu */}
-          <nav
-            id="mobile-nav"
-            className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl"
-          >
+        {/* Sliding Menu */}
+        <nav
+          id="mobile-nav"
+          inert={!open}
+          className={`fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm transform bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl transition-transform duration-300 ease-out will-change-transform ${
+            open ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-hairline p-6">
               <div className="flex items-center gap-3">
@@ -142,9 +156,6 @@ export function SiteHeader() {
                         ? 'bg-copper text-white shadow-lg shadow-copper/20'
                         : 'text-mist hover:bg-navy-2 hover:text-bone'
                     }`}
-                    style={{
-                      animation: `slideIn 0.3s ease-out ${i * 0.05}s backwards`,
-                    }}
                   >
                     <span className={`text-[10px] font-bold ${active ? 'text-white' : 'text-copper'}`}>
                       {String(i + 1).padStart(2, '0')}
@@ -178,22 +189,8 @@ export function SiteHeader() {
                 Join Design Dialects 2.0
               </p>
             </div>
-          </nav>
-
-          <style jsx>{`
-            @keyframes slideIn {
-              from {
-                opacity: 0;
-                transform: translateX(20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateX(0);
-              }
-            }
-          `}</style>
-        </>
-      )}
+        </nav>
+      </>
     </header>
   );
 }

@@ -43,8 +43,8 @@ export const BRAND = {
     { title: "Innovation", description: "We embrace new ideas and approaches that push the industry forward." },
     { title: "Community", description: "We build lasting relationships and foster a sense of belonging among professionals." },
   ],
-  address: "LA Media & Communications, New Delhi, India",
-  phone: "+91 98765 43210",
+  address: "12 A, Basant City, Sua Road, Ludhiana West, Ludhiana, Punjab, India – 142022",
+  phone: "+91 98151 00385 / 98880 78580 / 99888 00389",
   email: "hello@lamediacommunications.com",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
   source: "verified" as Provenance,
@@ -108,9 +108,9 @@ export const FIRMS: Firm[] = [
     code: "BR",
     name: "Build Right Advisors",
     role: "Group firm",
-    discipline: "Advisory · Products, materials and processes",
+    discipline: "Advisory · Construction & Design",
     blurb:
-      "Advisory for building products, materials and processes — operating within the LA Media group rather than alongside it.",
+      "Comprehensive construction advisory covering every project stage: pre-build planning, Vastu consultation, space planning, interiors, construction guidance, issue resolution, and post-build support.",
     source: "pdf",
   },
 ];
@@ -119,7 +119,7 @@ export const FIRMS: Firm[] = [
 
 export const PLATFORMS = [
   { code: "DD", name: "Design Dialect", blurb: "Thought-provoking talks and immersive experiences.", source: "pdf" as Provenance },
-  { code: "BR", name: "Build Right Advisors", blurb: "Advisory for building products, materials and processes.", source: "pdf" as Provenance },
+  { code: "BR", name: "Build Right Advisors", blurb: "Comprehensive construction advisory: pre-build planning, Vastu, space planning, interiors, construction guidance, issue resolution & post-build support.", source: "pdf" as Provenance },
 ];
 
 /* ---- Ecosystem (About) ------------------------------------------- */
@@ -170,7 +170,7 @@ export const LEADERSHIP = [
 /* ---- Insights ---------------------------------------------------- */
 
 export const INSIGHT_CATEGORIES = [
-  "All", "Architecture", "Design", "Built Environment", "Trends", "People", "Events",
+  "All", "Architecture", "Design", "Built Environment", "Trends", "People", "Events", "Technology", "Sustainability", "Professional Development",
 ] as const;
 
 export type Insight = {
@@ -184,13 +184,70 @@ export type Insight = {
 };
 
 export const INSIGHTS: Insight[] = [
+  // New Featured Posts
+  {
+    slug: "why-architecture-events-matter-2027",
+    category: "Events",
+    title: "Why Architecture Events Matter More Than Ever in 2027",
+    excerpt: "In an increasingly digital world, face-to-face architecture events have become vital platforms for innovation, collaboration, and meaningful industry connections.",
+    date: "February 10, 2027",
+    featured: true,
+    source: "verified",
+  },
+  {
+    slug: "sustainable-design-trends-india",
+    category: "Sustainability",
+    title: "5 Sustainable Design Trends Transforming Indian Architecture",
+    excerpt: "From passive cooling techniques to locally sourced materials, Indian architects are leading the way in sustainable design innovation.",
+    date: "February 8, 2027",
+    featured: true,
+    source: "verified",
+  },
+  {
+    slug: "digital-tools-architecture-2027",
+    category: "Technology",
+    title: "6 Digital Tools Every Architecture Practice Should Use in 2027",
+    excerpt: "From AI-powered design assistants to collaborative BIM platforms, technology is reshaping architecture practice. Here's what you need to stay competitive.",
+    date: "February 5, 2027",
+    featured: true,
+    source: "verified",
+  },
+  {
+    slug: "networking-tips-architects",
+    category: "Professional Development",
+    title: "10 Networking Tips Every Architect Should Know",
+    excerpt: "Networking at architecture events can feel overwhelming. Here are ten practical strategies to make meaningful connections that last beyond the event.",
+    date: "February 3, 2027",
+    featured: false,
+    source: "verified",
+  },
+  {
+    slug: "architecture-conclaves-punjab",
+    category: "Events",
+    title: "The Rise of Architecture Conclaves in Punjab: A Regional Perspective",
+    excerpt: "Punjab is emerging as a hub for architecture events. Here's why regional conclaves matter and what makes Punjab's architecture scene unique.",
+    date: "February 1, 2027",
+    featured: false,
+    source: "verified",
+  },
+  {
+    slug: "building-materials-punjab-climate",
+    category: "Architecture",
+    title: "Material Matters: Choosing Building Materials for Punjab's Climate",
+    excerpt: "Punjab's extreme temperatures demand smart material choices. A technical guide to selecting materials that perform in the region's challenging climate.",
+    date: "January 28, 2027",
+    featured: false,
+    source: "verified",
+  },
+
+  // Original Posts
   {
     slug: "spaces-that-inspire",
     category: "Architecture",
     title: "Spaces that inspire: Designing for connection and purpose",
     excerpt: "Exploring how intentional design can foster human connection and create lasting impact.",
     date: "May 20, 2024",
-    featured: true,
+    featured: false,
     source: "pdf",
   },
   {
@@ -222,16 +279,16 @@ export const EVENT = {
   tagline: "Ideas. Conversations. Impact.",
   intro:
     "An evening of meaningful conversations with leaders, architects and changemakers shaping the future of design and the built environment.",
-  date: "February 20-21, 2027",
-  day: "Friday-Saturday",
+  date: "February 13-14, 2027",
+  day: "Thursday-Friday",
   time: "To be announced",
   timeNote: "Registration opens soon",
-  venue: "To be announced",
+  venue: "Will be listed shortly",
   venueAddress: "Ludhiana, Punjab",
 
   /** The home hero card names it differently. Unresolved in the source. */
   homeCardName: "Design Dialects 2.0",
-  homeCardDate: "Feb 20-21, 2027",
+  homeCardDate: "Feb 13-14, 2027",
 
   expect: [
     "Insightful conversations",

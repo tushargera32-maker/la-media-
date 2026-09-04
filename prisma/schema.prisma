@@ -134,9 +134,49 @@ model NewsletterSubscriber {
   updatedAt DateTime @updatedAt
 }
 
-/// Event registrations captured by /register.
-/// Field set follows the approved design PDF. Changing it means changing
-/// the form and the API route in the same commit.
+/// Architect registrations for events - requires COA number
+model ArchitectRegistration {
+  id           String   @id @default(cuid())
+  firstName    String
+  lastName     String
+  email        String
+  phone        String
+  firmName     String
+  designation  String
+  coaNumber    String
+  heardAbout   String?
+  consent      Boolean  @default(false)
+  handled      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([email])
+}
+
+/// Sponsor/Stall registrations for events - requires GST and address
+model SponsorRegistration {
+  id           String   @id @default(cuid())
+  companyName  String
+  contactName  String
+  email        String
+  phone        String
+  gstNumber    String
+  address      String
+  city         String
+  state        String
+  pincode      String
+  stallSize    String?
+  requirements String?
+  heardAbout   String?
+  consent      Boolean  @default(false)
+  handled      Boolean  @default(false)
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([email])
+}
+
+/// Legacy event registrations - keeping for old data
 model EventRegistration {
   id           String   @id @default(cuid())
   firstName    String

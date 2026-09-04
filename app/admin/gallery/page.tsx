@@ -98,12 +98,20 @@ export default function GalleryListPage() {
             <h1 className="text-3xl font-bold text-gray-900">Gallery</h1>
             <p className="text-gray-600 mt-1">Manage your gallery images</p>
           </div>
-          <Link
-            href="/admin/gallery/new"
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-          >
-            Upload Image
-          </Link>
+          <div className="flex gap-3">
+            <Link
+              href="/admin/gallery/bulk-upload"
+              className="px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+            >
+              Bulk Upload
+            </Link>
+            <Link
+              href="/admin/gallery/new"
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              Upload Image
+            </Link>
+          </div>
         </div>
 
         <div className="bg-white rounded-lg shadow mb-6 p-4">

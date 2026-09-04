@@ -33,7 +33,12 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
 
     import("@studio-freight/lenis").then(({ default: Lenis }) => {
       if (cancelled) return;
-      lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+      lenis = new Lenis({
+        duration: 0.8,
+        smoothWheel: true,
+        smoothTouch: false,
+        touchMultiplier: 1.5
+      });
       lenis.on("scroll", ScrollTrigger.update);
       const raf = (t: number) => {
         lenis?.raf(t);

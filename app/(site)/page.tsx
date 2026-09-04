@@ -5,8 +5,9 @@ import {
 import {
   Media, Eyebrow, Button, ArrowLink, ArrowCircle, Unverified,
 } from "@/components/ui/Primitives";
-import { OurFirms } from "@/components/site/OurFirms";
-import { HERO, STATS, PLATFORMS, EVENT, CAPABILITIES, INSIGHTS } from "@/lib/content";
+import { VerticalSwitcher } from "@/components/site/VerticalSwitcher";
+import { EventPopup } from "@/components/site/EventPopup";
+import { HERO, STATS, EVENT, CAPABILITIES, INSIGHTS } from "@/lib/content";
 
 /* ==================================================================
    HOME - follows the approved PDF: hero with the event card and
@@ -16,6 +17,12 @@ import { HERO, STATS, PLATFORMS, EVENT, CAPABILITIES, INSIGHTS } from "@/lib/con
 export default function HomePage() {
   return (
     <>
+      {/* Event Popup */}
+      <EventPopup />
+
+      {/* Vertical Switcher - Fixed on right side */}
+      <VerticalSwitcher />
+
       {/* 01 - HERO -------------------------------------------------- */}
       <section className="relative min-h-[100svh] overflow-hidden">
         <Parallax amount={50} className="absolute inset-0">
@@ -44,31 +51,38 @@ export default function HomePage() {
               <Button href="/register" variant="fill">Register Now</Button>
             </Magnetic>
             <Magnetic>
-              <Button href="/work" variant="line">Explore our work</Button>
+              <Button href="/register" variant="line">Connect for sponsorship</Button>
             </Magnetic>
           </div>
 
-          {/* Platform rail + event card + stats, as laid out in the PDF. */}
+          {/* Event card + stats */}
           <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-end">
             <Reveal>
               <p className="text-[10.5px] font-semibold uppercase tracking-[0.16em] text-slate">
-                Our platforms
+                LA Media & Communications
               </p>
-              <div className="mt-5 grid gap-6 border-t border-hairline pt-6 sm:grid-cols-2">
-                {PLATFORMS.map((p) => (
-                  <div key={p.code} className="flex items-start gap-4">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-cobalt/50 text-[12px] font-semibold text-cobalt-soft">
-                      {p.code}
+              <div className="mt-5 border-t border-hairline pt-6">
+                <h2 className="text-[15px] font-semibold uppercase tracking-[0.08em]">Our Verticals</h2>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div className="flex items-start gap-3">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-copper/50 text-[11px] font-semibold text-copper">
+                      DD
                     </span>
                     <div>
-                      <h2 className="text-[13px] font-semibold uppercase tracking-[0.08em]">{p.name}</h2>
-                      <p className="mt-2 max-w-[26ch] text-[13.5px] leading-relaxed text-mist">{p.blurb}</p>
-                      <ArrowLink href="/what-we-do" className="mt-3">
-                        <span className="sr-only">More about {p.name}</span>
-                      </ArrowLink>
+                      <h3 className="text-[13px] font-semibold">Design Dialects</h3>
+                      <p className="mt-1 text-[12px] leading-relaxed text-mist">Events, content & community platforms</p>
                     </div>
                   </div>
-                ))}
+                  <div className="flex items-start gap-3">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-cobalt/50 text-[11px] font-semibold text-cobalt-soft">
+                      BR
+                    </span>
+                    <div>
+                      <h3 className="text-[13px] font-semibold">Build Right</h3>
+                      <p className="mt-1 text-[12px] leading-relaxed text-mist">Advisory for products & materials</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Reveal>
 
@@ -105,15 +119,15 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal delay={0.18}>
-                <div className="panel relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-navy-2/40 via-transparent to-navy-2/40 backdrop-blur-sm" />
-                  <div className="relative grid grid-cols-3 divide-x divide-hairline">
-                    {STATS.slice(0, 3).map((s) => (
-                      <div key={s.label} className="px-5 py-7">
-                        <p className="figure text-[clamp(1.7rem,3vw,2.4rem)]">
+                <div className="panel relative overflow-hidden backdrop-blur-xl bg-gradient-to-br from-white/5 via-white/[0.02] to-white/5 ring-1 ring-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-navy-2/60 via-navy-2/30 to-navy-2/60" />
+                  <div className="relative grid grid-cols-2 sm:grid-cols-4 divide-x divide-hairline/50">
+                    {STATS.map((s) => (
+                      <div key={s.label} className="px-6 py-8 text-center">
+                        <p className="figure text-[clamp(2rem,4vw,3rem)] font-bold text-copper">
                           <CountUp value={s.value} />
                         </p>
-                        <p className="mt-3 text-[10.5px] font-semibold uppercase leading-snug tracking-[0.14em] text-slate">
+                        <p className="mt-4 text-[11px] font-semibold uppercase leading-snug tracking-[0.12em] text-slate">
                           {s.label}
                         </p>
                       </div>
@@ -126,10 +140,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 02 - OUR FIRMS --------------------------------------------- */}
-      <OurFirms />
-
-      {/* 03 - WHAT WE DO -------------------------------------------- */}
+      {/* 02 - WHAT WE DO -------------------------------------------- */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
@@ -162,7 +173,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 - INSIGHTS ---------------------------------------------- */}
+      {/* 03 - INSIGHTS ---------------------------------------------- */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
@@ -211,7 +222,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 05 - CTA ---------------------------------------------------- */}
+      {/* 04 - CTA ---------------------------------------------------- */}
       <section className="relative overflow-hidden border-t border-hairline py-section">
         <span className="bloom opacity-70" />
         <div className="relative mx-auto flex max-w-shell flex-wrap items-center justify-between gap-10 px-gutter">

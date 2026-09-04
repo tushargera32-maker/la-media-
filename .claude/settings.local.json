@@ -4,7 +4,11 @@
       "Bash(npm run *)",
       "Bash(cp \"/c/Users/welcome/Downloads/la-media-nextjs/pics for site\"/*.jpg public/)",
       "Bash(cp \"/c/Users/welcome/Downloads/la-media-nextjs/pics for site\"/*.png public/)",
-      "Bash(xargs sed -i 's/—/-/g')"
+      "Bash(xargs sed -i 's/—/-/g')",
+      "Bash(npx prisma *)",
+      "WebSearch",
+      "Bash(taskkill *)",
+      "Bash(awk '{print $NF}')"
     ]
   }
 }

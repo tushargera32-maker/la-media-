@@ -15,7 +15,7 @@ export default function AboutPage() {
     <>
       {/* 01 - LEAD -------------------------------------------------- */}
       <section className="relative overflow-hidden pb-section-sm pt-40">
-        <div className="absolute right-0 top-0 h-full w-1/2">
+        <div className="absolute right-0 top-0 hidden h-full w-1/2 lg:block">
           <Media label="ABOUT - CURVED ARCHITECTURAL FORM - 4:3" ratio="4/3" src="/about-header.jpg" className="h-full border-0 ring-0" />
           <span className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent" />
         </div>

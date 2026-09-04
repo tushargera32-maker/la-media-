@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 /* ==================================================================
@@ -38,12 +39,15 @@ export function Media({
       style={{ aspectRatio: ratio }}
     >
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={src}
           alt={label}
-          className="absolute inset-0 h-full w-full object-cover"
-          loading={priority ? "eager" : "lazy"}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={90}
+          className="object-cover"
+          loading={priority ? undefined : "lazy"}
+          priority={priority}
         />
       ) : (
         <>

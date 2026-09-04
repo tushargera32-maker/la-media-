@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 /* ------------------------------------------------------------------ */
@@ -42,12 +43,15 @@ export function Placeholder({
       className={`relative w-full overflow-hidden bg-plaster-2 border border-ink/10 ${ratioClass} ${className}`}
     >
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={src}
           alt={alt ?? label}
-          loading={priority ? 'eager' : 'lazy'}
-          className="absolute inset-0 h-full w-full object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={90}
+          className="object-cover"
+          loading={priority ? undefined : 'lazy'}
+          priority={priority}
         />
       ) : (
         <>

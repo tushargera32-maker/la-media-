@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PartnersShowcase } from "@/components/site/PartnersShowcase";
 import { PressSection } from "@/components/site/PressSection";
 import { SmoothScroll, ScrollProgress } from "@/components/motion/Motion";
+import { EventPopup } from "@/components/site/EventPopup";
 
 /** Public chrome. /register and /admin sit outside this group. */
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -20,6 +21,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <PartnersShowcase />
       <PressSection />
       <SiteFooter />
+      <EventPopup />
     </SmoothScroll>
   );
 }

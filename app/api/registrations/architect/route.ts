@@ -1,0 +1,66 @@
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { HEARD_ABOUT_OPTIONS } from "@/lib/content";
+
+function str(value: unknown, max = 300): string {
+  return typeof value === "string" ? value.trim().slice(0, max) : "";
+}
+
+export async function POST(request: Request) {
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
+  const d = body as Record<string, unknown>;
+
+  const firstName = str(d.firstName, 120);
+  const lastName = str(d.lastName, 120);
+  const email = str(d.email, 190).toLowerCase();
+  const phone = str(d.phone, 24);
+  const firmName = str(d.firmName, 160);
+  const designation = str(d.designation, 160);
+  const coaNumber = str(d.coaNumber, 60);
+  const heardAbout = str(d.heardAbout, 60);
+  const consent = d.consent === true;
+
+  const errors: string[] = [];
+  if (!firstName) errors.push("First name is required.");
+  if (!lastName) errors.push("Last name is required.");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) errors.push("A valid email is required.");
+  if (!/^\+91[6-9]\d{9}$/.test(phone)) errors.push("A valid Indian mobile number is required.");
+  if (!firmName) errors.push("Firm name is required.");
+  if (!designation) errors.push("Designation is required.");
+  if (!coaNumber) errors.push("COA number is required.");
+  if (!HEARD_ABOUT_OPTIONS.includes(heardAbout)) errors.push("Select how you heard about us.");
+  if (!consent) errors.push("Consent is required.");
+
+  if (errors.length) {
+    return NextResponse.json({ error: errors.join(" ") }, { status: 422 });
+  }
+
+  try {
+    await prisma.architectRegistration.create({
+      data: {
+        firstName,
+        lastName,
+        email,
+        phone,
+        firmName,
+        designation,
+        coaNumber,
+        heardAbout: heardAbout || null,
+        consent,
+      },
+    });
+    return NextResponse.json({ ok: true }, { status: 201 });
+  } catch (error) {
+    console.error("Architect registration insert failed:", error);
+    return NextResponse.json(
+      { error: "We couldn't save your registration. Please try again." },
+      { status: 500 },
+    );
+  }
+}

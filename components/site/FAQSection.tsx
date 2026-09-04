@@ -10,7 +10,7 @@ interface FAQItem {
 const FAQ_ITEMS: FAQItem[] = [
   {
     question: "When and where is the event?",
-    answer: "Design Dialects 2.0 will be held on February 20-21, 2027 in Ludhiana, Punjab. The exact venue will be announced soon. Registration opens at 5:00 PM on the first day."
+    answer: "Design Dialects 2.0 will be held on February 13-14, 2027 in Ludhiana, Punjab. The exact venue will be announced soon. Registration opens at 5:00 PM on the first day."
   },
   {
     question: "Who can attend this event?",
