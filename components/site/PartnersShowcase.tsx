@@ -1,23 +1,41 @@
-import { prisma } from '@/lib/prisma';
+'use client';
+
+import { useEffect, useState } from 'react';
 import { PartnersShowcaseClient } from './PartnersShowcaseClient';
 
-export async function PartnersShowcase() {
-  try {
-    // Fetch partners on server side
-    const partners = await prisma.partner.findMany({
-      where: { published: true },
-      orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
-      take: 100,
-    });
+interface Partner {
+  id: string;
+  name: string;
+  logo: string | null;
+  website: string | null;
+  category: string;
+  order: number;
+}
 
-    if (!partners || partners.length === 0) {
-      return null; // Don't show section if no partners
-    }
+export function PartnersShowcase() {
+  const [partners, setPartners] = useState<Partner[]>([]);
+  const [loading, setLoading] = useState(true);
 
-    return <PartnersShowcaseClient partners={partners} />;
-  } catch (error) {
-    // During build time or if DB not available, skip partners section
-    console.log('Partners section skipped:', error instanceof Error ? error.message : 'Database unavailable');
-    return null;
+  useEffect(() => {
+    const fetchPartners = async () => {
+      try {
+        const response = await fetch('/api/partners?published=true&limit=100');
+        if (!response.ok) throw new Error('Failed to fetch partners');
+        const data = await response.json();
+        setPartners(data.partners || []);
+      } catch (error) {
+        console.error('Error fetching partners:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPartners();
+  }, []);
+
+  if (loading || partners.length === 0) {
+    return null; // Don't show section if loading or no partners
   }
+
+  return <PartnersShowcaseClient partners={partners} />;
 }
