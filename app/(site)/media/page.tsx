@@ -2,20 +2,32 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow } from "@/components/ui/Primitives";
-import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
   title: "Media & Gallery",
   description: "Explore our media gallery showcasing events, moments, and highlights from LA Media & Communications.",
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function MediaPage() {
-  // Fetch published gallery images
-  const galleryImages = await prisma.galleryImage.findMany({
-    where: { published: true },
-    orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
-    take: 50, // Limit to 50 recent images
-  });
+  let galleryImages: any[] = [];
+
+  try {
+    // Dynamically import prisma only at runtime
+    const { prisma } = await import("@/lib/prisma");
+
+    // Fetch published gallery images
+    galleryImages = await prisma.galleryImage.findMany({
+      where: { published: true },
+      orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
+      take: 50, // Limit to 50 recent images
+    });
+  } catch (error) {
+    console.error('Failed to fetch gallery images:', error);
+    // Return empty array during build or if DB unavailable
+    galleryImages = [];
+  }
 
   // Group by category
   const categories = Array.from(new Set(galleryImages.map(img => img.category).filter(Boolean))) as string[];
