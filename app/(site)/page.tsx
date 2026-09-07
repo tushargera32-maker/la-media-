@@ -20,9 +20,6 @@ export default function HomePage() {
       {/* Event Popup */}
       <EventPopup />
 
-      {/* Vertical Switcher - Fixed on right side */}
-      <VerticalSwitcher />
-
       {/* 01 - HERO -------------------------------------------------- */}
       <section className="relative min-h-[100svh] overflow-hidden">
         <Parallax amount={50} className="absolute inset-0">
