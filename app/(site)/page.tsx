@@ -165,7 +165,7 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-4 flex-1 text-[14px] leading-relaxed text-mist">{c.blurb}</p>
                 <div className="mt-7">
-                  <ArrowCircle href="/what-we-do" label={`More about ${c.title}`} />
+                  <ArrowCircle href="/register" label={`Learn more about ${c.title}`} />
                 </div>
               </article>
             ))}

@@ -66,8 +66,8 @@ export function EventPopup() {
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4 animate-fadeIn"
           onClick={handleBackdropClick}
         >
-          {/* Popup Container - Same layout for all screens */}
-          <div className="relative w-full max-w-2xl animate-popupSlideIn">
+          {/* Popup Container - Smaller size for desktop */}
+          <div className="relative w-full max-w-md animate-popupSlideIn">
             {/* Close Button */}
             <button
               onClick={handleClose}
@@ -89,44 +89,63 @@ export function EventPopup() {
               </svg>
             </button>
 
-            {/* Popup Content */}
+            {/* Popup Content - Split Design */}
             <div className="panel-solid overflow-hidden">
-              {/* Event Poster */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-navy-2">
-                <Image
-                  src="/DD 2.0_Page (1).png"
-                  alt="Design Dialects 2.0 - Architecture Event in Ludhiana"
-                  fill
-                  className="object-cover"
-                  priority
-                  unoptimized
-                />
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="p-6">
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/register/architect"
-                    onClick={handleClose}
-                    className="btn btn-fill flex-1 justify-center"
-                  >
-                    Register as Architect
-                  </Link>
-                  <Link
-                    href="/register/sponsor"
-                    onClick={handleClose}
-                    className="btn btn-line flex-1 justify-center"
-                  >
-                    Book Your Stall
-                  </Link>
+              {/* Top Half - Design Dialects 2.0 */}
+              <Link
+                href="/register"
+                onClick={handleClose}
+                className="block transition-transform hover:scale-[1.02]"
+              >
+                <div className="relative aspect-[3/2] w-full overflow-hidden bg-navy-2">
+                  <Image
+                    src="/DD 2.0_Page (1).png"
+                    alt="Design Dialects 2.0 - Architecture Event in Ludhiana"
+                    fill
+                    className="object-cover"
+                    priority
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-copper">
+                      Design Dialects 2.0
+                    </p>
+                    <p className="mt-1 text-sm text-bone">
+                      Click to register for the event →
+                    </p>
+                  </div>
                 </div>
+              </Link>
 
-                {/* Additional Info */}
-                <p className="mt-4 text-center text-[11px] text-slate">
-                  Limited seats • Early bird offers available
-                </p>
-              </div>
+              {/* Divider */}
+              <div className="h-px bg-hairline" />
+
+              {/* Bottom Half - Build Right Advisory */}
+              <Link
+                href="/build-right"
+                onClick={handleClose}
+                className="block transition-transform hover:scale-[1.02]"
+              >
+                <div className="relative aspect-[3/2] w-full overflow-hidden bg-navy-2">
+                  <Image
+                    src="/BUILD RIGHT COVER PIC SUB PAGE .png"
+                    alt="Build Right Advisors - Construction Advisory Services"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-copper">
+                      Build Right Advisors
+                    </p>
+                    <p className="mt-1 text-sm text-bone">
+                      Expert construction advisory →
+                    </p>
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

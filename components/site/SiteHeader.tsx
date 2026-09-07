@@ -52,10 +52,16 @@ export function SiteHeader() {
       >
         <div className="mx-auto flex max-w-shell items-center justify-between gap-6 px-gutter py-5">
           <Link href="/" className="flex items-center gap-3" aria-label="LA Media and Communications, home">
-            <span className="text-[26px] font-bold leading-none tracking-[0.08em]">LA</span>
-            <span className="hidden text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-bone sm:block">
-              Media &amp;<br />Communications
-            </span>
+            <div className="relative h-16 w-48">
+              <Image
+                src="/firm-la-media.png"
+                alt="LA Media & Communications"
+                fill
+                className="object-contain"
+                style={{ mixBlendMode: 'screen' }}
+                priority
+              />
+            </div>
           </Link>
 
           <nav className="hidden items-center gap-9 lg:flex">

@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Right Advisors - Complete Documentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A0E1A;
+            --navy-light: #121A2E;
+            --copper: #C97B3E;
+            --copper-soft: #E09A5E;
+            --bone: #F2F5FA;
+            --mist: #A8B2C7;
+            --slate: #6E7A93;
+            --hairline: #1E2740;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #05070D 0%, #0A0E1A 100%);
+            color: var(--bone);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(201, 123, 62, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(76, 125, 240, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--hairline);
+            background: linear-gradient(180deg, rgba(18, 26, 46, 0.8) 0%, transparent 100%);
+            backdrop-filter: blur(20px);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-soft) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(201, 123, 62, 0.3);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--bone) 0%, var(--copper-soft) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--mist);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--hairline);
+            padding: 1rem 0;
+            z-index: 100;
+            margin-bottom: 3rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--mist);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            color: var(--copper);
+            background: rgba(201, 123, 62, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--hairline);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--bone);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--copper) 0%, transparent 100%);
+        }
+
+        h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin: 2rem 0 1rem;
+            color: var(--copper-soft);
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.8rem;
+            color: var(--bone);
+            font-weight: 600;
+        }
+
+        p {
+            color: var(--mist);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(18, 26, 46, 0.6);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--copper);
+            box-shadow: 0 20px 60px rgba(201, 123, 62, 0.2);
+        }
+
+        .card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--copper);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .card h4 {
+            margin-top: 0;
+            color: var(--bone);
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--mist);
+            font-size: 0.95rem;
+        }
+
+        .card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, rgba(201, 123, 62, 0.15) 0%, rgba(76, 125, 240, 0.1) 100%);
+            border: 1px solid var(--copper);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(18, 26, 46, 0.6);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--copper);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--copper);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--slate);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(18, 26, 46, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: var(--copper);
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: white;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--hairline);
+            color: var(--mist);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(201, 123, 62, 0.05);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: rgba(18, 26, 46, 0.6);
+            border: 1px solid var(--hairline);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--copper) 0%, var(--copper-soft) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .contact-card h4 {
+            margin: 1rem 0 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--copper);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            color: var(--copper-soft);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid var(--hairline);
+            margin-top: 4rem;
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+        }
+
+        /* Blockquote */
+        blockquote {
+            border-left: 4px solid var(--copper);
+            padding-left: 2rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--mist);
+            background: rgba(201, 123, 62, 0.05);
+            padding: 1.5rem 2rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        blockquote footer {
+            margin-top: 1rem;
+            font-style: normal;
+            color: var(--slate);
+            border: none;
+            padding: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            nav, .meta {
+                display: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">BR</div>
+            </div>
+            <h1>Build Right Advisors</h1>
+            <p class="subtitle">Complete Documentation & Service Guide</p>
+            <div class="meta">
+                <span>📅 Last Updated: September 2026</span>
+                <span>📄 Version 1.0</span>
+                <span>🏢 LA Media & Communications</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#design-dialects">Design Dialects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Build Right Advisors</h2>
+
+            <div class="info-box">
+                <h3>Overview</h3>
+                <p>Build Right Advisors is a comprehensive construction advisory service operating under the LA Media & Communications group. We provide expert guidance covering every stage of your building project, from initial planning to post-construction support.</p>
+            </div>
+
+            <h3>Mission</h3>
+            <p>To empower clients with expert knowledge and professional guidance, ensuring their construction projects are executed right—from foundation to finish.</p>
+
+            <h3>Core Philosophy</h3>
+            <p>We believe in comprehensive, stage-by-stage advisory that addresses not just construction challenges, but also spatial design, cultural considerations (Vastu), and long-term project success.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Projects Advised</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support Available</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>Comprehensive construction advisory covering every project stage:</p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h4>Pre-Build Planning</h4>
+                    <ul>
+                        <li>Site analysis & feasibility</li>
+                        <li>Budget planning</li>
+                        <li>Timeline development</li>
+                        <li>Regulatory guidance</li>
+                        <li>Material selection</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h4>Layout/Space Planning</h4>
+                    <ul>
+                        <li>Functional optimization</li>
+                        <li>Room arrangement</li>
+                        <li>Ergonomic design</li>
+                        <li>Future expansion</li>
+                        <li>Accessibility compliance</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h4>Vastu Consultation</h4>
+                    <ul>
+                        <li>Traditional principles</li>
+                        <li>Modern integration</li>
+                        <li>Site orientation</li>
+                        <li>Energy flow optimization</li>
+                        <li>Remedial solutions</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h4>Interiors</h4>
+                    <ul>
+                        <li>Design conceptualization</li>
+                        <li>Material & finish selection</li>
+                        <li>Furniture layout</li>
+                        <li>Lighting design</li>
+                        <li>Color schemes</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h4>Construction Advisory</h4>
+                    <ul>
+                        <li>Site supervision guidance</li>
+                        <li>Quality control protocols</li>
+                        <li>Contractor management</li>
+                        <li>Material procurement</li>
+                        <li>Safety monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h4>Issue Resolution</h4>
+                    <ul>
+                        <li>Problem diagnosis</li>
+                        <li>Technical solutions</li>
+                        <li>Dispute mediation</li>
+                        <li>Quality defect ID</li>
+                        <li>Remedial planning</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">07</div>
+                    <h4>Post-Build Support</h4>
+                    <ul>
+                        <li>Final inspection</li>
+                        <li>Maintenance planning</li>
+                        <li>Warranty documentation</li>
+                        <li>Defect period support</li>
+                        <li>Upkeep recommendations</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">08</div>
+                    <h4>Complete Consultation</h4>
+                    <ul>
+                        <li>End-to-end advisory</li>
+                        <li>All services included</li>
+                        <li>Dedicated advisor</li>
+                        <li>Priority support</li>
+                        <li>Full documentation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>Service Comparison Matrix</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Duration</th>
+                            <th>Deliverables</th>
+                            <th>Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pre-Build Planning</td>
+                            <td>2-4 weeks</td>
+                            <td>Feasibility report, plans</td>
+                            <td>New projects</td>
+                        </tr>
+                        <tr>
+                            <td>Space Planning</td>
+                            <td>1-2 weeks</td>
+                            <td>Layout drawings</td>
+                            <td>Design phase</td>
+                        </tr>
+                        <tr>
+                            <td>Vastu Consultation</td>
+                            <td>1 session</td>
+                            <td>Vastu report</td>
+                            <td>Cultural integration</td>
+                        </tr>
+                        <tr>
+                            <td>Complete Package</td>
+                            <td>Project duration</td>
+                            <td>All services</td>
+                            <td>Comprehensive projects</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Platform Section -->
+        <section id="platform">
+            <h2>Digital Platform</h2>
+
+            <h3>Website Features</h3>
+            <p><strong>URL:</strong> <a href="https://lamediacommunications.com/build-right" style="color: var(--copper);">lamediacommunications.com/build-right</a></p>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🎨 Modern Design</h4>
+                    <p>Clean, professional interface with rounded elements, navy blue color scheme, and copper accents creating a warm yet trustworthy aesthetic.</p>
+                </div>
+
+                <div class="card">
+                    <h4>📱 Responsive</h4>
+                    <p>Mobile-first design with Apple-style smooth interactions, optimized for all devices from phones to desktops.</p>
+                </div>
+
+                <div class="card">
+                    <h4>⚡ Performance</h4>
+                    <p>Fast loading with optimized images, lazy loading, code splitting, and CDN delivery for excellent user experience.</p>
+                </div>
+
+                <div class="card">
+                    <h4>♿ Accessible</h4>
+                    <p>WCAG 2.1 Level AA compliant with keyboard navigation, screen reader support, and proper color contrast.</p>
+                </div>
+            </div>
+
+            <h3>Technical Stack</h3>
+            <ul style="color: var(--mist); margin-left: 2rem;">
+                <li><strong>Framework:</strong> Next.js 16.3.3 (React)</li>
+                <li><strong>Styling:</strong> Tailwind CSS with custom design system</li>
+                <li><strong>Database:</strong> PostgreSQL with Prisma ORM</li>
+                <li><strong>Hosting:</strong> Netlify with automatic deployments</li>
+                <li><strong>Performance:</strong> Image optimization, lazy loading, code splitting</li>
+            </ul>
+        </section>
+
+        <!-- Design Dialects Section -->
+        <section id="design-dialects">
+            <h2>Design Dialects Integration</h2>
+
+            <div class="info-box">
+                <h3>About Design Dialects</h3>
+                <p>Design Dialects is LA Media's flagship event platform bringing together architects, designers, industry leaders, and building material brands for meaningful conversations and knowledge exchange.</p>
+            </div>
+
+            <h3>Design Dialects 2.0 (Upcoming)</h3>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">Feb</div>
+                    <div class="stat-label">13-14, 2027</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Expected Attendees</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Brand Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Days of Impact</div>
+                </div>
+            </div>
+
+            <h3>Event Components</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Main Conference</h4>
+                    <ul>
+                        <li>Keynote presentations</li>
+                        <li>Panel discussions</li>
+                        <li>Case studies</li>
+                        <li>Interactive Q&A</li>
+                        <li>Networking</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Exhibition Area</h4>
+                    <ul>
+                        <li>Material showcases</li>
+                        <li>Technology demos</li>
+                        <li>Product launches</li>
+                        <li>Brand interactions</li>
+                        <li>Innovation displays</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Workshops</h4>
+                    <ul>
+                        <li>Skill development</li>
+                        <li>Software training</li>
+                        <li>Design thinking</li>
+                        <li>Sustainability</li>
+                        <li>Business development</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Networking Events</h4>
+                    <ul>
+                        <li>Welcome reception</li>
+                        <li>Coffee networking</li>
+                        <li>Lunch sessions</li>
+                        <li>Evening socials</li>
+                        <li>Community building</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Build Right's Role</h3>
+            <div class="info-box">
+                <h4>Knowledge Partner</h4>
+                <p>Advisory booth at exhibition, free consultation sessions, educational materials distribution, and case study presentations.</p>
+
+                <h4>Expert Speakers</h4>
+                <p>Construction best practices talks, common pitfalls and solutions, material selection guidance, and project management insights.</p>
+
+                <h4>Sponsor Engagement</h4>
+                <p>Connect building material brands with architects, facilitate product-service integration, create partnership opportunities, and build long-term industry relationships.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact & Operations</h2>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h4>Phone</h4>
+                    <p><a href="tel:9888078580">98880 78580</a></p>
+                    <p><a href="tel:9988800389">99888 00389</a></p>
+                    <p><a href="tel:9815100385">98151 00385</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🌐</div>
+                    <h4>Website</h4>
+                    <p><a href="https://lamediacommunications.com/build-right">lamediacommunications.com/build-right</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h4>Email</h4>
+                    <p><a href="mailto:buildright@lamediacommunications.com">buildright@lamediacommunications.com</a></p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🕐</div>
+                    <h4>Hours</h4>
+                    <p>Mon-Sat: 9 AM - 6 PM</p>
+                    <p>Sunday: By Appointment</p>
+                </div>
+            </div>
+
+            <h3>Service Request Process</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-number">1</div>
+                    <h4>Initial Contact</h4>
+                    <p>Phone call or online inquiry with brief project description and service category selection.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">2</div>
+                    <h4>Preliminary Consultation</h4>
+                    <p>15-30 minute discovery call for needs assessment, service recommendation, and quote provision.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">3</div>
+                    <h4>Engagement</h4>
+                    <p>Service agreement, payment terms, timeline establishment, and point of contact assignment.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">4</div>
+                    <h4>Execution</h4>
+                    <p>Service delivery, regular updates, client feedback loops, and quality assurance checks.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">5</div>
+                    <h4>Completion</h4>
+                    <p>Final deliverables, documentation handover, post-service support setup, and satisfaction review.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <section id="audience">
+            <h2>Who We Serve</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🏠 Homeowners</h4>
+                    <blockquote>"Build Your Dream Home Right, First Time"</blockquote>
+                    <ul>
+                        <li>Planning new construction</li>
+                        <li>Renovation projects</li>
+                        <li>Seeking expert guidance</li>
+                        <li>Value quality & reliability</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>👷 Architects</h4>
+                    <blockquote>"Your Trusted Advisory Partner"</blockquote>
+                    <ul>
+                        <li>Specialized advisory needs</li>
+                        <li>Vastu expertise</li>
+                        <li>Collaboration opportunities</li>
+                        <li>Professional network value</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🔨 Builders/Contractors</h4>
+                    <blockquote>"Construction Excellence, Assured"</blockquote>
+                    <ul>
+                        <li>Technical problem-solving</li>
+                        <li>Quality assurance needs</li>
+                        <li>Regulatory compliance</li>
+                        <li>Project optimization</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>🏢 Developers</h4>
+                    <blockquote>"Scale with Confidence"</blockquote>
+                    <ul>
+                        <li>Multi-unit projects</li>
+                        <li>Commercial developments</li>
+                        <li>Long-term partnerships</li>
+                        <li>Comprehensive support</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials">
+            <h2>Client Testimonials</h2>
+
+            <blockquote>
+                "Build Right's Vastu consultation helped us integrate traditional principles into our modern design seamlessly."
+                <footer>— Architect, Ludhiana</footer>
+            </blockquote>
+
+            <blockquote>
+                "Their construction advisory saved us from multiple costly mistakes. Worth every rupee."
+                <footer>— Homeowner, Punjab</footer>
+            </blockquote>
+
+            <blockquote>
+                "Professional, knowledgeable, and always available. Build Right is now our go-to advisory partner."
+                <footer>— Developer, North India</footer>
+            </blockquote>
+        </section>
+
+        <!-- Future Roadmap Section -->
+        <section id="roadmap">
+            <h2>Future Roadmap</h2>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Phase 1 (Q4 2026)</h4>
+                    <ul>
+                        <li>Launch Build Right website</li>
+                        <li>Establish digital presence</li>
+                        <li>Build initial client base</li>
+                        <li>Design Dialects 2.0 participation</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 2 (Q1-Q2 2027)</h4>
+                    <ul>
+                        <li>Online booking system</li>
+                        <li>Client portal development</li>
+                        <li>Video consultation capabilities</li>
+                        <li>Resource library launch</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 3 (Q3-Q4 2027)</h4>
+                    <ul>
+                        <li>Mobile app development</li>
+                        <li>AI-powered assessments</li>
+                        <li>Virtual site walkthroughs</li>
+                        <li>Expanded service areas</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h4>Phase 4 (2028)</h4>
+                    <ul>
+                        <li>Franchise/partnership model</li>
+                        <li>Training & certification</li>
+                        <li>Industry thought leadership</li>
+                        <li>National presence expansion</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Build Right Advisors</div>
+            <p>A Division of LA Media & Communications</p>
+            <p style="margin-top: 1rem;">Document Version 1.0 • Last Updated: September 2026</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">This document is confidential and intended for internal use and authorized partners only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                link.style.background = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--copper)';
+                    link.style.background = 'rgba(201, 123, 62, 0.1)';
+                }
+            });
+        });
+
+        // Print functionality
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>

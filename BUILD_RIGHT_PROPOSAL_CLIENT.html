@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Right Advisors - Digital Marketing Proposal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0A0E1A;
+            --copper: #C97B3E;
+            --bone: #F2F5FA;
+            --mist: #A8B2C7;
+            --slate: #6E7A93;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #05070D 0%, #0A0E1A 100%);
+            color: var(--bone);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(18, 26, 46, 0.8);
+            border: 1px solid rgba(201, 123, 62, 0.3);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--copper);
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--copper) 0%, #E09A5E 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 40px rgba(201, 123, 62, 0.4);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--bone) 0%, var(--copper) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--mist);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--copper);
+            margin: 2.5rem 0 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--copper);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--bone);
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            color: var(--mist);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .section {
+            margin: 2rem 0;
+        }
+
+        .deliverables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(201, 123, 62, 0.3);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--copper);
+            box-shadow: 0 10px 30px rgba(201, 123, 62, 0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--copper);
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 1rem 0 0 0;
+        }
+
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--mist);
+            font-size: 0.95rem;
+        }
+
+        .card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+            font-weight: bold;
+        }
+
+        .pricing-table {
+            margin: 2rem 0;
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(201, 123, 62, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(201, 123, 62, 0.2);
+            align-items: center;
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.header {
+            background: var(--copper);
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-row:not(.header):hover {
+            background: rgba(201, 123, 62, 0.05);
+        }
+
+        .service-name {
+            font-weight: 600;
+            color: var(--bone);
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--copper);
+            font-size: 1.1rem;
+        }
+
+        .duration {
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        .total-box {
+            background: linear-gradient(135deg, rgba(201, 123, 62, 0.2) 0%, rgba(201, 123, 62, 0.1) 100%);
+            border: 2px solid var(--copper);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .total-box h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+        }
+
+        .total-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--copper);
+            margin: 0.5rem 0;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(201, 123, 62, 0.3);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .timeline-item::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--copper);
+            font-size: 1.5rem;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .phase-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--copper);
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(201, 123, 62, 0.15) 0%, rgba(201, 123, 62, 0.05) 100%);
+            border: 1px solid var(--copper);
+            border-radius: 16px;
+        }
+
+        .cta h2 {
+            margin-top: 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--copper);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-item a {
+            color: var(--bone);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: var(--copper);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(201, 123, 62, 0.3);
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        .highlight {
+            background: rgba(201, 123, 62, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .pricing-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .timeline {
+                flex-direction: column;
+            }
+
+            .timeline-item::after {
+                display: none;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                padding: 0;
+            }
+
+            .container {
+                background: white;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">BR</div>
+            <h1>Build Right Advisors</h1>
+            <p class="subtitle">Digital Marketing Proposal</p>
+            <p style="margin-top: 1rem; color: var(--slate);">LA Media & Communications • September 2026</p>
+        </header>
+
+        <section class="section">
+            <h2>Project Overview</h2>
+            <p>Comprehensive digital marketing and content strategy for <span class="highlight">Build Right Advisors</span>, covering website development, social media management, paid advertising, and video content creation.</p>
+        </section>
+
+        <section class="section">
+            <h2>What's Been Delivered</h2>
+
+            <div class="deliverables">
+                <div class="card">
+                    <h3>🌐 Website Development</h3>
+                    <ul>
+                        <li>Modern, responsive website</li>
+                        <li>Mobile-optimized design</li>
+                        <li>Apple-style interactions</li>
+                        <li>Fast loading & SEO-ready</li>
+                        <li>Accessibility compliant</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎨 Brand Integration</h3>
+                    <ul>
+                        <li>Consistent visual identity</li>
+                        <li>Navy & copper color scheme</li>
+                        <li>Professional typography</li>
+                        <li>Rounded, modern aesthetic</li>
+                        <li>Brand guidelines applied</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📄 Content Structure</h3>
+                    <ul>
+                        <li>All 8 services detailed</li>
+                        <li>Service descriptions</li>
+                        <li>Contact information</li>
+                        <li>About & mission</li>
+                        <li>Design Dialects integration</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>⚡ Technical Setup</h3>
+                    <ul>
+                        <li>Next.js framework</li>
+                        <li>Database integration</li>
+                        <li>Admin panel access</li>
+                        <li>Netlify deployment</li>
+                        <li>Continuous updates</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Ongoing Services & Pricing</h2>
+            <p>Monthly retainer for social media management, paid advertising, and content creation:</p>
+
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <div>Service</div>
+                    <div>Monthly Cost</div>
+                    <div>Deliverables</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Social Media Management (SMM)</div>
+                    <div class="price">₹15,000/mo</div>
+                    <div class="duration">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>12 posts/month</li>
+                            <li>3 platforms</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Meta Ads Management</div>
+                    <div class="price">₹20,000/mo</div>
+                    <div class="duration">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>Campaign setup</li>
+                            <li>Optimization</li>
+                            <li>Monthly reports</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Script Writing</div>
+                    <div class="price">₹2,000/script</div>
+                    <div class="duration">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>30-60 sec videos</li>
+                            <li>Hook + CTA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Video Editing (Reels/Shorts)</div>
+                    <div class="price">₹1,500/video</div>
+                    <div class="duration">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>Captions & music</li>
+                            <li>Brand elements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Monthly Strategy & Reporting</div>
+                    <div class="price">₹5,000/mo</div>
+                    <div class="duration">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li>Performance analysis</li>
+                            <li>Monthly planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-box">
+                <h3>Recommended Monthly Package</h3>
+                <p style="color: var(--mist); margin-bottom: 0.5rem;">SMM + Meta Ads + Strategy + Content (4 videos/month)</p>
+                <div class="total-price">₹54,000</div>
+                <p style="color: var(--slate); margin-top: 0.5rem; font-size: 0.9rem;">
+                    Includes: 12 social posts, Meta ads management, 4 scripts, 4 edited videos, monthly reports
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Service Breakdown</h2>
+
+            <div class="deliverables">
+                <div class="card">
+                    <h3>📱 Social Media Management</h3>
+                    <ul>
+                        <li>Instagram, Facebook, LinkedIn</li>
+                        <li>Content calendar planning</li>
+                        <li>12 posts per month (mix of static + carousel)</li>
+                        <li>Hashtag research & optimization</li>
+                        <li>Community engagement (reply to comments)</li>
+                        <li>Story management (daily updates)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Meta Ads Management</h3>
+                    <ul>
+                        <li>Campaign strategy & setup</li>
+                        <li>Audience targeting & research</li>
+                        <li>Ad creative consultation</li>
+                        <li>Daily monitoring & optimization</li>
+                        <li>A/B testing</li>
+                        <li>Monthly performance reports</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--slate);">
+                        <strong>Note:</strong> Ad spend budget separate (client pays directly to Meta)
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>✍️ Script Writing</h3>
+                    <ul>
+                        <li>Service explainer videos</li>
+                        <li>Client testimonial scripts</li>
+                        <li>Educational content</li>
+                        <li>Promotional reels</li>
+                        <li>Hook writing for engagement</li>
+                        <li>Strong CTAs</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎬 Video Editing</h3>
+                    <ul>
+                        <li>Reels/Shorts/TikTok format</li>
+                        <li>Auto-captions & subtitles</li>
+                        <li>Background music selection</li>
+                        <li>Brand colors & logo overlay</li>
+                        <li>Transitions & effects</li>
+                        <li>Platform-optimized exports</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Monthly Workflow</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="phase-number">1</div>
+                    <h3 style="font-size: 1rem; margin: 0.5rem 0;">Planning</h3>
+                    <p style="font-size: 0.85rem; color: var(--slate); margin: 0;">Week 1: Content calendar, strategy alignment</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="phase-number">2</div>
+                    <h3 style="font-size: 1rem; margin: 0.5rem 0;">Creation</h3>
+                    <p style="font-size: 0.85rem; color: var(--slate); margin: 0;">Week 2: Script writing, content creation</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="phase-number">3</div>
+                    <h3 style="font-size: 1rem; margin: 0.5rem 0;">Execution</h3>
+                    <p style="font-size: 0.85rem; color: var(--slate); margin: 0;">Week 3-4: Posting, ads running, engagement</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="phase-number">4</div>
+                    <h3 style="font-size: 1rem; margin: 0.5rem 0;">Review</h3>
+                    <p style="font-size: 0.85rem; color: var(--slate); margin: 0;">End of month: Analytics, optimization</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Additional Services (On-Demand)</h2>
+
+            <div class="pricing-table">
+                <div class="pricing-row header">
+                    <div>Service</div>
+                    <div>Cost</div>
+                    <div>Details</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Long-form Video Editing</div>
+                    <div class="price">₹5,000+</div>
+                    <div class="duration">5-10 min videos</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Photography/Videography</div>
+                    <div class="price">₹10,000/day</div>
+                    <div class="duration">On-site shoots</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Graphic Design (Custom)</div>
+                    <div class="price">₹2,500/design</div>
+                    <div class="duration">Brochures, posters</div>
+                </div>
+
+                <div class="pricing-row">
+                    <div class="service-name">Website Updates</div>
+                    <div class="price">₹3,000/update</div>
+                    <div class="duration">Major changes</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Why This Investment Works</h2>
+
+            <div class="deliverables">
+                <div class="card">
+                    <h3>🎯 Targeted Reach</h3>
+                    <p>Meta ads specifically target homeowners, architects, and builders in Ludhiana/Punjab looking for construction advisory.</p>
+                </div>
+
+                <div class="card">
+                    <h3>📈 Consistent Growth</h3>
+                    <p>Regular posting builds brand authority and keeps Build Right top-of-mind for potential clients.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💰 Cost-Effective</h3>
+                    <p>Bundled package saves 20% vs. individual service pricing. Full-service solution from one team.</p>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Data-Driven</h3>
+                    <p>Monthly reports show exactly what's working. Continuous optimization for better ROI.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Let's Get Started</h2>
+            <p>Ready to launch Build Right's digital presence and start generating leads?</p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>📞 Phone</strong>
+                    <a href="tel:9888078580">98880 78580</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>✉️ Email</strong>
+                    <a href="mailto:buildright@lamediacommunications.com">buildright@lamediacommunications.com</a>
+                </div>
+
+                <div class="contact-item">
+                    <strong>🌐 Website</strong>
+                    <a href="https://lamediacommunications.com/build-right">lamediacommunications.com</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Build Right Advisors</strong> • A Division of LA Media & Communications</p>
+            <p style="margin-top: 0.5rem;">Proposal Date: September 2026 • Valid for 30 days</p>
+        </footer>
+    </div>
+
+    <script>
+        // Print functionality
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Media & Communications - Site Walkthrough</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0A0E1A;
+            color: #F2F5FA;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 2px solid #C97B3E;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #C97B3E;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #C97B3E;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(201, 123, 62, 0.3);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #E09A5E;
+            margin: 2rem 0 1rem;
+        }
+
+        .page {
+            background: rgba(18, 26, 46, 0.6);
+            border: 1px solid #C97B3E;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: rgba(10, 14, 26, 0.6);
+            border: 1px solid rgba(201, 123, 62, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #A8B2C7;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #C97B3E;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: rgba(18, 26, 46, 0.8);
+            border: 1px solid #C97B3E;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .highlight {
+            color: #C97B3E;
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #C97B3E;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+
+        a {
+            color: #C97B3E;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #E09A5E;
+        }
+
+        .toc {
+            background: rgba(201, 123, 62, 0.1);
+            border: 2px solid #C97B3E;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .toc ul {
+            columns: 2;
+        }
+
+        @media (max-width: 768px) {
+            .toc ul {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LA Media & Communications</h1>
+            <p style="font-size: 1.2rem; color: #A8B2C7;">Complete Site Walkthrough</p>
+            <p style="margin-top: 1rem; color: #6E7A93;">lamediacommunications.com</p>
+        </header>
+
+        <div class="toc">
+            <h3 style="margin-top: 0;">Quick Navigation</h3>
+            <ul>
+                <li><a href="#homepage">Homepage</a></li>
+                <li><a href="#what-we-do">What We Do</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#media">Media Gallery</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#build-right">Build Right</a></li>
+                <li><a href="#features">Global Features</a></li>
+                <li><a href="#tech">Tech Stack</a></li>
+            </ul>
+        </div>
+
+        <h2 id="homepage">🏠 Homepage</h2>
+        <div class="page">
+            <h3>Hero Section</h3>
+            <div class="feature">
+                <ul>
+                    <li><strong>Tagline:</strong> "We build platforms that... Ideas. Conversations. Impact."</li>
+                    <li>Large, bold typography with copper accent</li>
+                    <li>Background image with gradient overlay</li>
+                    <li>Smooth animations on scroll</li>
+                </ul>
+            </div>
+
+            <h3>Stats Section</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E; font-size: 2rem;">10+</h4>
+                    <p>Years of experience</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E; font-size: 2rem;">50+</h4>
+                    <p>Events across India</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E; font-size: 2rem;">25K+</h4>
+                    <p>Architects & designers engaged</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E; font-size: 2rem;">100+</h4>
+                    <p>Thought leaders & partners</p>
+                </div>
+            </div>
+
+            <h3>Our Work Section</h3>
+            <div class="feature">
+                <ul>
+                    <li>4 capability cards: Events & Experiences, Media & Content, Community & Networks, Brand & Partnerships</li>
+                    <li>Hover effects with lift animation</li>
+                    <li>Arrow circles linking to work page</li>
+                </ul>
+            </div>
+
+            <h3>Event Popup</h3>
+            <div class="feature">
+                <ul>
+                    <li>Design Dialects 2.0 promotion</li>
+                    <li>Shows after 2 seconds on first visit</li>
+                    <li>Event poster image</li>
+                    <li>Register button CTA</li>
+                    <li>Session storage to show once per session</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="what-we-do">💼 What We Do</h2>
+        <div class="page">
+            <h3>Capabilities</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Events & Experiences</h4>
+                    <ul>
+                        <li>Design Dialect conferences</li>
+                        <li>Panel discussions</li>
+                        <li>Workshops & masterclasses</li>
+                        <li>Networking events</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Media & Content</h4>
+                    <ul>
+                        <li>Editorial content</li>
+                        <li>Digital storytelling</li>
+                        <li>Event coverage</li>
+                        <li>Industry insights</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Community & Networks</h4>
+                    <ul>
+                        <li>Architect community</li>
+                        <li>Designer network</li>
+                        <li>Brand connections</li>
+                        <li>Industry partnerships</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Brand & Partnerships</h4>
+                    <ul>
+                        <li>Strategic collaborations</li>
+                        <li>Brand positioning</li>
+                        <li>Partnership development</li>
+                        <li>Long-term value creation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Key Features</h3>
+            <div class="feature">
+                <ul>
+                    <li>Large header image with lighting/architecture theme</li>
+                    <li>Stats rail on the right side</li>
+                    <li>Detailed capability cards with images</li>
+                    <li>CTA button: "Join the next edition"</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="work">🎨 Work / Portfolio</h2>
+        <div class="page">
+            <h3>Featured Projects</h3>
+            <div class="feature">
+                <ul>
+                    <li>Design Dialects event showcases</li>
+                    <li>Past event galleries</li>
+                    <li>Speaker highlights</li>
+                    <li>Partner collaborations</li>
+                    <li>Behind-the-scenes content</li>
+                </ul>
+            </div>
+
+            <h3>Layout</h3>
+            <div class="feature">
+                <ul>
+                    <li>Grid layout with project cards</li>
+                    <li>Hover effects revealing details</li>
+                    <li>Filter by category (coming soon)</li>
+                    <li>Links to case studies</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="media">📸 Media Gallery</h2>
+        <div class="page">
+            <h3>Gallery Features</h3>
+            <div class="feature">
+                <ul>
+                    <li>Event photography from Design Dialects</li>
+                    <li>Speaker sessions</li>
+                    <li>Exhibition moments</li>
+                    <li>Networking events</li>
+                    <li>Behind-the-scenes content</li>
+                    <li>Admin-managed gallery (add/edit/delete images)</li>
+                </ul>
+            </div>
+
+            <h3>Organization</h3>
+            <div class="feature">
+                <ul>
+                    <li>Categorized by event/type</li>
+                    <li>Masonry grid layout</li>
+                    <li>Lightbox view for full images</li>
+                    <li>Responsive image optimization</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="insights">📰 Insights / Blog</h2>
+        <div class="page">
+            <h3>Content Categories</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Industry Trends</h4>
+                    <p>Architecture, design, and construction insights</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Event Recaps</h4>
+                    <p>Design Dialects highlights and learnings</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Expert Interviews</h4>
+                    <p>Conversations with thought leaders</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Best Practices</h4>
+                    <p>Professional advice and tips</p>
+                </div>
+            </div>
+
+            <h3>Features</h3>
+            <div class="feature">
+                <ul>
+                    <li>Blog post grid with featured images</li>
+                    <li>Read time estimates</li>
+                    <li>Author information</li>
+                    <li>Share functionality</li>
+                    <li>Related posts suggestions</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="about">ℹ️ About</h2>
+        <div class="page">
+            <h3>Our Story</h3>
+            <div class="feature">
+                <ul>
+                    <li>Mission: Building platforms for ideas, conversations, and impact</li>
+                    <li>10+ years in architecture & design events</li>
+                    <li>Pan-India presence</li>
+                    <li>Community of 25,000+ professionals</li>
+                </ul>
+            </div>
+
+            <h3>Our Firms</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">LA Media & Communications</h4>
+                    <span class="badge">Main Brand</span>
+                    <p style="margin-top: 1rem;">Events, media, content, and community building for architecture and design professionals</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">Build Right Advisors</h4>
+                    <span class="badge">Group Firm</span>
+                    <p style="margin-top: 1rem;">Comprehensive construction advisory: pre-build planning, Vastu, space planning, interiors, and more</p>
+                </div>
+            </div>
+
+            <h3>Ecosystem</h3>
+            <div class="feature">
+                <ul>
+                    <li><strong>Platforms:</strong> Conferences, talks, panel discussions</li>
+                    <li><strong>Content:</strong> Editorial and digital storytelling</li>
+                    <li><strong>Community:</strong> Network of architects, designers, brands</li>
+                    <li><strong>Collaboration:</strong> Strategic partnerships</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="contact">📞 Contact</h2>
+        <div class="page">
+            <h3>Get In Touch</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">📧 Email</h4>
+                    <ul>
+                        <li>collab@lamediacommunications.com</li>
+                        <li>events@lamediacommunications.com</li>
+                        <li>press@lamediacommunications.com</li>
+                        <li>careers@lamediacommunications.com</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">📱 Build Right</h4>
+                    <ul>
+                        <li>98880 78580</li>
+                        <li>99888 00389</li>
+                        <li>98151 00385</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Contact Form</h3>
+            <div class="feature">
+                <ul>
+                    <li>Name, email, subject fields</li>
+                    <li>Message textarea</li>
+                    <li>Inquiry type selector</li>
+                    <li>Form validation</li>
+                    <li>Success/error messages</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="build-right">🏗️ Build Right Advisors</h2>
+        <div class="page">
+            <h3>Overview</h3>
+            <div class="feature">
+                <p style="color: #A8B2C7; margin-bottom: 1rem;">Comprehensive construction advisory covering every project stage: pre-build planning, Vastu consultation, space planning, interiors, construction guidance, issue resolution, and post-build support.</p>
+            </div>
+
+            <h3>8 Services</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">1. Pre-Build Planning</h4>
+                    <p>Site analysis, budget planning, timeline development, regulatory guidance</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">2. Layout/Space Planning</h4>
+                    <p>Functional optimization, room arrangement, ergonomic design</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">3. Vastu Consultation</h4>
+                    <p>Traditional principles, modern integration, energy flow optimization</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">4. Interiors</h4>
+                    <p>Design conceptualization, material selection, furniture layout</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">5. Construction Advisory</h4>
+                    <p>Site supervision, quality control, contractor management</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">6. Issue Resolution</h4>
+                    <p>Problem diagnosis, technical solutions, dispute mediation</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">7. Post-Build Support</h4>
+                    <p>Final inspection, maintenance planning, warranty documentation</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">8. Complete Consultation</h4>
+                    <p>End-to-end advisory with all services included</p>
+                </div>
+            </div>
+
+            <h3>Page Features</h3>
+            <div class="feature">
+                <ul>
+                    <li>Large cover image (Build Right branding)</li>
+                    <li>Service overview cards</li>
+                    <li>Contact information prominently displayed</li>
+                    <li>Link to main LA Media site</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="features">✨ Global Features</h2>
+        <div class="page">
+            <h3>Design System</h3>
+            <div class="feature">
+                <p><strong>Colors:</strong></p>
+                <ul>
+                    <li><span class="highlight">Navy (#0A0E1A):</span> Primary background</li>
+                    <li><span class="highlight">Copper (#C97B3E):</span> Accent & CTAs</li>
+                    <li><span class="highlight">Bone (#F2F5FA):</span> Primary text</li>
+                    <li><span class="highlight">Mist (#A8B2C7):</span> Secondary text</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>Typography:</strong></p>
+                <ul>
+                    <li><strong>Headings:</strong> Inter (Bold, geometric)</li>
+                    <li><strong>Body:</strong> Inter (Regular)</li>
+                    <li><strong>Figures:</strong> Lora (Serif for stats)</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem;"><strong>Design Elements:</strong></p>
+                <ul>
+                    <li>Rounded corners (12-16px radius)</li>
+                    <li>Glass morphism panels</li>
+                    <li>Smooth hover animations</li>
+                    <li>Gradient overlays</li>
+                </ul>
+            </div>
+
+            <h3>Navigation</h3>
+            <div class="feature">
+                <ul>
+                    <li>Sticky header with blur effect on scroll</li>
+                    <li>Logo (firm-la-media.png)</li>
+                    <li>Desktop menu: Work, What We Do, Media, Insights, About, Contact</li>
+                    <li>Mobile hamburger menu</li>
+                    <li>Smooth scroll behavior</li>
+                </ul>
+            </div>
+
+            <h3>Footer</h3>
+            <div class="feature">
+                <ul>
+                    <li>Partners showcase section</li>
+                    <li>Press/media mentions</li>
+                    <li>Quick links</li>
+                    <li>Social media icons</li>
+                    <li>Copyright & legal info</li>
+                </ul>
+            </div>
+
+            <h3>Interactive Elements</h3>
+            <div class="feature">
+                <ul>
+                    <li>Smooth scroll animations (Framer Motion)</li>
+                    <li>Hover lift effects on cards</li>
+                    <li>Staggered reveal animations</li>
+                    <li>Apple-style horizontal sliders (mobile partners)</li>
+                    <li>Count-up animations for stats</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 id="tech">⚙️ Technical Stack</h2>
+        <div class="page">
+            <h3>Frontend</h3>
+            <div class="feature">
+                <ul>
+                    <li><strong>Framework:</strong> Next.js 16.3.3 (React)</li>
+                    <li><strong>Styling:</strong> Tailwind CSS with custom theme</li>
+                    <li><strong>Animations:</strong> Framer Motion</li>
+                    <li><strong>Images:</strong> Next/Image with optimization</li>
+                    <li><strong>Language:</strong> TypeScript</li>
+                </ul>
+            </div>
+
+            <h3>Backend & Database</h3>
+            <div class="feature">
+                <ul>
+                    <li><strong>Database:</strong> PostgreSQL (Neon)</li>
+                    <li><strong>ORM:</strong> Prisma</li>
+                    <li><strong>API:</strong> Next.js API routes</li>
+                    <li><strong>Authentication:</strong> NextAuth (for admin)</li>
+                </ul>
+            </div>
+
+            <h3>Hosting & Deployment</h3>
+            <div class="feature">
+                <ul>
+                    <li><strong>Platform:</strong> Netlify</li>
+                    <li><strong>CI/CD:</strong> Automatic deployments from GitHub</li>
+                    <li><strong>Domain:</strong> lamediacommunications.com</li>
+                    <li><strong>SSL:</strong> Automatic HTTPS</li>
+                </ul>
+            </div>
+
+            <h3>Performance</h3>
+            <div class="feature">
+                <ul>
+                    <li>Server-side rendering (SSR)</li>
+                    <li>Image optimization (WebP, AVIF)</li>
+                    <li>Code splitting & lazy loading</li>
+                    <li>CDN delivery</li>
+                    <li>Optimized fonts</li>
+                </ul>
+            </div>
+
+            <h3>Admin Panel</h3>
+            <div class="feature">
+                <ul>
+                    <li>Gallery management (add/edit/delete images)</li>
+                    <li>Partner management</li>
+                    <li>Blog post creation</li>
+                    <li>Event management</li>
+                    <li>Contact form submissions view</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>🎯 Key Achievements</h2>
+        <div class="page">
+            <div class="grid">
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ Modern Design</h4>
+                    <p>Professional, polished aesthetic with rounded corners and smooth animations</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ Mobile Optimized</h4>
+                    <p>Fully responsive with Apple-style mobile interactions</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ Fast Performance</h4>
+                    <p>Optimized images, lazy loading, and efficient code</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ SEO Ready</h4>
+                    <p>Proper meta tags, semantic HTML, and sitemap</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ Accessible</h4>
+                    <p>WCAG 2.1 compliant with keyboard navigation</p>
+                </div>
+                <div class="card">
+                    <h4 style="color: #C97B3E;">✅ Admin Panel</h4>
+                    <p>Easy content management for non-technical users</p>
+                </div>
+            </div>
+        </div>
+
+        <footer style="text-align: center; padding: 3rem 0; border-top: 2px solid rgba(201, 123, 62, 0.3); margin-top: 3rem;">
+            <p style="color: #C97B3E; font-size: 1.2rem; font-weight: 700;">LA Media & Communications</p>
+            <p style="color: #6E7A93; margin-top: 0.5rem;">Complete Site Walkthrough - September 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
