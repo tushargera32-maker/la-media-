@@ -46,15 +46,6 @@ export default function HomePage() {
             {HERO.body}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Magnetic>
-              <Button href="/register" variant="fill">Register Now</Button>
-            </Magnetic>
-            <Magnetic>
-              <Button href="/register" variant="line">Connect for sponsorship</Button>
-            </Magnetic>
-          </div>
-
           {/* Event card + stats */}
           <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-end">
             <Reveal>
@@ -63,25 +54,34 @@ export default function HomePage() {
               </p>
               <div className="mt-5 border-t border-hairline pt-6">
                 <h2 className="text-[15px] font-semibold uppercase tracking-[0.08em]">Our Verticals</h2>
-                <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <div className="flex items-start gap-3">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-copper/50 text-[11px] font-semibold text-copper">
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {/* Design Dialects Card */}
+                  <Link
+                    href="/register"
+                    className="group panel panel-solid flex items-start gap-4 p-6 transition-all hover:scale-105 hover:border-copper"
+                  >
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-copper/10 text-[14px] font-bold text-copper transition-all group-hover:bg-copper group-hover:text-white">
                       DD
                     </span>
-                    <div>
-                      <h3 className="text-[13px] font-semibold">Design Dialects</h3>
-                      <p className="mt-1 text-[12px] leading-relaxed text-mist">Events, content & community platforms</p>
+                    <div className="flex-1">
+                      <h3 className="text-[16px] font-bold transition-colors group-hover:text-copper">Design Dialects</h3>
+                      <p className="mt-2 text-[13px] leading-relaxed text-mist">Events, content & community platforms</p>
                     </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-cobalt/50 text-[11px] font-semibold text-cobalt-soft">
+                  </Link>
+
+                  {/* Build Right Card */}
+                  <Link
+                    href="/build-right"
+                    className="group panel panel-solid flex items-start gap-4 p-6 transition-all hover:scale-105 hover:border-cobalt"
+                  >
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-cobalt/10 text-[14px] font-bold text-cobalt-soft transition-all group-hover:bg-cobalt group-hover:text-white">
                       BR
                     </span>
-                    <div>
-                      <h3 className="text-[13px] font-semibold">Build Right</h3>
-                      <p className="mt-1 text-[12px] leading-relaxed text-mist">Advisory for products & materials</p>
+                    <div className="flex-1">
+                      <h3 className="text-[16px] font-bold transition-colors group-hover:text-cobalt-soft">Build Right</h3>
+                      <p className="mt-2 text-[13px] leading-relaxed text-mist">Comprehensive construction advisory services</p>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </Reveal>
