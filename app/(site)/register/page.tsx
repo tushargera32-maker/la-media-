@@ -161,25 +161,25 @@ export default function RegisterPage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value={300} />+
+                    <CountUp value="300" />+
                   </div>
                   <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
                 </div>
                 <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value={15} />+
+                    <CountUp value="15" />+
                   </div>
                   <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
                 </div>
                 <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value={50} />+
+                    <CountUp value="50" />+
                   </div>
                   <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Brand Partners</p>
                 </div>
                 <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value={2} />
+                    <CountUp value="2" />
                   </div>
                   <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Days of Excellence</p>
                 </div>
