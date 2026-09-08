@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Reveal, RevealGroup } from "@/components/motion/Motion";
+import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
 import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
-  title: "Design Dialects 2.0 - Register Now",
+  title: "Design Dialects 2.0 - Register Now | India's Premier Architecture Conference",
   description: "Join Ludhiana's premier architecture and design conference. 300+ professionals, 15+ speakers, 2 days of innovation. Register now for Design Dialects 2.0.",
 };
 
 export default function RegisterPage() {
   return (
     <>
-      {/* HEADER WITH LOGO */}
-      <header className="fixed top-0 z-50 w-full border-b border-hairline bg-navy/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4">
+      {/* PREMIUM HEADER */}
+      <header className="fixed top-0 z-50 w-full border-b border-copper/20 bg-navy/98 backdrop-blur-2xl">
+        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-5">
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-12 w-40">
+            <div className="relative h-14 w-44">
               <Image
                 src="/firm-la-media.png"
                 alt="LA Media & Communications"
@@ -26,14 +26,14 @@ export default function RegisterPage() {
               />
             </div>
           </Link>
-          <a href="#register" className="btn btn-fill">
+          <a href="#register" className="btn btn-fill px-8 text-[15px] shadow-lg shadow-copper/30 transition-all hover:shadow-xl hover:shadow-copper/40">
             Register Now
           </a>
         </div>
       </header>
 
-      {/* HERO SECTION */}
-      <section className="relative min-h-[80vh] overflow-hidden pt-32">
+      {/* PREMIUM HERO */}
+      <section className="relative min-h-screen overflow-hidden pt-28">
         <div className="absolute inset-0">
           <Media
             label="Design Dialects Event"
@@ -42,108 +42,146 @@ export default function RegisterPage() {
             className="h-full border-0 ring-0"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/70 to-navy" />
         </div>
 
-        <div className="relative mx-auto max-w-shell px-gutter pb-20">
+        <div className="relative mx-auto flex min-h-screen max-w-shell flex-col justify-center px-gutter py-20">
           <Reveal>
-            <div className="inline-block rounded-full border border-copper/50 bg-copper/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-copper">
-              Design Dialects 2.0
+            <div className="inline-flex items-center gap-3 rounded-full border border-copper/30 bg-copper/5 px-5 py-2.5 backdrop-blur-sm">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-copper"></span>
+              <span className="text-[12px] font-bold uppercase tracking-[0.15em] text-copper">Limited Seats Available</span>
             </div>
-            <h1 className="mt-6 text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1]">
-              Where Ideas Meet<br />
-              <span className="text-copper">Innovation</span>
+
+            <h1 className="mt-8 text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.95] tracking-tight">
+              Design<br />
+              <span className="bg-gradient-to-r from-copper via-copper-soft to-bone bg-clip-text text-transparent">Dialects 2.0</span>
             </h1>
-            <p className="mt-6 max-w-[50ch] text-[18px] leading-relaxed text-mist">
-              Join Ludhiana's premier architecture and design conference. Two days of inspiring talks,
-              interactive workshops, and meaningful connections with industry leaders.
+
+            <p className="mt-8 max-w-[55ch] text-[clamp(1.1rem,2vw,1.4rem)] leading-relaxed text-mist">
+              India's most anticipated architecture and design conference returns. Two days of groundbreaking ideas,
+              industry leaders, and career-defining connections.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-6">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-copper/20">
-                  <svg className="h-6 w-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[13px] font-semibold uppercase tracking-wider text-copper">Date</p>
-                  <p className="text-[16px] font-bold">February 13-14, 2027</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-copper/20">
-                  <svg className="h-6 w-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-[13px] font-semibold uppercase tracking-wider text-copper">Location</p>
-                  <p className="text-[16px] font-bold">Ludhiana, Punjab</p>
+            <div className="mt-12 grid gap-8 sm:grid-cols-3 lg:w-2/3">
+              <div className="group">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
+                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Date</p>
+                    <p className="mt-1 text-[17px] font-bold">Feb 13-14, 2027</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-copper/20">
-                  <svg className="h-6 w-6 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
+              <div className="group">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
+                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Location</p>
+                    <p className="mt-1 text-[17px] font-bold">Ludhiana, Punjab</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[13px] font-semibold uppercase tracking-wider text-copper">Expected</p>
-                  <p className="text-[16px] font-bold">300+ Attendees</p>
+              </div>
+
+              <div className="group">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
+                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Attendees</p>
+                    <p className="mt-1 text-[17px] font-bold">300+ Professionals</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-12">
-              <a href="#register" className="btn btn-fill text-[16px]">
-                Register Now - Limited Seats
+            <div className="mt-14 flex flex-wrap items-center gap-5">
+              <a
+                href="#register"
+                className="group relative overflow-hidden rounded-2xl bg-copper px-10 py-5 text-[17px] font-bold text-white shadow-2xl shadow-copper/40 transition-all hover:scale-105 hover:shadow-3xl hover:shadow-copper/60"
+              >
+                <span className="relative z-10">Secure Your Spot</span>
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform group-hover:translate-x-full"></div>
+              </a>
+
+              <a
+                href="#about"
+                className="group flex items-center gap-3 rounded-2xl border-2 border-copper/30 bg-white/5 px-8 py-4 text-[16px] font-semibold backdrop-blur-sm transition-all hover:border-copper hover:bg-white/10"
+              >
+                Learn More
+                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
               </a>
             </div>
           </Reveal>
         </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <svg className="h-8 w-8 text-copper/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </section>
 
-      {/* ABOUT THE EVENT */}
-      <section className="border-t border-hairline py-section">
+      {/* PREMIUM STATS */}
+      <section id="about" className="border-t border-copper/20 py-24">
         <div className="mx-auto max-w-shell px-gutter">
           <RevealGroup>
-            <div className="grid gap-12 lg:grid-cols-2">
+            <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
               <div>
-                <Eyebrow>About Design Dialects</Eyebrow>
-                <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
-                  India's Leading Architecture & Design Conference
+                <Eyebrow>About the Conference</Eyebrow>
+                <h2 className="mt-8 text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight">
+                  Where India's Architecture<br />
+                  <span className="text-copper">Elite Gather</span>
                 </h2>
-                <p className="mt-6 text-[17px] leading-relaxed text-mist">
-                  Design Dialects is more than just a conference—it's a movement. Since our inception,
-                  we've brought together the brightest minds in architecture, design, and the built environment
-                  to share knowledge, spark innovation, and build lasting connections.
+                <p className="mt-8 text-[18px] leading-relaxed text-mist">
+                  Design Dialects isn't just another conference. It's the definitive gathering for India's architecture
+                  and design community—a curated experience where innovation meets inspiration.
                 </p>
-                <p className="mt-4 text-[17px] leading-relaxed text-mist">
-                  Our 2027 edition promises to be our biggest yet, with carefully curated sessions,
-                  hands-on workshops, and unparalleled networking opportunities.
+                <p className="mt-5 text-[18px] leading-relaxed text-mist">
+                  Over two transformative days, you'll gain exclusive access to industry pioneers, emerging trends,
+                  and the connections that will define your career trajectory.
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
-                <div className="panel p-6">
-                  <p className="text-[3rem] font-bold text-copper">300+</p>
-                  <p className="mt-2 text-[14px] font-semibold uppercase tracking-wider text-slate">Architects & Designers</p>
+                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                    <CountUp value={300} />+
+                  </div>
+                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
                 </div>
-                <div className="panel p-6">
-                  <p className="text-[3rem] font-bold text-copper">15+</p>
-                  <p className="mt-2 text-[14px] font-semibold uppercase tracking-wider text-slate">Industry Speakers</p>
+                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                    <CountUp value={15} />+
+                  </div>
+                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
                 </div>
-                <div className="panel p-6">
-                  <p className="text-[3rem] font-bold text-copper">50+</p>
-                  <p className="mt-2 text-[14px] font-semibold uppercase tracking-wider text-slate">Brand Partners</p>
+                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                    <CountUp value={50} />+
+                  </div>
+                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Brand Partners</p>
                 </div>
-                <div className="panel p-6">
-                  <p className="text-[3rem] font-bold text-copper">2</p>
-                  <p className="mt-2 text-[14px] font-semibold uppercase tracking-wider text-slate">Days of Impact</p>
+                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                    <CountUp value={2} />
+                  </div>
+                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Days of Excellence</p>
                 </div>
               </div>
             </div>
