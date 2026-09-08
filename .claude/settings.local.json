@@ -11,7 +11,8 @@
       "Bash(awk '{print $NF}')",
       "Bash(git add *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(curl -s http://localhost:3000/register)"
     ]
   }
 }

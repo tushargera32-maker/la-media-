@@ -22,9 +22,20 @@ export default function HomePage() {
 
       {/* 01 - HERO -------------------------------------------------- */}
       <section className="relative min-h-[100svh] overflow-hidden">
-        <Parallax amount={50} className="absolute inset-0">
-          <Media label="HERO - ARCHITECTURAL INTERIOR, LIT - 16:9" ratio="16/9" src="/home-hero.jpg" className="h-[112%] border-0 ring-0" priority />
-        </Parallax>
+        {/* Video Background */}
+        <div className="absolute inset-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          >
+            <source src="/hero-video.mp4" type="video/mp4" />
+            {/* Fallback to image if video doesn't load */}
+          </video>
+          <Media label="HERO - ARCHITECTURAL INTERIOR, LIT - 16:9" ratio="16/9" src="/home-hero.jpg" className="absolute inset-0 h-full border-0 ring-0" priority />
+        </div>
 
         {/* Left-weighted scrim so the headline always holds contrast. */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/25" />
