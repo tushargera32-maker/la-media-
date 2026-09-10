@@ -5,26 +5,40 @@ import { Reveal } from "@/components/motion/Motion";
 import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany({
-    where: { published: true },
-    select: { slug: true },
-  });
+  // Must never fail the Vercel build: if DATABASE_URL is missing/invalid
+  // at build time (URL_INVALID), fall back to no pre-rendered params and
+  // render on demand at request time (force-dynamic above).
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: { published: true },
+      select: { slug: true },
+    });
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch {
+    return { title: "Insights | LA Media & Communications" };
+  }
 
   if (!post) {
     return {

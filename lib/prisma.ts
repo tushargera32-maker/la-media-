@@ -12,6 +12,17 @@ function makeClient(): PrismaClient {
     process.env.DATABASE_URL ||
     '';
 
+  // Build-safe fallback: during `next build` on Vercel, env vars may be
+  // missing/empty which previously caused `URL_INVALID` and failed the
+  // whole build in generateStaticParams. Fall back to a local file so the
+  // client can at least be constructed; queries are caught per-page.
+  if (!url) {
+    if (!process.env.DATABASE_URL) {
+      process.env.DATABASE_URL = 'file:./dev.db';
+    }
+    return new PrismaClient();
+  }
+
   // Local SQLite
   if (!url.startsWith('libsql://') && !url.startsWith('http')) {
     return new PrismaClient();

@@ -1,6 +1,10 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  return new Resend(key);
+}
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'ravinder1993singh12@gmail.com';
@@ -54,7 +58,12 @@ export async function sendAdminNotification(data: {
       </html>
     `;
 
-    await resend.emails.send({
+    const client = getResend();
+    if (!client) {
+      console.warn('RESEND_API_KEY missing, skipping admin notification email');
+      return { success: true };
+    }
+    await client.emails.send({
       from: FROM_EMAIL,
       to: NOTIFICATION_EMAIL,
       subject,
@@ -125,7 +134,12 @@ export async function sendUserConfirmation(data: {
       </html>
     `;
 
-    await resend.emails.send({
+    const client = getResend();
+    if (!client) {
+      console.warn('RESEND_API_KEY missing, skipping user confirmation email');
+      return { success: true };
+    }
+    await client.emails.send({
       from: FROM_EMAIL,
       to: data.email,
       subject: 'Registration Confirmed - Design Dialect 2.0',
@@ -178,7 +192,12 @@ export async function sendNewsletterWelcome(email: string) {
       </html>
     `;
 
-    await resend.emails.send({
+    const client = getResend();
+    if (!client) {
+      console.warn('RESEND_API_KEY missing, skipping newsletter welcome email');
+      return { success: true };
+    }
+    await client.emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: 'Welcome to LA Media Newsletter!',
