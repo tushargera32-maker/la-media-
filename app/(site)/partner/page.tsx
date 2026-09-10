@@ -38,7 +38,7 @@ export default function PartnerPage() {
           </Reveal>
         </div>
         <Reveal className="h-full">
-          <Media label="PARTNER - ARCHITECTURAL SPACE - 4:3" ratio="4/3" src="/capability-4.jpg" className="h-full min-h-[260px]" />
+          <Media label="PARTNER - ARCHITECTURAL SPACE - 4:3" ratio="4/3" src="/about-header.png" className="h-full min-h-[260px]" />
         </Reveal>
       </section>
 

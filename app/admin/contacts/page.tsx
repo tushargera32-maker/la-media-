@@ -13,9 +13,15 @@ const STATUSES = ["new", "read", "replied", "archived"];
   spinner on every visit and a second source of truth to drift.
 */
 export default async function AdminContactsPage() {
-  const submissions = await prisma.contactSubmission.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let submissions: Awaited<ReturnType<typeof prisma.contactSubmission.findMany>> = [];
+  try {
+    submissions = await prisma.contactSubmission.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Admin contacts: failed to fetch submissions:", error);
+    submissions = [];
+  }
 
   const unread = submissions.filter((s) => s.status === "new").length;
 

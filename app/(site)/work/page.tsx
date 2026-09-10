@@ -193,10 +193,10 @@ export default function WorkPage() {
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-2">
             {CAPABILITIES.map((c, i) => {
               const capabilityImages = [
-                "/capability-1.jpg",
-                "/capability-2.jpg",
-                "/capability-3.jpg",
-                "/capability-4.jpg"
+                "/blog-cover-4.png",
+                "/blog-cover-5.png",
+                "/blog-cover-6.png",
+                "/blog-cover-7.png"
               ];
               return (
                 <article key={c.slug} className="panel flex h-full flex-col overflow-hidden">

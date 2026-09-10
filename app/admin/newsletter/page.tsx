@@ -6,9 +6,15 @@ import { deleteSubscriber } from "@/app/admin/actions";
 export const dynamic = "force-dynamic";
 
 export default async function AdminNewsletterPage() {
-  const subscribers = await prisma.newsletterSubscriber.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let subscribers: Awaited<ReturnType<typeof prisma.newsletterSubscriber.findMany>> = [];
+  try {
+    subscribers = await prisma.newsletterSubscriber.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Admin newsletter: failed to fetch subscribers:", error);
+    subscribers = [];
+  }
 
   const active = subscribers.filter((s) => s.status === "active").length;
 

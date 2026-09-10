@@ -26,12 +26,18 @@ export const dynamic = "force-dynamic";
    ================================================================== */
 
 export default async function HomePage() {
-  // Fetch latest 3 published blog posts
-  const insights = await prisma.blogPost.findMany({
-    where: { published: true },
-    orderBy: { publishedAt: "desc" },
-    take: 3,
-  });
+  // Fetch latest 3 published blog posts — never crash the homepage if DB is down
+  let insights: Awaited<ReturnType<typeof prisma.blogPost.findMany>> = [];
+  try {
+    insights = await prisma.blogPost.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: "desc" },
+      take: 3,
+    });
+  } catch (error) {
+    console.error("Homepage: failed to fetch insights, rendering without them:", error);
+    insights = [];
+  }
   return (
     <>
       {/* Event Popup */}
