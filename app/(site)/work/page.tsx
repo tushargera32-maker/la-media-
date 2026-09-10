@@ -58,7 +58,7 @@ export default function WorkPage() {
                 {/* Supported By Banner - Below Poster */}
                 <div className="relative w-full bg-navy-2 p-4">
                   <Image
-                    src="/SUPPORTED BY.png"
+                    src="/supported-by.png"
                     alt="Supported By Partners"
                     width={600}
                     height={300}

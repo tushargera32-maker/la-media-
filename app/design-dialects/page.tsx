@@ -158,7 +158,7 @@ export default function DesignDialectsPage() {
         <Reveal delay={0.25}>
           <div className="panel relative mx-auto mt-12 max-w-4xl overflow-hidden">
             <Image
-              src="/SUPPORTED BY.png"
+              src="/supported-by.png"
               alt="Supported By Partners"
               width={1200}
               height={600}
