@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
+import { Eyebrow, Button } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
   title: "Build Right Advisors - Construction Advisory Services | Ludhiana",
@@ -118,15 +118,17 @@ export default function BuildRightPage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-24 md:min-h-[80vh] md:pt-32">
-        <div className="absolute inset-0">
-          <Media
-            label="Build Right Advisory"
-            ratio="16/9"
-            src="/BUILD RIGHT COVER PIC SUB PAGE .png"
-            className="h-full border-0 ring-0"
-            priority
-          />
+      <section className="relative min-h-[62vh] overflow-hidden pt-24 md:min-h-[80vh] md:pt-32">
+        <div className="absolute inset-0 bg-navy-2">
+          <div className="relative h-full w-full">
+            <Image
+              src="/BUILD RIGHT COVER PIC SUB PAGE .png"
+              alt="Build Right Advisory"
+              fill
+              className="object-contain object-center md:object-cover"
+              priority
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/40" />
         </div>
 
