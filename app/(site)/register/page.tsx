@@ -3,10 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
 import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
+import { RegistrationForm } from "@/components/site/RegistrationForm";
 
 export const metadata: Metadata = {
-  title: "Design Dialects 2.0 - Register Now | India's Premier Architecture Conference",
-  description: "Join Ludhiana's premier architecture and design conference. 300+ professionals, 15+ speakers, 2 days of innovation. Register now for Design Dialects 2.0.",
+  title: "Design Dialect 2.0 - Register Now | India's Premier Architecture Conference",
+  description: "Join Ludhiana's premier architecture and design conference. 300+ professionals, 15+ speakers, 2 days of innovation. Register now for Design Dialect 2.0.",
 };
 
 export default function RegisterPage() {
@@ -14,9 +15,9 @@ export default function RegisterPage() {
     <>
       {/* PREMIUM HEADER */}
       <header className="fixed top-0 z-50 w-full border-b border-copper/20 bg-navy/98 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-5">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-14 w-44">
+        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4 md:py-5">
+          <Link href="/" className="flex items-center gap-2 md:gap-3">
+            <div className="relative h-10 w-32 md:h-14 md:w-44">
               <Image
                 src="/firm-la-media.png"
                 alt="LA Media & Communications"
@@ -26,26 +27,35 @@ export default function RegisterPage() {
               />
             </div>
           </Link>
-          <a href="#register" className="btn btn-fill px-8 text-[15px] shadow-lg shadow-copper/30 transition-all hover:shadow-xl hover:shadow-copper/40">
-            Register Now
+          <a href="#register" className="btn btn-fill px-4 text-[13px] md:px-8 md:text-[15px] shadow-lg shadow-copper/30 transition-all hover:shadow-xl hover:shadow-copper/40">
+            Register
           </a>
         </div>
       </header>
 
       {/* PREMIUM HERO */}
-      <section className="relative min-h-screen overflow-hidden pt-28">
+      <section className="relative min-h-screen overflow-hidden pt-20 md:pt-28">
         <div className="absolute inset-0">
+          {/* Desktop Hero */}
           <Media
-            label="Design Dialects Event"
+            label="Design Dialect Hero Desktop"
             ratio="16/9"
-            src="/DD 2.0_Page (1).png"
-            className="h-full border-0 ring-0"
+            src="/herodd.png"
+            className="hidden h-full border-0 ring-0 md:block"
+            priority
+          />
+          {/* Mobile Hero */}
+          <Media
+            label="Design Dialect Hero Mobile"
+            ratio="9/16"
+            src="/dd-hero-mobile.png"
+            className="h-full border-0 ring-0 md:hidden"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/70 to-navy" />
         </div>
 
-        <div className="relative mx-auto flex min-h-screen max-w-shell flex-col justify-center px-gutter py-20">
+        <div className="relative mx-auto flex min-h-screen max-w-shell flex-col justify-center px-gutter py-16 md:py-20">
           <Reveal>
             <div className="inline-flex items-center gap-3 rounded-full border border-copper/30 bg-copper/5 px-5 py-2.5 backdrop-blur-sm">
               <span className="h-2 w-2 animate-pulse rounded-full bg-copper"></span>
@@ -62,55 +72,55 @@ export default function RegisterPage() {
               industry leaders, and career-defining connections.
             </p>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-3 lg:w-2/3">
+            <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-8 lg:w-2/3">
               <div className="group">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
-                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20 sm:h-14 sm:w-14">
+                    <svg className="h-6 w-6 text-copper sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Date</p>
-                    <p className="mt-1 text-[17px] font-bold">Feb 13-14, 2027</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-copper sm:text-[11px]">Date</p>
+                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">Feb 6-7, 2027</p>
                   </div>
                 </div>
               </div>
 
               <div className="group">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
-                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20 sm:h-14 sm:w-14">
+                    <svg className="h-6 w-6 text-copper sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Location</p>
-                    <p className="mt-1 text-[17px] font-bold">Ludhiana, Punjab</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-copper sm:text-[11px]">Venue</p>
+                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">To be listed shortly</p>
                   </div>
                 </div>
               </div>
 
               <div className="group">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20">
-                    <svg className="h-7 w-7 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20 sm:h-14 sm:w-14">
+                    <svg className="h-6 w-6 text-copper sm:h-7 sm:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-copper">Attendees</p>
-                    <p className="mt-1 text-[17px] font-bold">300+ Professionals</p>
+                    <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-copper sm:text-[11px]">Attendees</p>
+                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">300+ Professionals</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-14 flex flex-wrap items-center gap-5">
+            <div className="mt-10 flex flex-wrap items-center gap-4 sm:mt-14 sm:gap-5">
               <a
                 href="#register"
-                className="group relative overflow-hidden rounded-2xl bg-copper px-10 py-5 text-[17px] font-bold text-white shadow-2xl shadow-copper/40 transition-all hover:scale-105 hover:shadow-3xl hover:shadow-copper/60"
+                className="group relative overflow-hidden rounded-2xl bg-copper px-6 py-4 text-[15px] font-bold text-white shadow-2xl shadow-copper/40 transition-all hover:scale-105 hover:shadow-3xl hover:shadow-copper/60 sm:px-10 sm:py-5 sm:text-[17px]"
               >
                 <span className="relative z-10">Secure Your Spot</span>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform group-hover:translate-x-full"></div>
@@ -118,10 +128,10 @@ export default function RegisterPage() {
 
               <a
                 href="#about"
-                className="group flex items-center gap-3 rounded-2xl border-2 border-copper/30 bg-white/5 px-8 py-4 text-[16px] font-semibold backdrop-blur-sm transition-all hover:border-copper hover:bg-white/10"
+                className="group flex items-center gap-2 rounded-2xl border-2 border-copper/30 bg-white/5 px-6 py-3.5 text-[14px] font-semibold backdrop-blur-sm transition-all hover:border-copper hover:bg-white/10 sm:gap-3 sm:px-8 sm:py-4 sm:text-[16px]"
               >
                 Learn More
-                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -149,7 +159,7 @@ export default function RegisterPage() {
                   <span className="text-copper">Elite Gather</span>
                 </h2>
                 <p className="mt-8 text-[18px] leading-relaxed text-mist">
-                  Design Dialects isn't just another conference. It's the definitive gathering for India's architecture
+                  Design Dialect isn't just another conference. It's the definitive gathering for India's architecture
                   and design community—a curated experience where innovation meets inspiration.
                 </p>
                 <p className="mt-5 text-[18px] leading-relaxed text-mist">
@@ -158,30 +168,30 @@ export default function RegisterPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="300" />+
                   </div>
-                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
+                  <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
                 </div>
-                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="15" />+
                   </div>
-                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
+                  <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
                 </div>
-                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="50" />+
                   </div>
-                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Brand Partners</p>
+                  <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Brand Partners</p>
                 </div>
-                <div className="group panel panel-solid p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[4.5rem] font-bold leading-none text-copper">
+                <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
+                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="2" />
                   </div>
-                  <p className="mt-4 text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Days of Excellence</p>
+                  <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Days of Excellence</p>
                 </div>
               </div>
             </div>
@@ -275,42 +285,126 @@ export default function RegisterPage() {
         </div>
       </section>
 
-      {/* INSTAGRAM PREVIEW */}
+      {/* MEET THE VISIONARIES */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
-            <Eyebrow>Follow Us</Eyebrow>
-            <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
-              <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
-                Join the Conversation
-              </h2>
-              <a
-                href="https://instagram.com/lamedia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-line flex items-center gap-2"
-              >
-                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                Follow @lamedia
-              </a>
-            </div>
+            <Eyebrow>Advisory Panel</Eyebrow>
+            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              Meet The <span className="text-copper">Visionaries</span>
+            </h2>
+            <p className="mt-4 max-w-[50ch] text-[17px] text-mist">
+              Learn from Punjab's most distinguished architects. Our advisory panel brings decades of experience
+              and expertise to guide Design Dialect 2.0.
+            </p>
           </Reveal>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Instagram preview placeholders - replace with actual Instagram feed */}
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="panel aspect-square overflow-hidden p-0">
-                <Media
-                  label={`Instagram post ${i}`}
-                  ratio="1/1"
-                  src={`/instagram-${i}.jpg`}
-                  className="h-full border-0 ring-0 transition-transform hover:scale-110"
+          <RevealGroup className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* Ar. Arjun Deep */}
+            <article className="panel group overflow-hidden transition-all hover:border-copper">
+              <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-copper/20 to-navy-2">
+                <Image
+                  src="/arjun-deep.jpg"
+                  alt="Ar. Arjun Deep"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-            ))}
-          </div>
+              <div className="p-6">
+                <h3 className="text-[22px] font-bold">Ar. Arjun Deep</h3>
+                <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider text-copper">
+                  Principal Architect
+                </p>
+                <p className="mt-4 text-[15px] leading-relaxed text-mist">
+                  25+ years of distinguished experience with 180+ projects completed.
+                  Registered with Council of Architecture & Indian Institute of Architects.
+                </p>
+                <div className="mt-6 flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/aradeep5725/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[13px] font-semibold text-copper transition-colors hover:text-copper-soft"
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Follow on Instagram
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* Ar. Neeraj Sharma */}
+            <article className="panel group overflow-hidden transition-all hover:border-copper">
+              <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-copper/20 to-navy-2">
+                <Image
+                  src="/neeraj-sharma.jpg"
+                  alt="Ar. Neeraj Sharma"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-[22px] font-bold">Ar. Neeraj Sharma</h3>
+                <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider text-copper">
+                  Principal Architect
+                </p>
+                <p className="mt-4 text-[15px] leading-relaxed text-mist">
+                  25+ years of experience as Principal Architect at Infinity Architects.
+                  Alumnus of Guru Nanak Dev University, Amritsar (B.Architecture, 1996-2001).
+                </p>
+                <div className="mt-6 flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/mailtoneeraj/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[13px] font-semibold text-copper transition-colors hover:text-copper-soft"
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Follow on Instagram
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            {/* Ar. Sham Sunder Gupta */}
+            <article className="panel group overflow-hidden transition-all hover:border-copper">
+              <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-copper/20 to-navy-2">
+                <Image
+                  src="/sham-sunder-gupta.jpg"
+                  alt="Ar. Sham Sunder Gupta"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-[22px] font-bold">Ar. Sham Sunder Gupta</h3>
+                <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider text-copper">
+                  Principal Architect
+                </p>
+                <p className="mt-4 text-[15px] leading-relaxed text-mist">
+                  Leading architectural visionary specializing in innovative design solutions.
+                  Founder of Axis of Design Architects, known for transformative projects.
+                </p>
+                <div className="mt-6 flex items-center gap-4">
+                  <a
+                    href="https://www.instagram.com/axisofdesign_architects/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-[13px] font-semibold text-copper transition-colors hover:text-copper-soft"
+                  >
+                    <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Follow on Instagram
+                  </a>
+                </div>
+              </div>
+            </article>
+          </RevealGroup>
         </div>
       </section>
 
@@ -327,137 +421,38 @@ export default function RegisterPage() {
             </p>
           </Reveal>
 
-          <form className="mt-12 space-y-6">
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div>
-                <label htmlFor="firstName" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                  First Name *
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  required
-                  className="field-input mt-2"
-                />
-              </div>
+          <div className="mt-12">
+            <RegistrationForm />
+          </div>
+        </div>
+      </section>
 
-              <div>
-                <label htmlFor="lastName" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                  Last Name *
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  className="field-input mt-2"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="email" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="field-input mt-2"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="phone" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                className="field-input mt-2"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="firm" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                Firm/Organization
-              </label>
-              <input
-                type="text"
-                id="firm"
-                name="firm"
-                className="field-input mt-2"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="designation" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                Designation
-              </label>
-              <input
-                type="text"
-                id="designation"
-                name="designation"
-                className="field-input mt-2"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="attendeeType" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                I am registering as *
-              </label>
-              <select
-                id="attendeeType"
-                name="attendeeType"
-                required
-                className="field-input mt-2"
-              >
-                <option value="">Select type</option>
-                <option value="architect">Architect</option>
-                <option value="interior-designer">Interior Designer</option>
-                <option value="student">Student</option>
-                <option value="brand-representative">Brand Representative</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="message" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
-                Any questions or special requirements?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="field-input mt-2"
-              />
-            </div>
-
-            <div className="flex items-start gap-3">
-              <input
-                type="checkbox"
-                id="terms"
-                name="terms"
-                required
-                className="mt-1"
-              />
-              <label htmlFor="terms" className="text-[14px] text-mist">
-                I agree to receive updates about Design Dialects and future LA Media events
-              </label>
-            </div>
-
-            <button type="submit" className="btn btn-fill w-full text-[16px]">
-              Complete Registration
-            </button>
-
-            <p className="text-center text-[13px] text-slate">
-              Registration confirmation will be sent to your email within 24 hours
+      {/* ARCHITECT'S JOURNAL */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Design Dialect Journal</Eyebrow>
+            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              Architect's Journal - Volume 09
+            </h2>
+            <p className="mt-4 max-w-[60ch] text-[17px] text-mist">
+              Dive into the latest insights, trends, and conversations shaping architecture and design.
             </p>
-          </form>
+          </Reveal>
+
+          <div className="mt-12">
+            <div className="panel overflow-hidden p-0">
+              <div className="relative aspect-[16/9] md:aspect-[21/9]">
+                <Image
+                  src="/DESIGN DIALECT- ARCHITECT'S JOURNAL-VOL 09.gif"
+                  alt="Design Dialect Architect's Journal Volume 09"
+                  fill
+                  className="object-contain"
+                  unoptimized
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -472,7 +467,7 @@ export default function RegisterPage() {
               </h2>
               <p className="mt-6 text-[17px] leading-relaxed text-mist">
                 Our team is here to help. Reach out for registration assistance, sponsorship opportunities,
-                or any other queries about Design Dialects 2.0.
+                or any other queries about Design Dialect 2.0.
               </p>
 
               <div className="mt-10 space-y-6">

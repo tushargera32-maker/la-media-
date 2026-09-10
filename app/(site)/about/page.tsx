@@ -14,28 +14,12 @@ export const metadata: Metadata = {
 // Top Projects Data
 const TOP_PROJECTS = [
   {
-    id: "design-dialects-2024",
-    title: "Design Dialects 2024",
+    id: "design-dialect-2024",
+    title: "Design Dialect",
     description: "Pan-India architecture conference bringing together 300+ architects and designers",
     image: "/project-dd-2024.jpg",
-    instagram: "https://instagram.com/lamedia",
-    stats: { attendees: "300+", speakers: "15+", cities: "10+" }
-  },
-  {
-    id: "design-dialects-2023",
-    title: "Design Dialects 2023",
-    description: "Landmark event in Ludhiana showcasing architectural innovation",
-    image: "/project-dd-2023.jpg",
-    instagram: "https://instagram.com/lamedia",
-    stats: { attendees: "250+", speakers: "12+", brands: "50+" }
-  },
-  {
-    id: "architecture-summit",
-    title: "Architecture Summit Series",
-    description: "Multi-city workshops and panel discussions across North India",
-    image: "/project-summit.jpg",
-    instagram: "https://instagram.com/lamedia",
-    stats: { events: "25+", cities: "8", participants: "2000+" }
+    instagram: "https://www.instagram.com/designdialect.india/",
+    stats: { attendees: "300+", speakers: "15+", brands : "50+" }
   },
 ];
 

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendNewsletterWelcome, sendAdminNotification } from "@/lib/resend";
 
 export async function GET(request: NextRequest) {
   try {
@@ -84,6 +85,12 @@ export async function POST(request: NextRequest) {
           where: { email: email.toLowerCase() },
           data: { status: "active" },
         });
+
+        // Send welcome email
+        sendNewsletterWelcome(email.toLowerCase()).catch(err =>
+          console.error('Failed to send newsletter welcome:', err)
+        );
+
         return NextResponse.json(updatedSubscriber, { status: 200 });
       }
     }
@@ -95,6 +102,18 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Send welcome email to subscriber
+    sendNewsletterWelcome(email.toLowerCase()).catch(err =>
+      console.error('Failed to send newsletter welcome:', err)
+    );
+
+    // Notify admin
+    sendAdminNotification({
+      type: 'newsletter',
+      email: email.toLowerCase(),
+      details: 'New newsletter subscription',
+    }).catch(err => console.error('Failed to send admin notification:', err));
+
     return NextResponse.json(subscriber, { status: 201 });
   } catch (error) {
     console.error("Error creating newsletter subscriber:", error);
@@ -104,3 +123,4 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+

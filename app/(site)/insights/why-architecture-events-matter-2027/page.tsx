@@ -4,9 +4,9 @@ import Image from "next/image";
 import { Arrow } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
-  title: "Why Architecture Events Matter in 2027 | Design Dialects Ludhiana | LA Media",
+  title: "Why Architecture Events Matter in 2027 | Design Dialect Ludhiana | LA Media",
   description: "Discover why face-to-face architecture events in Ludhiana and Punjab are vital platforms for innovation, collaboration, and meaningful industry connections in 2027.",
-  keywords: "architecture events Ludhiana, Design Dialects Ludhiana, architecture conferences Punjab, Ludhiana architects, architecture networking Ludhiana, design events Punjab, LA Media Ludhiana",
+  keywords: "architecture events Ludhiana, Design Dialect Ludhiana, architecture conferences Punjab, Ludhiana architects, architecture networking Ludhiana, design events Punjab, LA Media Ludhiana",
   openGraph: {
     title: "Why Architecture Events Matter More Than Ever in 2027 | Ludhiana",
     description: "Face-to-face architecture events in Ludhiana create opportunities for innovation, collaboration, and meaningful connections.",
@@ -117,7 +117,7 @@ export default function BlogPost() {
         <div className="relative text-center">
           <h3 className="text-[22px] font-bold">Join the Conversation</h3>
           <p className="mt-3 text-[15px] text-mist">
-            Design Dialects 2.0 brings together architects, designers, and industry leaders for meaningful conversations that shape the future.
+            Design Dialect 2.0 brings together architects, designers, and industry leaders for meaningful conversations that shape the future.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link href="/register/architect" className="btn btn-fill">

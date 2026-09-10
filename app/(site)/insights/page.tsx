@@ -2,16 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow, ArrowLink, Unverified, Arrow } from "@/components/ui/Primitives";
-import { INSIGHTS, INSIGHT_CATEGORIES } from "@/lib/content";
+import { INSIGHT_CATEGORIES } from "@/lib/content";
+import { prisma } from "@/lib/prisma";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Insights - Architecture Events & Event Management | LA Media Ludhiana",
   description:
-    "Thoughts and perspectives from architects, designers, industry leaders and changemakers shaping the future of the built environment.",
+    "Thoughts and perspectives from architects, designers, industry leaders and changemakers shaping the future of the built environment. Discover insights from Ludhiana's best event management firm specializing in architecture conferences.",
+  keywords: "Ludhiana best event management firm, event management Ludhiana, architecture events, LA Media Communications, conference planning Punjab, Design Dialect, architecture insights",
 };
 
+export const dynamic = "force-dynamic";
+
 /*
-  SERVER COMPONENT ON PURPOSE.
+  SERVER COMPONENT - Fetches blog posts from database.
 
   The filter is a URL search param rather than React state, so this page
   - the one whose entire job is SEO - still renders on the server. Every
@@ -29,8 +33,28 @@ export default async function InsightsPage({
       (c) => c.toLowerCase() === (params.category ?? "").toLowerCase(),
     ) ?? "All";
 
-  const posts =
-    active === "All" ? INSIGHTS : INSIGHTS.filter((p) => p.category === active);
+  // Fetch posts from database
+  const posts = await prisma.blogPost.findMany({
+    where: {
+      published: true,
+      ...(active !== "All" && { category: active }),
+    },
+    orderBy: {
+      publishedAt: "desc",
+    },
+  });
+
+  const insightImages = [
+    "/blog-cover-1.png",
+    "/blog-cover-2.png",
+    "/blog-cover-3.png",
+    "/blog-cover-4.png",
+    "/blog-cover-5.png",
+    "/blog-cover-6.png",
+    "/blog-cover-7.png",
+    "/blog-cover-8.png",
+    "/blog-cover-9.png",
+  ];
 
   return (
     <>
@@ -108,32 +132,26 @@ export default async function InsightsPage({
           ) : (
             <RevealGroup className="grid gap-6 md:grid-cols-3">
               {posts.map((post, i) => {
-                const insightImages = [
-                  "/capability-1.jpg",
-                  "/capability-2.jpg",
-                  "/capability-3.jpg"
-                ];
+                const publishedDate = post.publishedAt
+                  ? new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
+                  : new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+
                 return (
                   <article key={post.slug} className="panel flex h-full flex-col overflow-hidden">
                   <div className="relative">
-                    <Media label={`${post.category.toUpperCase()} - 16:9`} ratio="16/9" src={insightImages[i % insightImages.length]} className="border-0 ring-0" />
-                    {post.featured && (
-                      <span className="absolute left-0 top-0 bg-copper px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
-                        Featured
-                      </span>
-                    )}
+                    <Media label={`${post.category.toUpperCase()} - 16:9`} ratio="16/9" src={post.image || insightImages[i % insightImages.length]} className="border-0 ring-0" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center justify-between gap-4">
                       <span className="text-[10.5px] font-semibold uppercase tracking-[0.14em] text-cobalt-soft">
                         {post.category}
                       </span>
-                      <span className="text-[12px] text-slate">{post.date}</span>
+                      <span className="text-[12px] text-slate">{publishedDate}</span>
                     </div>
                     <h2 className="mt-4 text-[17px] font-semibold leading-snug">{post.title}</h2>
                     <span className="mt-4 block h-px w-8 bg-copper" />
                     <p className="mt-4 flex-1 text-[14px] leading-relaxed text-mist">{post.excerpt}</p>
-                    <ArrowLink href="/insights" className="mt-6">Read more</ArrowLink>
+                    <ArrowLink href={`/insights/${post.slug}`} className="mt-6">Read more</ArrowLink>
                   </div>
                 </article>
               );
@@ -142,8 +160,7 @@ export default async function InsightsPage({
           )}
 
           <p className="mt-8 text-[12px] text-slate">
-            Articles transcribed from the design reference; full text not yet supplied
-            <Unverified>Needs sign-off</Unverified>
+            Articles managed via admin panel
           </p>
         </div>
       </section>

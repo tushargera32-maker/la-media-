@@ -91,7 +91,7 @@ export function EventPopup() {
 
             {/* Popup Content - Split Design */}
             <div className="panel-solid overflow-hidden">
-              {/* Top Half - Design Dialects 2.0 */}
+              {/* Top Half - Design Dialect 2.0 */}
               <Link
                 href="/register"
                 onClick={handleClose}
@@ -100,7 +100,7 @@ export function EventPopup() {
                 <div className="relative aspect-[3/2] w-full overflow-hidden bg-navy-2">
                   <Image
                     src="/DD 2.0_Page (1).png"
-                    alt="Design Dialects 2.0 - Architecture Event in Ludhiana"
+                    alt="Design Dialect 2.0 - Architecture Event in Ludhiana"
                     fill
                     className="object-cover"
                     priority
@@ -109,7 +109,7 @@ export function EventPopup() {
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <p className="text-xs font-semibold uppercase tracking-wider text-copper">
-                      Design Dialects 2.0
+                      Design Dialect 2.0
                     </p>
                     <p className="mt-1 text-sm text-bone">
                       Click to register for the event →

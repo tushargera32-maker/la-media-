@@ -9,7 +9,7 @@ import { BuildRightModal } from "./BuildRightModal";
    LA MEDIA VERTICALS
 
    LA Media & Communications is the single parent brand with two
-   distinct verticals: Design Dialects (events/content) and Build Right
+   distinct verticals: Design Dialect (events/content) and Build Right
    (advisory). This section presents them as part of the LA Media
    ecosystem, not as separate firms.
    ================================================================== */
@@ -18,7 +18,7 @@ const VERTICALS = [
   {
     slug: "design-dialects",
     code: "DD",
-    name: "Design Dialects",
+    name: "Design Dialect",
     discipline: "Events · Content · Community · Platforms",
     blurb:
       "Thought-provoking talks, immersive experiences, and meaningful conversations that bring the architecture and design community together.",

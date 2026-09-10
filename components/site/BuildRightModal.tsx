@@ -164,7 +164,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
                   </svg>
                   <span className="max-w-[200px] leading-relaxed">
                     12 A, Basant City, Sua Road<br />
-                    Ludhiana West, Ludhiana<br />
+                    Ludhiana, Punjab<br />
                     Punjab, India – 142022
                   </span>
                 </div>
@@ -347,7 +347,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="shrink-0 font-semibold text-cobalt-soft">Address:</span>
-                      <span>12 A, Basant City, Sua Road, Ludhiana West, Ludhiana, Punjab – 142022</span>
+                      <span>12 A, Basant City, Sua Road, Ludhiana, Punjab – 142022</span>
                     </p>
                   </div>
                 </>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const details = [
     { label: "Address", value: BRAND.address },
-    { label: "Phone", value: BRAND.phone },
+    { label: "Phone", value: BRAND.phone, tel: true },
     { label: "Email", value: BRAND.email, mailto: true },
     { label: "Office hours", value: BRAND.hours },
   ];
@@ -48,6 +48,8 @@ export default function ContactPage() {
                     <dd className="mt-1.5 max-w-[32ch] text-[15px]">
                       {d.mailto ? (
                         <a href={`mailto:${d.value}`} className="text-copper hover:underline">{d.value}</a>
+                      ) : d.tel ? (
+                        <a href={`tel:${d.value.replace(/\s/g, '')}`} className="text-copper hover:underline">{d.value}</a>
                       ) : d.value}
                     </dd>
                   </div>

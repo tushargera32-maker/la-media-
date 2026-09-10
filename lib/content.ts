@@ -43,19 +43,19 @@ export const BRAND = {
     { title: "Innovation", description: "We embrace new ideas and approaches that push the industry forward." },
     { title: "Community", description: "We build lasting relationships and foster a sense of belonging among professionals." },
   ],
-  address: "12 A, Basant City, Sua Road, Ludhiana West, Ludhiana, Punjab, India – 142022",
+  address: "12 A, Basant City, Sua Road, Ludhiana, Punjab, India – 142022",
   phone: "+91 98151 00385 / 98880 78580 / 99888 00389",
-  email: "hello@lamediacommunications.com",
+  email: "lamediacommunications@gmail.com",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
   source: "verified" as Provenance,
 } as const;
 
 /** Routed enquiry addresses from the contact page. */
 export const CONTACT_ROUTES = [
-  { key: "collaborate", title: "Collaborate", blurb: "Partnerships, collaborations and strategic alliances.", email: "collab@lamediacommunications.com" },
-  { key: "events", title: "Event enquiries", blurb: "Want to host or partner with us on an event?", email: "events@lamediacommunications.com" },
-  { key: "press", title: "Media & press", blurb: "For media requests and press enquiries.", email: "press@lamediacommunications.com" },
-  { key: "careers", title: "Careers", blurb: "Join our team and be part of meaningful conversations.", email: "careers@lamediacommunications.com" },
+  { key: "collaborate", title: "Collaborate", blurb: "Partnerships, collaborations and strategic alliances.", email: "lamediacommunications@gmail.com" },
+  { key: "events", title: "Event enquiries", blurb: "Want to host or partner with us on an event?", email: "lamediacommunications@gmail.com" },
+  { key: "press", title: "Media & press", blurb: "For media requests and press enquiries.", email: "lamediacommunications@gmail.com" },
+  { key: "careers", title: "Careers", blurb: "Join our team and be part of meaningful conversations.", email: "lamediacommunications@gmail.com" },
 ] as const;
 
 /* ---- Hero -------------------------------------------------------- */
@@ -70,7 +70,7 @@ export const HERO = {
 /* ---- Statistics — ALL FROM PDF, ALL UNVERIFIED ------------------- */
 
 export const STATS: { value: string; label: string; source: Provenance }[] = [
-  { value: "10+",  label: "Years of experience", source: "pdf" },
+  { value: "25+",  label: "Years of experience", source: "verified" },
   { value: "50+",  label: "Events across India", source: "pdf" },
   { value: "25K+", label: "Architects & designers engaged", source: "pdf" },
   { value: "100+", label: "Thought leaders & partners", source: "pdf" },
@@ -198,7 +198,7 @@ export const INSIGHTS: Insight[] = [
     slug: "ludhiana-architecture-events-guide",
     category: "Events",
     title: "Complete Guide to Architecture Events in Ludhiana 2027",
-    excerpt: "Ludhiana is emerging as Punjab's architecture hub. From Design Dialects to local workshops, here's your guide to the city's top architecture events managed by leading event firms.",
+    excerpt: "Ludhiana is emerging as Punjab's architecture hub. From Design Dialect to local workshops, here's your guide to the city's top architecture events managed by leading event firms.",
     date: "March 12, 2027",
     featured: true,
     source: "verified",
@@ -215,7 +215,7 @@ export const INSIGHTS: Insight[] = [
   {
     slug: "design-dialects-ludhiana-success-story",
     category: "Events",
-    title: "Design Dialects 2026: How Ludhiana's Biggest Architecture Event Came Together",
+    title: "Design Dialect 2026: How Ludhiana's Biggest Architecture Event Came Together",
     excerpt: "Behind the scenes of Ludhiana's premier architecture conference. Discover how LA Media & Communications, the city's top event management firm, brought together 300+ professionals.",
     date: "March 8, 2027",
     featured: true,
@@ -366,12 +366,12 @@ export const INSIGHTS: Insight[] = [
    ------------------------------------------------------------------ */
 
 export const EVENT = {
-  name: "Design Dialects 2.0",
+  name: "Design Dialect 2.0",
   city: "Ludhiana",
   tagline: "Ideas. Conversations. Impact.",
   intro:
     "An evening of meaningful conversations with leaders, architects and changemakers shaping the future of design and the built environment.",
-  date: "February 13-14, 2027",
+  date: "February 6-7, 2027",
   day: "Thursday-Friday",
   time: "To be announced",
   timeNote: "Registration opens soon",
@@ -379,8 +379,8 @@ export const EVENT = {
   venueAddress: "Ludhiana, Punjab",
 
   /** The home hero card names it differently. Unresolved in the source. */
-  homeCardName: "Design Dialects 2.0",
-  homeCardDate: "Feb 13-14, 2027",
+  homeCardName: "Design Dialect 2.0",
+  homeCardDate: "Feb 6-7, 2027",
 
   expect: [
     "Insightful conversations",

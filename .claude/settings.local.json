@@ -12,7 +12,20 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git push *)",
-      "Bash(curl -s http://localhost:3000/register)"
+      "Bash(curl -s http://localhost:3000/register)",
+      "Bash(grep -E \"\\\\.\\(pdf|docx|txt|md\\)$\")",
+      "Bash(python3 -c ' *)",
+      "Bash(antiword \"neeraj sharma profile/COMPANY PROFILE AND LIST OF CLIENTS-3-03-16.doc\")",
+      "Bash(git rm *)",
+      "Bash(xargs grep -l \"arjun\" -i)",
+      "WebFetch(domain:www.instagram.com)",
+      "Bash(unzip -p \"AXIS OF DESIGN PROFILE.docx\" word/document.xml)",
+      "Bash(npx tsx *)",
+      "Bash(curl -X POST http://localhost:3000/api/newsletter -H \"Content-Type: application/json\" -d \"{\\\\\"email\\\\\":\\\\\"test@example.com\\\\\"}\")",
+      "Bash(curl -X POST http://localhost:3000/api/registrations -H \"Content-Type: application/json\" -d \"{\\\\\"firstName\\\\\":\\\\\"Test\\\\\",\\\\\"lastName\\\\\":\\\\\"User\\\\\",\\\\\"email\\\\\":\\\\\"testuser@example.com\\\\\",\\\\\"phone\\\\\":\\\\\"+919876543210\\\\\",\\\\\"firmName\\\\\":\\\\\"Test Firm\\\\\",\\\\\"designation\\\\\":\\\\\"Architect\\\\\",\\\\\"heardAbout\\\\\":\\\\\"Social Media\\\\\",\\\\\"consent\\\\\":true}\")",
+      "Bash(curl -X POST http://localhost:3000/api/registrations -H \"Content-Type: application/json\" -d \"{\\\\\"firstName\\\\\":\\\\\"John\\\\\",\\\\\"lastName\\\\\":\\\\\"Doe\\\\\",\\\\\"email\\\\\":\\\\\"johndoe@example.com\\\\\",\\\\\"phone\\\\\":\\\\\"+919876543210\\\\\",\\\\\"firmName\\\\\":\\\\\"ABC Architects\\\\\",\\\\\"designation\\\\\":\\\\\"Senior Architect\\\\\",\\\\\"heardAbout\\\\\":\\\\\"Social Media\\\\\",\\\\\"consent\\\\\":true}\")",
+      "Bash(npm install *)",
+      "Bash(turso db *)"
     ]
   }
 }

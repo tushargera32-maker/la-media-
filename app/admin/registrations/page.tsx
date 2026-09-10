@@ -1,238 +1,263 @@
-import { prisma } from "@/lib/prisma";
-import { Shell, PageHeader, TableWrap, Th, EmptyState, AdminButton } from "@/components/admin/ui";
-import { HandledToggle } from "@/components/admin/RowActions";
-import { toggleRegistrationHandled } from "@/app/admin/actions";
-import Link from "next/link";
+'use client';
 
-export const dynamic = "force-dynamic";
+import { useEffect, useState } from 'react';
 
-/* ==================================================================
-   ADMIN - REGISTRATIONS HUB
-   Three types: Legacy (old EventRegistration), Architects, Sponsors
-   ================================================================== */
+interface Registration {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  firmName: string | null;
+  designation: string | null;
+  coaNumber: string | null;
+  gstNumber: string | null;
+  heardAbout: string | null;
+  handled: boolean;
+  createdAt: string;
+}
 
-export default async function AdminRegistrationsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ type?: string; page?: string }>;
-}) {
-  const params = await searchParams;
-  const type = params.type || "architects"; // default to architects
-  const page = Math.max(1, Number(params.page ?? 1) || 1);
-  const perPage = 25;
+export default function RegistrationsPage() {
+  const [registrations, setRegistrations] = useState<Registration[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState<'all' | 'handled' | 'pending'>('all');
 
-  // Fetch based on type
-  let data: any[] = [];
-  let total = 0;
-  let columns: string[] = [];
+  useEffect(() => {
+    fetchRegistrations();
+  }, []);
 
-  if (type === "architects") {
-    [data, total] = await Promise.all([
-      prisma.architectRegistration.findMany({
-        orderBy: { createdAt: "desc" },
-        skip: (page - 1) * perPage,
-        take: perPage,
-      }),
-      prisma.architectRegistration.count(),
+  const fetchRegistrations = async () => {
+    try {
+      const response = await fetch('/api/admin/registrations');
+      const data = await response.json();
+      setRegistrations(data.registrations || []);
+    } catch (error) {
+      console.error('Error fetching registrations:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const markAsHandled = async (id: string, handled: boolean) => {
+    try {
+      const response = await fetch(`/api/admin/registrations/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ handled }),
+      });
+
+      if (response.ok) {
+        fetchRegistrations();
+      }
+    } catch (error) {
+      console.error('Error updating registration:', error);
+    }
+  };
+
+  const exportToCSV = () => {
+    const headers = ['Name', 'Email', 'Phone', 'Firm', 'Designation', 'COA', 'GST', 'Heard About', 'Date', 'Handled'];
+    const rows = filteredRegistrations.map(r => [
+      `${r.firstName} ${r.lastName}`,
+      r.email,
+      r.phone,
+      r.firmName || '',
+      r.designation || '',
+      r.coaNumber || '',
+      r.gstNumber || '',
+      r.heardAbout || '',
+      new Date(r.createdAt).toLocaleDateString(),
+      r.handled ? 'Yes' : 'No',
     ]);
-    columns = ["Name", "Contact", "Firm", "Designation", "COA Number", "Received", "Handled"];
-  } else if (type === "sponsors") {
-    [data, total] = await Promise.all([
-      prisma.sponsorRegistration.findMany({
-        orderBy: { createdAt: "desc" },
-        skip: (page - 1) * perPage,
-        take: perPage,
-      }),
-      prisma.sponsorRegistration.count(),
-    ]);
-    columns = ["Company", "Contact Person", "Email/Phone", "GST", "Stall Size", "City", "Received", "Handled"];
-  } else {
-    [data, total] = await Promise.all([
-      prisma.eventRegistration.findMany({
-        orderBy: { createdAt: "desc" },
-        skip: (page - 1) * perPage,
-        take: perPage,
-      }),
-      prisma.eventRegistration.count(),
-    ]);
-    columns = ["Name", "Contact", "Firm", "COA/GST", "Received", "Handled"];
+
+    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `registrations-${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+  };
+
+  const filteredRegistrations = registrations.filter(r => {
+    if (filter === 'handled') return r.handled;
+    if (filter === 'pending') return !r.handled;
+    return true;
+  });
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-navy">
+        <div className="text-copper">Loading registrations...</div>
+      </div>
+    );
   }
 
-  const totalPages = Math.max(1, Math.ceil(total / perPage));
-
   return (
-    <Shell>
-      <PageHeader
-        title="Registrations"
-        description={`${total} ${type} ${total === 1 ? "registration" : "registrations"}`}
-      />
+    <div className="min-h-screen bg-navy p-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold text-white">Event Registrations</h1>
+            <p className="mt-2 text-mist">Total: {registrations.length} registrations</p>
+          </div>
+          <button
+            onClick={exportToCSV}
+            className="rounded-lg bg-copper px-6 py-3 font-semibold text-white transition-colors hover:bg-copper-soft"
+          >
+            📥 Export to CSV
+          </button>
+        </div>
 
-      {/* Tabs */}
-      <div className="mt-6 flex gap-2 border-b border-neutral-200">
-        {[
-          { key: "architects", label: "Architects" },
-          { key: "sponsors", label: "Sponsors" },
-          { key: "legacy", label: "Legacy" },
-        ].map((tab) => (
-          <Link
-            key={tab.key}
-            href={`/admin/registrations?type=${tab.key}`}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${
-              type === tab.key
-                ? "border-b-2 border-blue-600 text-blue-600"
-                : "text-neutral-600 hover:text-neutral-900"
+        {/* Filter Tabs */}
+        <div className="mb-6 flex gap-4">
+          <button
+            onClick={() => setFilter('all')}
+            className={`rounded-lg px-6 py-2 font-semibold transition-colors ${
+              filter === 'all'
+                ? 'bg-copper text-white'
+                : 'bg-navy-2 text-mist hover:text-white'
             }`}
           >
-            {tab.label}
-          </Link>
-        ))}
+            All ({registrations.length})
+          </button>
+          <button
+            onClick={() => setFilter('pending')}
+            className={`rounded-lg px-6 py-2 font-semibold transition-colors ${
+              filter === 'pending'
+                ? 'bg-copper text-white'
+                : 'bg-navy-2 text-mist hover:text-white'
+            }`}
+          >
+            Pending ({registrations.filter(r => !r.handled).length})
+          </button>
+          <button
+            onClick={() => setFilter('handled')}
+            className={`rounded-lg px-6 py-2 font-semibold transition-colors ${
+              filter === 'handled'
+                ? 'bg-copper text-white'
+                : 'bg-navy-2 text-mist hover:text-white'
+            }`}
+          >
+            Handled ({registrations.filter(r => r.handled).length})
+          </button>
+        </div>
+
+        {/* Registrations List */}
+        <div className="space-y-4">
+          {filteredRegistrations.length === 0 ? (
+            <div className="rounded-lg border border-hairline bg-navy-2 p-12 text-center">
+              <p className="text-mist">No registrations found</p>
+            </div>
+          ) : (
+            filteredRegistrations.map((reg) => (
+              <div
+                key={reg.id}
+                className="rounded-lg border border-hairline bg-navy-2 p-6 transition-all hover:border-copper"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <div className="mb-4 flex items-center gap-4">
+                      <h3 className="text-xl font-bold text-white">
+                        {reg.firstName} {reg.lastName}
+                      </h3>
+                      {reg.handled ? (
+                        <span className="rounded-full bg-green-500/20 px-3 py-1 text-xs font-semibold text-green-400">
+                          ✓ Handled
+                        </span>
+                      ) : (
+                        <span className="rounded-full bg-yellow-500/20 px-3 py-1 text-xs font-semibold text-yellow-400">
+                          ⏳ Pending
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                          Email
+                        </p>
+                        <p className="mt-1 text-sm text-copper">{reg.email}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                          Phone
+                        </p>
+                        <p className="mt-1 text-sm text-mist">{reg.phone}</p>
+                      </div>
+                      {reg.firmName && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                            Firm
+                          </p>
+                          <p className="mt-1 text-sm text-mist">{reg.firmName}</p>
+                        </div>
+                      )}
+                      {reg.designation && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                            Designation
+                          </p>
+                          <p className="mt-1 text-sm text-mist">{reg.designation}</p>
+                        </div>
+                      )}
+                      {reg.coaNumber && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                            COA Number
+                          </p>
+                          <p className="mt-1 text-sm text-mist">{reg.coaNumber}</p>
+                        </div>
+                      )}
+                      {reg.gstNumber && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                            GST Number
+                          </p>
+                          <p className="mt-1 text-sm text-mist">{reg.gstNumber}</p>
+                        </div>
+                      )}
+                      {reg.heardAbout && (
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                            Heard About
+                          </p>
+                          <p className="mt-1 text-sm text-mist">{reg.heardAbout}</p>
+                        </div>
+                      )}
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-wider text-slate">
+                          Registered
+                        </p>
+                        <p className="mt-1 text-sm text-mist">
+                          {new Date(reg.createdAt).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="ml-6 flex flex-col gap-2">
+                    {!reg.handled ? (
+                      <button
+                        onClick={() => markAsHandled(reg.id, true)}
+                        className="whitespace-nowrap rounded-lg bg-green-500/20 px-4 py-2 text-sm font-semibold text-green-400 transition-colors hover:bg-green-500/30"
+                      >
+                        ✓ Mark as Handled
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => markAsHandled(reg.id, false)}
+                        className="whitespace-nowrap rounded-lg bg-yellow-500/20 px-4 py-2 text-sm font-semibold text-yellow-400 transition-colors hover:bg-yellow-500/30"
+                      >
+                        ⏳ Mark as Pending
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
       </div>
-
-      {data.length === 0 ? (
-        <div className="mt-8">
-          <EmptyState
-            title={`No ${type} registrations yet`}
-            body="Submissions will appear here once users register."
-          />
-        </div>
-      ) : (
-        <div className="mt-8">
-          <TableWrap>
-            <table className="w-full min-w-[1100px] text-left text-sm">
-              <thead className="border-b border-black/10 bg-neutral-50">
-                <tr>
-                  {columns.map((h) => (
-                    <Th key={h}>{h}</Th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-100">
-                {type === "architects" &&
-                  (data as any[]).map((r) => (
-                    <tr key={r.id} className="align-top hover:bg-neutral-50">
-                      <td className="px-4 py-4">
-                        <p className="font-medium">{`${r.firstName} ${r.lastName}`}</p>
-                      </td>
-                      <td className="px-4 py-4">
-                        <a href={`mailto:${r.email}`} className="text-blue-700 hover:underline">
-                          {r.email}
-                        </a>
-                        <p className="mt-1 text-neutral-600">{r.phone}</p>
-                      </td>
-                      <td className="px-4 py-4 text-neutral-700">{r.firmName}</td>
-                      <td className="px-4 py-4 text-neutral-700">{r.designation}</td>
-                      <td className="px-4 py-4 text-neutral-700">{r.coaNumber}</td>
-                      <td className="whitespace-nowrap px-4 py-4 text-neutral-500">
-                        {r.createdAt.toLocaleDateString("en-IN", {
-                          day: "2-digit",
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </td>
-                      <td className="whitespace-nowrap px-4 py-4">
-                        <span className={r.handled ? "text-green-600" : "text-neutral-400"}>
-                          {r.handled ? "✓" : "○"}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-
-                {type === "sponsors" &&
-                  (data as any[]).map((r) => (
-                    <tr key={r.id} className="align-top hover:bg-neutral-50">
-                      <td className="px-4 py-4">
-                        <p className="font-medium">{r.companyName}</p>
-                      </td>
-                      <td className="px-4 py-4 text-neutral-700">{r.contactName}</td>
-                      <td className="px-4 py-4">
-                        <a href={`mailto:${r.email}`} className="text-blue-700 hover:underline">
-                          {r.email}
-                        </a>
-                        <p className="mt-1 text-neutral-600">{r.phone}</p>
-                      </td>
-                      <td className="px-4 py-4 text-neutral-700">{r.gstNumber}</td>
-                      <td className="px-4 py-4 text-neutral-700">{r.stallSize || "-"}</td>
-                      <td className="px-4 py-4 text-neutral-700">{r.city}, {r.state}</td>
-                      <td className="whitespace-nowrap px-4 py-4 text-neutral-500">
-                        {r.createdAt.toLocaleDateString("en-IN", {
-                          day: "2-digit",
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </td>
-                      <td className="whitespace-nowrap px-4 py-4">
-                        <span className={r.handled ? "text-green-600" : "text-neutral-400"}>
-                          {r.handled ? "✓" : "○"}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-
-                {type === "legacy" &&
-                  (data as any[]).map((r) => (
-                    <tr key={r.id} className="align-top hover:bg-neutral-50">
-                      <td className="px-4 py-4">
-                        <p className="font-medium">{`${r.firstName} ${r.lastName}`}</p>
-                      </td>
-                      <td className="px-4 py-4">
-                        <a href={`mailto:${r.email}`} className="text-blue-700 hover:underline">
-                          {r.email}
-                        </a>
-                        <p className="mt-1 text-neutral-600">{r.phone}</p>
-                      </td>
-                      <td className="px-4 py-4 text-neutral-700">{r.firmName ?? "-"}</td>
-                      <td className="px-4 py-4 text-neutral-700">
-                        {r.coaNumber || r.gstNumber || "-"}
-                      </td>
-                      <td className="whitespace-nowrap px-4 py-4 text-neutral-500">
-                        {r.createdAt.toLocaleDateString("en-IN", {
-                          day: "2-digit",
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </td>
-                      <td className="whitespace-nowrap px-4 py-4">
-                        <HandledToggle
-                          handled={r.handled}
-                          onToggle={async (next) => {
-                            "use server";
-                            await toggleRegistrationHandled(r.id, next);
-                          }}
-                        />
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </TableWrap>
-        </div>
-      )}
-
-      {totalPages > 1 && (
-        <div className="mt-6 flex items-center justify-between text-sm">
-          <span className="text-neutral-500">
-            Page {page} of {totalPages}
-          </span>
-          <div className="flex gap-2">
-            {page > 1 && (
-              <AdminButton
-                href={`/admin/registrations?type=${type}&page=${page - 1}`}
-                variant="secondary"
-              >
-                Previous
-              </AdminButton>
-            )}
-            {page < totalPages && (
-              <AdminButton
-                href={`/admin/registrations?type=${type}&page=${page + 1}`}
-                variant="secondary"
-              >
-                Next
-              </AdminButton>
-            )}
-          </div>
-        </div>
-      )}
-    </Shell>
+    </div>
   );
 }

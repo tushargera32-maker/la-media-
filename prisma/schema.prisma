@@ -6,7 +6,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model User {
@@ -195,3 +195,40 @@ model EventRegistration {
   @@index([createdAt])
   @@index([email])
 }
+
+/// Site visitor tracking - tracks all visitors even without form submission
+model SiteVisitor {
+  id              String   @id @default(cuid())
+  sessionId       String   @unique
+  ipAddress       String?
+  userAgent       String?
+  referrer        String?
+  landingPage     String?
+  country         String?
+  city            String?
+  device          String?
+  browser         String?
+  os              String?
+  visitCount      Int      @default(1)
+  lastVisitedAt   DateTime @default(now())
+  createdAt       DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([lastVisitedAt])
+  @@index([sessionId])
+}
+
+/// Page view tracking - tracks which pages visitors view
+model PageView {
+  id              String   @id @default(cuid())
+  sessionId       String
+  path            String
+  title           String?
+  timeSpent       Int?     // seconds
+  createdAt       DateTime @default(now())
+
+  @@index([sessionId])
+  @@index([path])
+  @@index([createdAt])
+}
+

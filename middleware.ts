@@ -19,6 +19,10 @@ const PUBLIC_POST_ROUTES = [
   '/api/contacts',
   '/api/collaborations',
   '/api/newsletter',
+  '/api/registrations',
+  '/api/registrations/architect',
+  '/api/registrations/sponsor',
+  '/api/track-visitor',
 ];
 
 export default async function middleware(request: NextRequest) {

@@ -50,9 +50,9 @@ export function SiteHeader() {
           solid ? "bg-navy/90 backdrop-blur-xl border-b border-hairline" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-shell items-center justify-between gap-6 px-gutter py-5">
-          <Link href="/" className="flex items-center gap-3" aria-label="LA Media and Communications, home">
-            <div className="relative h-16 w-48">
+        <div className="mx-auto flex max-w-shell items-center justify-between gap-4 px-gutter py-4 md:gap-6 md:py-5">
+          <Link href="/" className="flex items-center gap-2 md:gap-3" aria-label="LA Media and Communications, home">
+            <div className="relative h-12 w-36 md:h-16 md:w-48">
               <Image
                 src="/firm-la-media.png"
                 alt="LA Media & Communications"
@@ -64,7 +64,7 @@ export function SiteHeader() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-9 lg:flex">
+          <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
             {LINKS.map((link) => {
               const active = pathname === link.href;
               return (
@@ -72,7 +72,7 @@ export function SiteHeader() {
                   key={link.href}
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`relative py-1 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-bone ${
+                  className={`relative py-2 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-bone ${
                     active ? "text-copper" : "text-mist"
                   }`}
                 >
@@ -83,8 +83,8 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <Link href="/register" className="btn btn-line hidden md:inline-flex">
+          <div className="flex items-center gap-3 md:gap-4">
+            <Link href="/register" className="btn btn-line hidden px-5 text-[10px] md:inline-flex md:px-6 md:text-[11px]">
               Let&rsquo;s connect <Arrow />
             </Link>
 
@@ -94,7 +94,7 @@ export function SiteHeader() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               aria-label={open ? "Close menu" : "Open menu"}
-              className="grid h-10 w-10 place-items-center rounded-full border border-hairline transition-colors duration-300 hover:border-mist"
+              className="grid h-11 w-11 place-items-center rounded-full border border-hairline transition-colors duration-300 hover:border-mist md:h-10 md:w-10"
             >
               <span className="grid gap-[5px]">
                 <span className={`block h-px w-4 bg-bone transition-transform duration-300 ${open ? "translate-y-[6px] rotate-45" : ""}`} />
@@ -120,12 +120,12 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           inert={!open}
-          className={`fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm transform bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl transition-transform duration-300 ease-out will-change-transform ${
+          className={`fixed right-0 top-0 z-50 h-full w-[90%] max-w-sm transform bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl transition-transform duration-300 ease-out will-change-transform sm:w-[85%] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-hairline p-6">
+            <div className="flex items-center justify-between border-b border-hairline p-5 sm:p-6">
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo.png"
@@ -140,7 +140,7 @@ export function SiteHeader() {
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="grid h-10 w-10 place-items-center rounded-full border border-hairline transition-all hover:border-copper hover:bg-copper/10"
+                className="grid h-11 w-11 place-items-center rounded-full border border-hairline transition-all hover:border-copper hover:bg-copper/10 sm:h-10 sm:w-10"
                 aria-label="Close menu"
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -150,14 +150,14 @@ export function SiteHeader() {
             </div>
 
             {/* Menu Items */}
-            <div className="overflow-y-auto p-4" style={{ height: 'calc(100vh - 180px)' }}>
+            <div className="overflow-y-auto p-3 sm:p-4" style={{ height: 'calc(100vh - 190px)' }}>
               {LINKS.map((link, i) => {
                 const active = pathname === link.href;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`group relative flex items-center gap-4 overflow-hidden rounded-lg px-5 py-4 transition-all duration-300 ${
+                    className={`group relative flex min-h-[48px] items-center gap-3 overflow-hidden rounded-lg px-4 py-3.5 transition-all duration-300 sm:gap-4 sm:px-5 sm:py-4 ${
                       active
                         ? 'bg-copper text-white shadow-lg shadow-copper/20'
                         : 'text-mist hover:bg-navy-2 hover:text-bone'
@@ -170,7 +170,7 @@ export function SiteHeader() {
                       {link.label}
                     </span>
                     <svg
-                      className={`ml-auto h-4 w-4 transition-transform duration-300 ${active ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`}
+                      className={`ml-auto h-5 w-5 transition-transform duration-300 sm:h-4 sm:w-4 ${active ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -186,13 +186,13 @@ export function SiteHeader() {
             <div className="absolute bottom-0 left-0 right-0 border-t border-hairline bg-navy-2/50 p-4 backdrop-blur-sm">
               <Link
                 href="/register"
-                className="btn btn-fill w-full justify-center text-center"
+                className="btn btn-fill w-full justify-center text-center text-[11px]"
                 onClick={() => setOpen(false)}
               >
                 Register Now
               </Link>
-              <p className="mt-3 text-center text-[11px] text-slate">
-                Join Design Dialects 2.0
+              <p className="mt-3 text-center text-[10px] text-slate sm:text-[11px]">
+                Join Design Dialect 2.0
               </p>
             </div>
         </nav>

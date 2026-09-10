@@ -4,8 +4,8 @@ import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
-  title: "Media & Gallery",
-  description: "Explore our media gallery showcasing events, moments, and highlights from LA Media & Communications.",
+  title: "Media & Gallery - Events & Projects | LA Media",
+  description: "Explore our portfolio of curated events, architecture conferences, and memorable moments from Design Dialect and LA Media projects across India.",
 };
 
 export const dynamic = 'force-dynamic';
@@ -44,13 +44,13 @@ export default async function MediaPage() {
 
         <div className="relative mx-auto max-w-shell px-gutter">
           <Reveal>
-            <Eyebrow>Media & Gallery</Eyebrow>
+            <Eyebrow>Our Projects</Eyebrow>
             <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.5vw,4.4rem)]">
-              Moments that <span className="text-copper">inspire</span>.
+              Stories.<br />Moments.<br /><span className="text-copper">Impact.</span>
             </h1>
             <p className="mt-8 max-w-[44ch] text-[17px] leading-relaxed text-mist">
-              Explore our collection of event highlights, behind-the-scenes moments, and the stories
-              that bring our community together.
+              A visual journey through our conferences, events, and the connections we've built.
+              From Design Dialect to architecture summits, explore the moments that shaped India's design community.
             </p>
           </Reveal>
         </div>
@@ -67,18 +67,19 @@ export default async function MediaPage() {
               <section key={category} className="border-t border-hairline py-section">
                 <div className="mx-auto max-w-shell px-gutter">
                   <Reveal>
-                    <h2 className="mb-8 text-[1.8rem] font-bold">
-                      {category}
+                    <Eyebrow>{category}</Eyebrow>
+                    <h2 className="mt-6 text-[clamp(1.8rem,3vw,2.4rem)] font-bold">
+                      Project Highlights
                     </h2>
                   </Reveal>
 
-                  <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {categoryImages.map((img) => {
                       const isVideo = img.image.match(/\.(mp4|webm|mov)$/i);
 
                       return (
-                        <article key={img.id} className="panel group overflow-hidden">
-                          <div className="relative aspect-video overflow-hidden bg-navy-2">
+                        <article key={img.id} className="panel group overflow-hidden transition-all hover:border-copper">
+                          <div className="relative aspect-[4/3] overflow-hidden bg-navy-2">
                             {isVideo ? (
                               <video
                                 src={img.image}
@@ -98,8 +99,8 @@ export default async function MediaPage() {
                             )}
                           </div>
                           {img.title && (
-                            <div className="p-4">
-                              <h3 className="text-[14px] font-semibold">{img.title}</h3>
+                            <div className="p-5">
+                              <h3 className="text-[15px] font-semibold leading-snug">{img.title}</h3>
                             </div>
                           )}
                         </article>
@@ -116,16 +117,17 @@ export default async function MediaPage() {
             <section className="border-t border-hairline py-section">
               <div className="mx-auto max-w-shell px-gutter">
                 <Reveal>
-                  <h2 className="mb-8 text-[1.8rem] font-bold">Gallery</h2>
+                  <Eyebrow>More From Our Events</Eyebrow>
+                  <h2 className="mt-6 text-[clamp(1.8rem,3vw,2.4rem)] font-bold">Gallery</h2>
                 </Reveal>
 
-                <RevealGroup className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {uncategorized.map((img) => {
                     const isVideo = img.image.match(/\.(mp4|webm|mov)$/i);
 
                     return (
-                      <article key={img.id} className="panel group overflow-hidden">
-                        <div className="relative aspect-video overflow-hidden bg-navy-2">
+                      <article key={img.id} className="panel group overflow-hidden transition-all hover:border-copper">
+                        <div className="relative aspect-[4/3] overflow-hidden bg-navy-2">
                           {isVideo ? (
                             <video
                               src={img.image}
@@ -145,8 +147,8 @@ export default async function MediaPage() {
                           )}
                         </div>
                         {img.title && (
-                          <div className="p-4">
-                            <h3 className="text-[14px] font-semibold">{img.title}</h3>
+                          <div className="p-5">
+                            <h3 className="text-[15px] font-semibold leading-snug">{img.title}</h3>
                           </div>
                         )}
                       </article>
@@ -166,14 +168,15 @@ export default async function MediaPage() {
                 <svg className="mx-auto h-16 w-16 text-copper opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <h2 className="mt-6 text-[1.4rem] font-semibold">Gallery Coming Soon</h2>
-                <p className="mt-3 text-[15px] text-mist">
-                  We're curating our media gallery. Upload images through the admin panel to showcase
-                  your events and moments here.
+                <h2 className="mt-6 text-[1.8rem] font-semibold">Building Something Special</h2>
+                <p className="mt-4 max-w-[48ch] mx-auto text-[16px] leading-relaxed text-mist">
+                  We're curating a collection of our most impactful moments—from sold-out conferences
+                  to intimate workshops. Our project gallery is coming soon with photos and highlights
+                  from Design Dialect, architecture summits, and community events across India.
                 </p>
-                <a href="/admin/gallery" className="btn btn-line mt-6 inline-flex">
-                  Go to Gallery Admin
-                </a>
+                <p className="mt-6 text-[14px] text-slate">
+                  Organizing a project? <a href="/contact" className="text-copper hover:underline">Get in touch</a> to create memorable experiences together.
+                </p>
               </div>
             </Reveal>
           </div>

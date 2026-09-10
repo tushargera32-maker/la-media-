@@ -38,7 +38,7 @@ export default function WorkPage() {
           <div className="mb-8">
             <Eyebrow>Upcoming Event</Eyebrow>
             <h2 className="h-tight mt-6 max-w-[18ch] text-[clamp(1.9rem,4vw,3.2rem)]">
-              <span className="text-copper">Design Dialects 2.0</span>
+              <span className="text-copper">Design Dialect 2.0</span>
             </h2>
           </div>
 
@@ -50,7 +50,7 @@ export default function WorkPage() {
                 <div className="aspect-video lg:aspect-auto">
                   <Image
                     src="/DD 2.0_Page (1).png"
-                    alt="Design Dialects 2.0"
+                    alt="Design Dialect 2.0"
                     fill
                     className="object-cover"
                   />
@@ -103,23 +103,23 @@ export default function WorkPage() {
         </Reveal>
       </section>
 
-      {/* Past Events - Completed Design Dialects */}
+      {/* Past Events - Completed Design Dialect */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Past Events</Eyebrow>
             <h2 className="h-tight mt-6 max-w-[18ch] text-[clamp(1.9rem,4vw,3.2rem)]">
-              Previous <span className="text-copper">Design Dialects</span> Editions
+              Previous <span className="text-copper">Design Dialect</span> Editions
             </h2>
           </Reveal>
 
           <RevealGroup className="mt-14 grid gap-8 md:grid-cols-2">
-            {/* Design Dialects 1.0 */}
+            {/* Design Dialect 1.0 */}
             <article className="panel group overflow-hidden">
               <div className="relative aspect-video overflow-hidden bg-navy-2">
                 <Image
                   src="/past-event-1.jpg"
-                  alt="Design Dialects 1.0"
+                  alt="Design Dialect 1.0"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -141,7 +141,7 @@ export default function WorkPage() {
                   <span className="text-copper">200+ Attendees</span>
                 </div>
 
-                <h3 className="text-[22px] font-bold">Design Dialects 1.0</h3>
+                <h3 className="text-[22px] font-bold">Design Dialect 1.0</h3>
                 <p className="mt-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-slate">
                   Ideas. Conversations. Impact.
                 </p>
@@ -178,7 +178,7 @@ export default function WorkPage() {
               <div>
                 <p className="text-[15px] text-mist">More past event highlights coming soon</p>
                 <Link href="/design-dialects" className="btn btn-ghost mx-auto mt-6">
-                  Explore Design Dialects
+                  Explore Design Dialect
                 </Link>
               </div>
             </div>

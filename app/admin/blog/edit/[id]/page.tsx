@@ -23,6 +23,7 @@ export default function EditBlogPage() {
   const params = useParams();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [formData, setFormData] = useState<BlogPost>({
     id: "",
     title: "",
@@ -73,6 +74,35 @@ export default function EditBlogPage() {
       title,
       slug: generateSlug(title),
     });
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setFormData((prev) => ({ ...prev, image: data.url }));
+        alert("Image uploaded successfully!");
+      } else {
+        alert("Failed to upload image");
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+      alert("Failed to upload image");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -258,17 +288,64 @@ export default function EditBlogPage() {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Featured Image URL
+                Featured Image
               </label>
-              <input
-                type="url"
-                value={formData.image || ""}
-                onChange={(e) =>
-                  setFormData({ ...formData, image: e.target.value })
-                }
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="https://example.com/image.jpg"
-              />
+
+              {/* Image Upload Option */}
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm text-gray-600 mb-2">
+                    Upload Image
+                  </label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    disabled={uploading}
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                  {uploading && (
+                    <p className="mt-2 text-sm text-blue-600">Uploading...</p>
+                  )}
+                </div>
+
+                <div className="relative">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">OR</span>
+                  </div>
+                </div>
+
+                {/* Image URL Option */}
+                <div>
+                  <label className="block text-sm text-gray-600 mb-2">
+                    Image URL
+                  </label>
+                  <input
+                    type="url"
+                    value={formData.image || ""}
+                    onChange={(e) =>
+                      setFormData({ ...formData, image: e.target.value })
+                    }
+                    className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="https://example.com/image.jpg or /blog-cover-1.png"
+                  />
+                </div>
+
+                {/* Image Preview */}
+                {formData.image && (
+                  <div className="mt-4">
+                    <p className="text-sm text-gray-600 mb-2">Preview:</p>
+                    <img
+                      src={formData.image}
+                      alt="Preview"
+                      className="max-w-xs rounded-lg border border-gray-300"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="flex items-center">

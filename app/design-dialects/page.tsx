@@ -6,7 +6,7 @@ import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { EVENT } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Design Dialects - LA Media",
+  title: "Design Dialect - LA Media",
   description: "Thought-provoking talks, immersive experiences, and meaningful conversations for the architecture and design community",
 };
 
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 const PAST_EVENTS = [
   {
     id: "dd-1",
-    title: "Design Dialects 1.0",
-    date: "May 2024",
+    title: "Design Dialect",
+    date: "July 2025",
     location: "Ludhiana, Punjab",
     attendees: "200+",
     image: "/past-event-1.jpg",
@@ -61,7 +61,7 @@ export default function DesignDialectsPage() {
               DD
             </div>
             <h1 className="h-display text-[clamp(2.5rem,6vw,5rem)]">
-              Design Dialects
+              Design Dialect
             </h1>
             <p className="mx-auto mt-6 max-w-[60ch] text-[18px] leading-relaxed text-mist">
               Thought-provoking talks, immersive experiences, and meaningful conversations
@@ -146,7 +146,7 @@ export default function DesignDialectsPage() {
           <div className="panel relative mx-auto mt-12 max-w-4xl overflow-hidden">
             <Image
               src="/DD 2.0_Page (1).png"
-              alt="Design Dialects 2.0 Event Poster"
+              alt="Design Dialect 2.0 Event Poster"
               width={1200}
               height={1600}
               className="h-auto w-full"
@@ -173,7 +173,7 @@ export default function DesignDialectsPage() {
             <div className="text-center">
               <p className="eyebrow">Our Journey</p>
               <h2 className="h-tight mt-6 text-[clamp(2rem,4vw,3.5rem)]">
-                Past <span className="text-copper">Design Dialects</span> Events
+                Past <span className="text-copper">Design Dialect</span> Events
               </h2>
               <p className="mx-auto mt-6 max-w-[54ch] text-[17px] text-mist">
                 Relive the moments, conversations, and ideas that shaped meaningful connections
@@ -265,7 +265,7 @@ export default function DesignDialectsPage() {
 
           <div className="panel mx-auto mt-14 max-w-4xl p-12 text-center">
             <p className="text-[15px] text-mist">
-              Photo galleries from past Design Dialects events coming soon.
+              Photo galleries from past Design Dialect events coming soon.
             </p>
             <Link href="/" className="btn btn-ghost mx-auto mt-6">
               Browse All Events

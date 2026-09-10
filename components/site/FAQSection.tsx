@@ -10,7 +10,7 @@ interface FAQItem {
 const FAQ_ITEMS: FAQItem[] = [
   {
     question: "When and where is the event?",
-    answer: "Design Dialects 2.0 will be held on February 13-14, 2027 in Ludhiana, Punjab. The exact venue will be announced soon. Registration opens at 5:00 PM on the first day."
+    answer: "Design Dialect 2.0 will be held on February 6-7, 2027 in Ludhiana, Punjab. More details will be announced soon."
   },
   {
     question: "Who can attend this event?",
@@ -30,7 +30,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "Will there be networking opportunities?",
-    answer: "Absolutely! Design Dialects is built around meaningful conversations and connections. You'll have ample opportunities to network with industry leaders, architects, designers, and brand partners."
+    answer: "Absolutely! Design Dialect is built around meaningful conversations and connections. You'll have ample opportunities to network with industry leaders, architects, designers, and brand partners."
   },
   {
     question: "What if I need to cancel my registration?",

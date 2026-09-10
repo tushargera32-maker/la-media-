@@ -10,7 +10,7 @@ export function VerticalSwitcher() {
       {/* Desktop Vertical Switcher */}
       <div className="fixed right-6 top-1/2 z-40 -translate-y-1/2 hidden lg:block">
         <div className="panel flex flex-col gap-0 overflow-hidden p-0 shadow-lg">
-          {/* Design Dialects */}
+          {/* Design Dialect */}
           <button
             onClick={() => router.push('/design-dialects')}
             className="group relative flex flex-col items-center gap-2 border-b border-hairline px-4 py-5 transition-all duration-300 hover:bg-copper/10"

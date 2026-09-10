@@ -29,7 +29,7 @@ function makeClient(): PrismaClient {
 
   const libsql = createClient({
     url,
-    authToken: process.env.DATABASE_AUTH_TOKEN,
+    authToken: process.env.TURSO_AUTH_TOKEN || process.env.DATABASE_AUTH_TOKEN,
   });
 
   return new PrismaClient({ adapter: new PrismaLibSQL(libsql) });
