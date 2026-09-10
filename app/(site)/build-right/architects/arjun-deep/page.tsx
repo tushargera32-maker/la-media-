@@ -242,13 +242,13 @@ export default function ArjunDeepPage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].map((i) => (
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-3">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="group relative aspect-square overflow-hidden rounded-lg bg-navy-2">
                 <Media
                   label={`Ar. Arjun Deep Project ${i}`}
                   ratio="1/1"
-                  src={`/team/projects/arjun-${i}.jpg`}
+                  src={`/team/projects/ar-arjun-${i}.jpg`}
                   className="h-full border-0 ring-0 transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
