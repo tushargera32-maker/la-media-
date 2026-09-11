@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { Eyebrow, Button } from "@/components/ui/Primitives";
+import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
   title: "Build Right Advisors - Construction Advisory Services | Ludhiana",
