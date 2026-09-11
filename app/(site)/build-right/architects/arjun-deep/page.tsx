@@ -92,6 +92,10 @@ export default function ArjunDeepPage() {
                 </div>
               </a>
             </div>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <span className="rounded-full border border-copper/30 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold text-copper">Cofounder, Fusion Infrastructure</span>
+              <span className="rounded-full border border-copper/30 bg-copper/10 px-3 py-1.5 text-[11px] font-semibold text-copper">Cofounder, LA Media & Communications LLP</span>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -138,6 +142,9 @@ export default function ArjunDeepPage() {
                 </p>
                 <p>
                   His practice is renowned for designing spaces that serve the people who inhabit them—from intimate residences to large-scale institutions and commercial landmarks. Registered with the Council of Architecture, Indian Institute of Architects, and All India Institute of Valuers, his comprehensive expertise spans architecture, interiors, structural design, and property valuation.
+                </p>
+                <p>
+                  As Cofounder of Fusion Infrastructure and LA Media & Communications LLP, Ar. Arjun Deep brings his decades of experience to collaborative ventures shaping Punjab&apos;s built environment.
                 </p>
               </div>
             </div>

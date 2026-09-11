@@ -387,6 +387,7 @@ export default function BuildRightPage() {
                   <h3 className="text-[24px] font-bold group-hover:text-copper transition-colors">Ar. Arjun Deep</h3>
                   <p className="mt-2 text-[13px] text-mist">Principal Architect</p>
                   <p className="text-[13px] font-semibold text-copper">Arjun Sharma & Associates</p>
+                  <p className="mt-1 text-[12px] text-slate">Cofounder — Fusion Infrastructure · LA Media & Communications LLP</p>
 
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex gap-4 text-center">
@@ -432,6 +433,7 @@ export default function BuildRightPage() {
                   <h3 className="text-[24px] font-bold group-hover:text-copper transition-colors">Ar. Neeraj Sharma</h3>
                   <p className="mt-2 text-[13px] text-mist">Principal Architect</p>
                   <p className="text-[13px] font-semibold text-copper">Infinity Architects</p>
+                  <p className="mt-1 text-[12px] text-slate">Cofounder — Fusion Infrastructure · LA Media & Communications LLP</p>
 
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex gap-4 text-center">
@@ -477,6 +479,7 @@ export default function BuildRightPage() {
                   <h3 className="text-[24px] font-bold group-hover:text-copper transition-colors">Ar. Sham Sunder Gupta</h3>
                   <p className="mt-2 text-[13px] text-mist">Principal Architect</p>
                   <p className="text-[13px] font-semibold text-copper">Axis of Design</p>
+                  <p className="mt-1 text-[12px] text-slate">Cofounder — Fusion Infrastructure · LA Media & Communications LLP</p>
 
                   <div className="mt-4 flex items-center justify-between">
                     <div className="flex gap-4 text-center">

@@ -118,18 +118,18 @@ export const CAPABILITIES = [
 export const LEADERSHIP = [
   {
     name: "Ar. Arjun Deep",
-    role: "Founder & Creative Director",
-    bio: "Arjun brings 15+ years of experience in architecture communication, brand storytelling and creative strategy. He leads the vision and drives every project with purpose.",
+    role: "Principal Architect, Arjun Sharma & Associates",
+    bio: "Arjun brings 25+ years of experience in architecture, interiors and property valuation across Punjab. He leads the vision and drives every project with purpose. He is Cofounder at Fusion Infrastructure and LA Media & Communications LLP.",
   },
   {
     name: "Ar. Neeraj Sharma",
-    role: "Head of Strategy",
-    bio: "Neeraj specialises in strategic communications and integrated campaigns. His approach blends insight with innovation to deliver impactful results for our clients.",
+    role: "Principal Architect, Infinity Architects",
+    bio: "Neeraj brings 25+ years of experience in residential, commercial and institutional architecture. His approach blends clarity with transparency to deliver impactful results for our clients. He is Cofounder at Fusion Infrastructure and LA Media & Communications LLP.",
   },
   {
     name: "Ar. Sham Sunder Gupta",
-    role: "Head of Design & Content",
-    bio: "Sham Sunder leads the design and content team, turning ideas into compelling visual and written stories that connect with audiences and build stronger brand narratives.",
+    role: "Principal Architect, Axis of Design",
+    bio: "Sham Sunder brings 25+ years of experience across diverse sectors from healthcare to hospitality. He turns ideas into built spaces that serve people. He is Cofounder at Fusion Infrastructure and LA Media & Communications LLP.",
   },
 ];
 
