@@ -129,7 +129,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
             <div className="relative hidden border-r border-hairline bg-navy-2/50 md:flex md:flex-col md:items-center md:justify-center md:p-10">
               <div className="relative w-full max-w-[350px]">
                 <Image
-                  src="/firm-build-right.jpg"
+                  src="/firm-build-right.png"
                   alt="Build Right Advisors"
                   width={400}
                   height={500}

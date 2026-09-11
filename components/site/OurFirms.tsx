@@ -32,7 +32,7 @@ const VERTICALS = [
     discipline: "Advisory · Products · Materials · Processes",
     blurb:
       "Expert advisory for building products, materials, and construction processes. Helping you make informed decisions for your project.",
-    image: "/firm-build-right.jpg",
+    image: "/firm-build-right.png",
     color: "cobalt",
   },
 ];
