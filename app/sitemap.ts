@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://lamedia.in";
+const BASE = "https://lamedia.co.in";
 
 /** Public routes only. /admin is excluded and disallowed in robots.txt. */
 export default function sitemap(): MetadataRoute.Sitemap {

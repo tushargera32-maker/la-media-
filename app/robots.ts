@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       // The admin panel is auth-gated, but there is no reason to advertise it.
       disallow: ["/admin", "/api"],
     },
-    sitemap: "https://lamedia.in/sitemap.xml",
+    sitemap: "https://lamedia.co.in/sitemap.xml",
   };
 }
