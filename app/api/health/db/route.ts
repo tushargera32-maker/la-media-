@@ -23,9 +23,14 @@ export async function GET() {
 
   let reachable: boolean | null = null;
   let error: string | null = null;
+  let tables: string[] = [];
   try {
     await prisma.$queryRaw`SELECT 1`;
     reachable = true;
+    const rows = (await prisma.$queryRawUnsafe(
+      `SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' AND name NOT LIKE '_prisma%' ORDER BY name`
+    )) as { name: string }[];
+    tables = rows.map((r) => r.name);
   } catch (e) {
     reachable = false;
     error = e instanceof Error ? e.message.slice(0, 200) : "unknown error";
@@ -39,6 +44,7 @@ export async function GET() {
     tursoUrlHasStrayQuotes,
     tursoUrlLength: rawTursoUrl.length,
     reachable,
+    tables,
     error,
   });
 }
