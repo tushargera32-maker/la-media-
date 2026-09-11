@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { HEARD_ABOUT_OPTIONS } from "@/lib/content";
+import { sendAdminNotification, sendUserConfirmation } from "@/lib/resend";
 
 function str(value: unknown, max = 300): string {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
@@ -55,6 +56,28 @@ export async function POST(request: Request) {
         consent,
       },
     });
+
+    // Send emails (don't wait for them to complete)
+    const fullName = `${firstName} ${lastName}`;
+    sendUserConfirmation({
+      name: fullName,
+      email,
+      type: 'architect',
+    }).catch(err => console.error('Failed to send user confirmation:', err));
+
+    sendAdminNotification({
+      type: 'architect',
+      name: fullName,
+      email,
+      details: `
+        Phone: ${phone}
+        Firm: ${firmName}
+        Designation: ${designation}
+        COA: ${coaNumber}
+        Heard About: ${heardAbout}
+      `,
+    }).catch(err => console.error('Failed to send admin notification:', err));
+
     return NextResponse.json({ ok: true }, { status: 201 });
   } catch (error) {
     console.error("Architect registration insert failed:", error);

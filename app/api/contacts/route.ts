@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendAdminNotification } from "@/lib/resend";
 
 export async function GET(request: NextRequest) {
   try {
@@ -62,6 +63,18 @@ export async function POST(request: NextRequest) {
         status: "new",
       },
     });
+
+    // Notify admin (don't wait for it to complete)
+    sendAdminNotification({
+      type: 'contact',
+      name,
+      email,
+      details: `
+        Phone: ${phone || "Not provided"}
+        Company: ${company || "Not provided"}
+        Message: ${message}
+      `,
+    }).catch(err => console.error('Failed to send admin notification:', err));
 
     return NextResponse.json(contact, { status: 201 });
   } catch (error) {

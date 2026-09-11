@@ -82,7 +82,32 @@ export async function sendUserConfirmation(data: {
   name: string;
   email: string;
   type: 'registration' | 'architect' | 'sponsor';
+  details?: string;
 }) {
+  const COPY: Record<string, { subject: string; heading: string; intro: string; showEventBox: boolean; closing: string }> = {
+    registration: {
+      subject: 'Registration Confirmed - Design Dialect 2.0',
+      heading: 'Registration Confirmed!',
+      intro: 'Thank you for registering for <strong>Design Dialect 2.0</strong>.',
+      showEventBox: true,
+      closing: 'Looking forward to seeing you there!',
+    },
+    architect: {
+      subject: 'Registration Confirmed - Design Dialect 2.0',
+      heading: 'Registration Confirmed!',
+      intro: 'Thank you for registering as an architect for <strong>Design Dialect 2.0</strong>.',
+      showEventBox: true,
+      closing: 'Looking forward to seeing you there!',
+    },
+    sponsor: {
+      subject: 'Stall Booking Received - Design Dialect 2.0',
+      heading: 'Your stall is reserved!',
+      intro: 'Thank you for booking a stall at <strong>Design Dialect 2.0</strong>. Our team will reach out within 24 hours with payment details and setup information.',
+      showEventBox: false,
+      closing: 'Looking forward to exhibiting with you!',
+    },
+  };
+  const copy = COPY[data.type] ?? COPY.registration;
   try {
     const html = `
       <!DOCTYPE html>
@@ -106,22 +131,30 @@ export async function sendUserConfirmation(data: {
             </div>
             <div class="content">
               <div class="checkmark">✓</div>
-              <h2 style="text-align: center; color: #1a1f2e;">Registration Confirmed!</h2>
+              <h2 style="text-align: center; color: #1a1f2e;">${copy.heading}</h2>
               <p>Dear ${data.name},</p>
-              <p>Thank you for registering for <strong>Design Dialect 2.0</strong>.</p>
-              <p>We've received your registration and you're now on the list. Here are the event details:</p>
+              <p>${copy.intro}</p>
+              <p>We've received your details and you're now on the list. Here are the event details:</p>
+              ${copy.showEventBox ? `
               <div style="background: white; padding: 20px; margin: 20px 0; border-left: 3px solid #d4a574;">
                 <p style="margin: 5px 0;"><strong>Event:</strong> Design Dialect 2.0</p>
                 <p style="margin: 5px 0;"><strong>Date:</strong> February 6-7, 2027</p>
                 <p style="margin: 5px 0;"><strong>Location:</strong> Ludhiana, Punjab</p>
                 <p style="margin: 5px 0;"><strong>Venue:</strong> To be announced</p>
               </div>
-              <p>We'll send you more details about the venue, schedule, and speakers closer to the event date.</p>
+              ` : ''}
+              ${data.details ? `
+              <div style="background: white; padding: 20px; margin: 20px 0; border-left: 3px solid #d4a574;">
+                <p style="margin: 5px 0;"><strong>Your booking:</strong></p>
+                <p style="margin: 5px 0;">${data.details}</p>
+              </div>
+              ` : ''}
+              <p>We'll send you more details closer to the event date.</p>
               <p>In the meantime, feel free to reach out if you have any questions.</p>
               <p style="text-align: center;">
                 <a href="http://localhost:3000" class="button">Visit Our Website</a>
               </p>
-              <p style="margin-top: 30px;">Looking forward to seeing you there!</p>
+              <p style="margin-top: 30px;">${copy.closing}</p>
               <p><strong>Team LA Media</strong></p>
             </div>
             <div class="footer">
@@ -142,7 +175,7 @@ export async function sendUserConfirmation(data: {
     await client.emails.send({
       from: FROM_EMAIL,
       to: data.email,
-      subject: 'Registration Confirmed - Design Dialect 2.0',
+      subject: copy.subject,
       html,
     });
 

@@ -17,7 +17,8 @@ type Values = {
   state: string;
   pincode: string;
   stallSize: string;
-  customDimensions: string;
+  customLength: string;
+  customBreadth: string;
   requirements: string;
   heardAbout: string;
   consent: boolean;
@@ -34,7 +35,8 @@ const EMPTY: Values = {
   state: "",
   pincode: "",
   stallSize: "",
-  customDimensions: "",
+  customLength: "",
+  customBreadth: "",
   requirements: "",
   heardAbout: "",
   consent: false,
@@ -76,8 +78,15 @@ export function SponsorRegistrationForm() {
     if (!values.pincode.trim()) found.pincode = "Required";
     else if (!isPincode(values.pincode)) found.pincode = "Enter a valid 6-digit pincode";
     if (!values.stallSize) found.stallSize = "Please select a stall size";
-    else if (values.stallSize === "Custom Size" && !values.customDimensions.trim()) {
-      found.customDimensions = "Please enter your required dimensions";
+    else if (values.stallSize === "Custom Size") {
+      const len = parseFloat(values.customLength);
+      const brd = parseFloat(values.customBreadth);
+      if (!values.customLength.trim() || !Number.isFinite(len) || len <= 0) {
+        found.customLength = "Enter a valid length";
+      }
+      if (!values.customBreadth.trim() || !Number.isFinite(brd) || brd <= 0) {
+        found.customBreadth = "Enter a valid breadth";
+      }
     }
     if (!values.heardAbout) found.heardAbout = "Please pick one";
     if (!values.consent) found.consent = "Please accept the terms to continue";
@@ -93,14 +102,15 @@ export function SponsorRegistrationForm() {
 
     try {
       const isCustom = values.stallSize === "Custom Size";
+      const customLabel = isCustom
+        ? `Custom Size (${values.customLength.trim()} × ${values.customBreadth.trim()} m)`
+        : values.stallSize;
       const res = await fetch("/api/registrations/sponsor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
-          stallSize: isCustom
-            ? `Custom Size (${values.customDimensions.trim().slice(0, 40)})`
-            : values.stallSize,
+          stallSize: customLabel.slice(0, 55),
           phone: `+91${values.phone.replace(/[\s-]/g, "").slice(-10)}`,
           gstNumber: values.gstNumber.toUpperCase().replace(/\s/g, ""),
         }),
@@ -280,8 +290,14 @@ export function SponsorRegistrationForm() {
             onChange={(v) => {
               set("stallSize", v);
               if (v !== "Custom Size") {
-                setValues((p) => ({ ...p, customDimensions: "" }));
-                setErrors((p) => (p.customDimensions ? { ...p, customDimensions: undefined } : p));
+                setValues((p) => ({ ...p, customLength: "", customBreadth: "" }));
+                setErrors((p) => {
+                  if (!p.customLength && !p.customBreadth) return p;
+                  const next = { ...p };
+                  delete next.customLength;
+                  delete next.customBreadth;
+                  return next;
+                });
               }
             }}
             options={STALL_SIZES}
@@ -291,17 +307,27 @@ export function SponsorRegistrationForm() {
 
         {values.stallSize === "Custom Size" && (
           <div className="mt-5">
-            <Text
-              label="Custom Dimensions"
-              required
-              value={values.customDimensions}
-              error={errors.customDimensions}
-              onChange={(v) => set("customDimensions", v)}
-              autoComplete="off"
-              placeholder="e.g., 5 × 4 m"
-            />
+            <span className="field-label">
+              Custom Dimensions (in metres)<span className="text-copper"> *</span>
+            </span>
+            <div className="grid grid-cols-2 gap-4">
+              <Stepper
+                label="Length"
+                value={values.customLength}
+                error={errors.customLength}
+                onChange={(v) => set("customLength", v)}
+                placeholder="e.g., 5"
+              />
+              <Stepper
+                label="Breadth"
+                value={values.customBreadth}
+                error={errors.customBreadth}
+                onChange={(v) => set("customBreadth", v)}
+                placeholder="e.g., 4"
+              />
+            </div>
             <p className="mt-1.5 text-[12px] text-slate">
-              Tell us the length × width you need and we&apos;ll confirm availability
+              Use + / − or type directly — we&apos;ll confirm availability for your size
             </p>
           </div>
         )}
@@ -418,6 +444,67 @@ function Text({
         onChange={(e) => onChange(e.target.value)}
         className="field-input"
       />
+      {error && <p className="mt-2 text-[13px] text-copper">{error}</p>}
+    </div>
+  );
+}
+
+function Stepper({
+  label,
+  value,
+  onChange,
+  error,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  error?: string;
+  placeholder?: string;
+}) {
+  const id = `custom-${label.toLowerCase().replace(/[^a-z]+/g, "-")}`;
+  const nudge = (dir: 1 | -1) => {
+    const cur = parseFloat(value);
+    const base = Number.isFinite(cur) && cur > 0 ? cur : 0;
+    const next = Math.max(0.5, Math.round((base + dir * 0.5) * 10) / 10);
+    onChange(String(next));
+  };
+  return (
+    <div>
+      <label htmlFor={id} className="field-label">
+        {label} (m)
+      </label>
+      <div className="flex items-stretch gap-2">
+        <button
+          type="button"
+          aria-label={`Decrease ${label}`}
+          onClick={() => nudge(-1)}
+          className="btn btn-ghost mt-0 shrink-0 px-4"
+        >
+          −
+        </button>
+        <input
+          id={id}
+          type="number"
+          inputMode="decimal"
+          min={0.5}
+          step={0.5}
+          value={value}
+          placeholder={placeholder}
+          aria-invalid={error ? true : undefined}
+          data-invalid={error ? "true" : undefined}
+          onChange={(e) => onChange(e.target.value)}
+          className="field-input min-w-0 flex-1 text-center"
+        />
+        <button
+          type="button"
+          aria-label={`Increase ${label}`}
+          onClick={() => nudge(1)}
+          className="btn btn-ghost mt-0 shrink-0 px-4"
+        >
+          +
+        </button>
+      </div>
       {error && <p className="mt-2 text-[13px] text-copper">{error}</p>}
     </div>
   );
