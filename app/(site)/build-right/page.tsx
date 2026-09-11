@@ -93,7 +93,31 @@ const SERVICES = [
   },
 ];
 
-// Instagram posts data - replace with actual Instagram API integration
+// Instagram live feed — paste your SnapWidget (or Elfsight) Instagram Grid embed
+// URL here to show live posts from @buildrightadvisors on this page.
+// Free 5-min setup: snapwidget.com → Instagram Grid → @buildrightadvisors → copy embed URL.
+// Until then, the highlights grid below shows instead — no empty space.
+const INSTAGRAM_WIDGET_URL = "";
+
+/* Highlights shown until the live widget URL above is set.
+   Swap images/captions anytime — every card links to the profile. */
+const INSTA_HIGHLIGHTS: { title: string; blurb: string; src?: string; quote?: string }[] = [
+  {
+    title: "Site Diaries",
+    blurb: "Ongoing projects, from slab to finishing — as it happens.",
+    src: "/firm-build-right.png",
+  },
+  {
+    title: "Before → After",
+    blurb: "Transformations across Ludhiana and Punjab.",
+    src: "/BUILD RIGHT COVER PIC SUB PAGE .png",
+  },
+  {
+    title: "Expert Tips",
+    blurb: "Practical advice that saves lakhs. New tips every week.",
+    quote: "Right Advice Today. Lakhs Saved Tomorrow.",
+  },
+];
 export default function BuildRightPage() {
   return (
     <>
@@ -112,7 +136,7 @@ export default function BuildRightPage() {
             </div>
           </Link>
           <a href="#inquiry" className="btn btn-fill px-4 text-[11px] md:px-6 md:text-[11px]">
-            Get Consultation
+            Book Expert Consultation — ₹10,000
           </a>
         </div>
       </header>
@@ -184,7 +208,7 @@ export default function BuildRightPage() {
 
             <div className="mt-8 flex flex-wrap gap-3 md:mt-12 md:gap-4">
               <a href="#inquiry" className="btn btn-fill text-[13px] md:text-[16px]">
-                Get Free Consultation
+                Book Expert Consultation — ₹10,000
               </a>
               <a href="tel:+919888078580" className="btn btn-line text-[13px] md:text-[16px]">
                 Call Now
@@ -483,16 +507,115 @@ export default function BuildRightPage() {
         </div>
       </section>
 
+      {/* INSTAGRAM */}
+      <section id="instagram" className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Instagram</Eyebrow>
+            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              Watch Us Build, <span className="text-copper">Live on Instagram</span>
+            </h2>
+            <p className="mt-4 max-w-[60ch] text-[17px] text-mist">
+              Site visits, before-and-afters, material picks and expert tips — follow{" "}
+              <a
+                href="https://www.instagram.com/buildrightadvisors/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-copper hover:text-copper-soft"
+              >
+                @buildrightadvisors
+              </a>{" "}
+              to see every project as it happens.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="panel mt-10 flex flex-wrap items-center justify-between gap-6 p-6 md:p-8">
+              <div className="flex items-center gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-copper/20">
+                  <svg className="h-7 w-7 text-copper" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[18px] font-bold">@buildrightadvisors</p>
+                  <p className="mt-1 text-[14px] text-mist">Construction advisory · Ludhiana, Punjab</p>
+                </div>
+              </div>
+              <a
+                href="https://www.instagram.com/buildrightadvisors/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-fill text-[13px] md:text-[15px]"
+              >
+                Follow on Instagram
+              </a>
+            </div>
+          </Reveal>
+
+          {INSTAGRAM_WIDGET_URL ? (
+            <Reveal delay={0.15}>
+              <div className="panel mt-6 overflow-hidden p-2">
+                <iframe
+                  src={INSTAGRAM_WIDGET_URL}
+                  title="Build Right Advisors — live Instagram feed"
+                  className="h-[560px] w-full border-0"
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+          ) : (
+            <RevealGroup className="mt-10 grid gap-4 md:grid-cols-3 md:gap-6">
+              {INSTA_HIGHLIGHTS.map((post) => (
+                <a
+                  key={post.title}
+                  href="https://www.instagram.com/buildrightadvisors/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="panel group overflow-hidden transition-all hover:border-copper"
+                >
+                  {post.src ? (
+                    <div className="overflow-hidden">
+                      <Media
+                        label={post.title}
+                        ratio="1/1"
+                        src={post.src}
+                        className="border-0 ring-0 transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ) : (
+                    <div className="grid aspect-square place-items-center bg-gradient-to-br from-copper-deep via-copper to-copper-soft p-8 text-center">
+                      <p className="text-[clamp(1.4rem,2.4vw,2rem)] font-bold leading-tight text-white">
+                        {post.quote}
+                      </p>
+                    </div>
+                  )}
+                  <div className="p-5 md:p-6">
+                    <h3 className="text-[17px] font-bold transition-colors group-hover:text-copper">
+                      {post.title}
+                    </h3>
+                    <p className="mt-2 text-[14px] leading-relaxed text-mist">{post.blurb}</p>
+                    <span className="mt-4 block text-[12px] font-semibold uppercase tracking-[0.14em] text-copper">
+                      View on Instagram →
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </RevealGroup>
+          )}
+        </div>
+      </section>
+
       {/* INQUIRY FORM */}
       <section id="inquiry" className="border-t border-hairline py-section">
         <div className="mx-auto max-w-3xl px-gutter">
           <Reveal>
             <Eyebrow>Get Started</Eyebrow>
             <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
-              Free Consultation
+              Book Your Expert Consultation
             </h2>
             <p className="mt-4 text-[17px] text-mist">
-              Tell us about your project and we'll get back to you within 24 hours with expert advice.
+              One session with senior architects. Clear guidance before you build. Fee: ₹10,000. We respond within 24 hours.
             </p>
           </Reveal>
 
@@ -625,7 +748,7 @@ export default function BuildRightPage() {
               </h2>
               <p className="mt-6 text-[17px] leading-relaxed text-mist">
                 Our team of construction experts is here to guide you through every stage of your building project.
-                Reach out today for a free consultation.
+                Reach out today. Right Advice Today. Lakhs Saved Tomorrow.
               </p>
 
               <div className="mt-10 space-y-6">
@@ -685,12 +808,12 @@ export default function BuildRightPage() {
                   <div>
                     <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Follow Us</p>
                     <a
-                      href="https://instagram.com/buildright.advisors"
+                      href="https://www.instagram.com/buildrightadvisors/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="mt-2 block text-[16px] text-copper hover:text-copper-soft"
                     >
-                      @buildright.advisors
+                      @buildrightadvisors
                     </a>
                   </div>
                 </div>
@@ -704,7 +827,7 @@ export default function BuildRightPage() {
                   <svg className="mt-1 h-5 w-5 flex-shrink-0 text-copper" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-[15px] text-mist">10+ years of construction industry experience</span>
+                  <span className="text-[15px] text-mist">25+ years of construction industry experience</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <svg className="mt-1 h-5 w-5 flex-shrink-0 text-copper" fill="currentColor" viewBox="0 0 20 20">
@@ -737,6 +860,10 @@ export default function BuildRightPage() {
                   <span className="text-[15px] text-mist">Dedicated support throughout your project journey</span>
                 </li>
               </ul>
+
+              <p className="mt-6 rounded-xl border border-copper/30 bg-copper/10 px-4 py-3 text-center text-[15px] font-black uppercase tracking-wide text-copper">
+                Right Advice Today. Lakhs Saved Tomorrow.
+              </p>
 
               <div className="mt-8 border-t border-hairline pt-8">
                 <p className="text-[14px] font-semibold">Quick Links</p>

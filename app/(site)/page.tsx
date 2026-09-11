@@ -4,7 +4,7 @@ import {
   Reveal, RevealGroup, HeadingLines, CountUp, Magnetic, Parallax,
 } from "@/components/motion/Motion";
 import {
-  Media, Eyebrow, Button, ArrowLink, ArrowCircle, Unverified,
+  Media, Eyebrow, Button, ArrowLink, ArrowCircle,
 } from "@/components/ui/Primitives";
 import { VerticalSwitcher } from "@/components/site/VerticalSwitcher";
 import { EventPopup } from "@/components/site/EventPopup";

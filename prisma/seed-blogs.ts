@@ -48,7 +48,7 @@ function generateFullContent(post: any): string {
 <h2>Why LA Media is Ludhiana's Leading Event Management Firm</h2>
 <p>LA Media & Communications has established itself as <strong>Ludhiana's best event management firm</strong>, specializing in architecture and design conferences that bring together industry leaders, innovators, and professionals from across Punjab and beyond.</p>
 
-<p>With over 10 years of experience and 50+ successful events, we understand what it takes to create memorable experiences that drive meaningful conversations and lasting connections in the architecture and built environment community.</p>
+<p>With over 25 years of experience and 50+ successful events, we understand what it takes to create memorable experiences that drive meaningful conversations and lasting connections in the architecture and built environment community.</p>
 
 <h3>Our Event Management Expertise</h3>
 <p>As a premier event management company in Ludhiana, we offer comprehensive services including:</p>
@@ -75,7 +75,7 @@ function generateFullContent(post: any): string {
 <h3>Get Started with Your Next Event</h3>
 <p>Ready to create an unforgettable event experience? Contact LA Media & Communications today to discuss how we can bring your vision to life with professional event management services in Ludhiana.</p>
 
-<p><strong>Contact us:</strong> hello@lamediacommunications.com | +91 98151 00385</p>
+<p><strong>Contact us:</strong> lamediacommunications@gmail.com | +91 98151 00385</p>
     `.trim();
   } else if (post.category === "Professional Development") {
     return `

@@ -29,23 +29,10 @@ its `migration_lock.toml` pinned the provider and would refuse to run. The first
 | `/register` | Event registration. Own layout, no site chrome |
 | `/admin` | Auth-gated. Includes `/admin/registrations` |
 
-## Content and provenance
+## Content
 
-**`lib/content.ts` is the single source of truth for editorial copy**, and every
-entry carries a `source` marker:
-
-- `source: "pdf"` — transcribed from the approved design PDF and **not verified**.
-  All statistics, event dates and press coverage fall here. Design mockups are a
-  common place for filler numbers to survive into production; these need a client
-  sign-off pass before launch.
-- `source: "placeholder"` — a structural stand-in with no factual claim.
-
-Nothing in this file was invented from general knowledge. Panelist roles and
-biographies are `null` by design — the brief forbids inventing credentials.
-
-Unverified items render with a visible `<Unverified>` badge on the public site.
-That is deliberate, not an oversight: remove the badge only when the fact behind
-it has been confirmed.
+**`lib/content.ts` is the single source of truth for editorial copy** — brand,
+hero, stats, firms, event details and form options all live there.
 
 ## Images
 

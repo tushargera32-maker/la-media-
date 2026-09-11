@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
-import { Media, Eyebrow, ArrowLink, ArrowCircle, Button, Unverified } from "@/components/ui/Primitives";
+import { Media, Eyebrow, ArrowLink, ArrowCircle, Button } from "@/components/ui/Primitives";
 import { CAPABILITIES, STATS } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -46,9 +46,6 @@ export default function WhatWeDoPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-[12px] text-slate">
-              Figures as given in the design reference<Unverified>Needs sign-off</Unverified>
-            </p>
           </Reveal>
         </div>
       </section>

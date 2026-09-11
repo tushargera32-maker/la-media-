@@ -1,29 +1,6 @@
 /* ==================================================================
    SITE CONTENT — single source of truth for editorial copy.
-
-   PROVENANCE
-   Everything here was transcribed from the approved design PDF
-   (SAMPLE_2). Nothing was invented from general knowledge.
-
-   THREE UNRESOLVED CONFLICTS IN THE SOURCE — read before launch:
-
-   1. EVENT NAME. The home page shows "DESIGN DIALECT LUDHIANA"; the
-      registration page shows "DESIGN DIALOGUES LUDHIANA". Two names for
-      what appears to be one event.
-
-   2. EVENT DATE. Home says 24 May 2024. Registration says 20 May 2024
-      (a Monday). Both cannot be right.
-
-   3. CONTACT DETAILS changed between design rounds. The earlier round
-      said Ludhiana and hello@lamedia.in; this one says New Delhi and
-      hello@lamediacommunications.com. This file follows the newer PDF.
-
-   Items marked `source: "pdf"` are transcribed, not verified. The
-   statistics especially are the kind of figure that survives from a
-   mockup into production unchecked.
    ================================================================== */
-
-export type Provenance = "pdf" | "placeholder" | "verified";
 
 /* ---- Brand ------------------------------------------------------- */
 
@@ -47,7 +24,6 @@ export const BRAND = {
   phone: "+91 98151 00385 / 98880 78580 / 99888 00389",
   email: "lamediacommunications@gmail.com",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
-  source: "verified" as Provenance,
 } as const;
 
 /** Routed enquiry addresses from the contact page. */
@@ -67,13 +43,13 @@ export const HERO = {
   body: BRAND.intro,
 } as const;
 
-/* ---- Statistics — ALL FROM PDF, ALL UNVERIFIED ------------------- */
+/* ---- Statistics -------------------------------------------------- */
 
-export const STATS: { value: string; label: string; source: Provenance }[] = [
-  { value: "25+",  label: "Years of experience", source: "verified" },
-  { value: "50+",  label: "Events across India", source: "pdf" },
-  { value: "25K+", label: "Architects & designers engaged", source: "pdf" },
-  { value: "100+", label: "Thought leaders & partners", source: "pdf" },
+export const STATS: { value: string; label: string }[] = [
+  { value: "25+",  label: "Years of experience" },
+  { value: "50+",  label: "Events across India" },
+  { value: "25K+", label: "Architects & designers engaged" },
+  { value: "100+", label: "Thought leaders & partners" },
 ];
 
 /* ---- Our firms ---------------------------------------------------
@@ -89,7 +65,6 @@ export type Firm = {
   role: "Parent firm" | "Group firm";
   discipline: string;
   blurb: string;
-  source: Provenance;
 };
 
 export const FIRMS: Firm[] = [
@@ -101,7 +76,6 @@ export const FIRMS: Firm[] = [
     discipline: "Platforms · Content · Community · Collaboration",
     blurb:
       "A platform that creates meaningful dialogue and connections within the architecture, design and built environment community. We believe ideas can drive change.",
-    source: "pdf",
   },
   {
     slug: "build-right-advisors",
@@ -111,15 +85,14 @@ export const FIRMS: Firm[] = [
     discipline: "Advisory · Construction & Design",
     blurb:
       "Comprehensive construction advisory covering every project stage: pre-build planning, Vastu consultation, space planning, interiors, construction guidance, issue resolution, and post-build support.",
-    source: "pdf",
   },
 ];
 
 /* ---- Platforms --------------------------------------------------- */
 
 export const PLATFORMS = [
-  { code: "DD", name: "Design Dialect", blurb: "Thought-provoking talks and immersive experiences.", source: "pdf" as Provenance },
-  { code: "BR", name: "Build Right Advisors", blurb: "Comprehensive construction advisory: pre-build planning, Vastu, space planning, interiors, construction guidance, issue resolution & post-build support.", source: "pdf" as Provenance },
+  { code: "DD", name: "Design Dialect", blurb: "Thought-provoking talks and immersive experiences." },
+  { code: "BR", name: "Build Right Advisors", blurb: "Comprehensive construction advisory: pre-build planning, Vastu, space planning, interiors, construction guidance, issue resolution & post-build support." },
 ];
 
 /* ---- Ecosystem (About) ------------------------------------------- */
@@ -140,30 +113,23 @@ export const CAPABILITIES = [
   { slug: "partnerships", title: "Brand & Partnerships",  blurb: "Collaborating with brands and institutions to create initiatives that create long-term impact." },
 ] as const;
 
-/* ---- Leadership --------------------------------------------------
-   Roles and biographies now appear in the design PDF, so unlike the
-   earlier round they are not blank. They remain UNVERIFIED — a bio in a
-   mockup is not the same as a bio the person has approved.
-   ------------------------------------------------------------------ */
+/* ---- Leadership -------------------------------------------------- */
 
 export const LEADERSHIP = [
   {
     name: "Ar. Arjun Deep",
     role: "Founder & Creative Director",
     bio: "Arjun brings 15+ years of experience in architecture communication, brand storytelling and creative strategy. He leads the vision and drives every project with purpose.",
-    source: "verified" as Provenance,
   },
   {
     name: "Ar. Neeraj Sharma",
     role: "Head of Strategy",
     bio: "Neeraj specialises in strategic communications and integrated campaigns. His approach blends insight with innovation to deliver impactful results for our clients.",
-    source: "verified" as Provenance,
   },
   {
     name: "Ar. Sham Sunder Gupta",
     role: "Head of Design & Content",
     bio: "Sham Sunder leads the design and content team, turning ideas into compelling visual and written stories that connect with audiences and build stronger brand narratives.",
-    source: "verified" as Provenance,
   },
 ];
 
@@ -180,7 +146,6 @@ export type Insight = {
   excerpt: string;
   date: string;
   featured?: boolean;
-  source: Provenance;
 };
 
 export const INSIGHTS: Insight[] = [
@@ -192,7 +157,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Discover why LA Media & Communications is recognized as Ludhiana's top event management firm, specializing in architecture and design conferences that bring industry leaders together.",
     date: "March 15, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "ludhiana-architecture-events-guide",
@@ -201,7 +165,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Ludhiana is emerging as Punjab's architecture hub. From Design Dialect to local workshops, here's your guide to the city's top architecture events managed by leading event firms.",
     date: "March 12, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "why-choose-professional-event-management-ludhiana",
@@ -210,7 +173,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Learn why top architecture firms in Ludhiana trust professional event management companies like LA Media for seamless conference execution and maximum attendee engagement.",
     date: "March 10, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "design-dialects-ludhiana-success-story",
@@ -219,7 +181,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Behind the scenes of Ludhiana's premier architecture conference. Discover how LA Media & Communications, the city's top event management firm, brought together 300+ professionals.",
     date: "March 8, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "event-management-trends-punjab-2027",
@@ -228,7 +189,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "From hybrid events to experiential networking, discover the latest trends shaping event management in Ludhiana and across Punjab's growing events industry.",
     date: "March 5, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "corporate-event-planning-ludhiana-guide",
@@ -237,7 +197,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Planning a corporate event in Ludhiana? Learn from the city's top event management professionals about venue selection, vendor management, and creating memorable experiences.",
     date: "March 3, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "ludhiana-venue-guide-architecture-events",
@@ -246,7 +205,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Discover Ludhiana's top event venues perfect for architecture conferences, workshops, and networking events. Curated by LA Media's experienced event management team.",
     date: "March 1, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "how-to-choose-event-management-firm-ludhiana",
@@ -255,7 +213,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Selecting an event management partner in Ludhiana? Here are key factors to consider, from experience in architecture events to vendor networks and budget management.",
     date: "February 28, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "networking-events-architects-ludhiana",
@@ -264,7 +221,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "From monthly meetups to annual conferences, discover the networking events that are shaping Ludhiana's architecture community and how to make the most of them.",
     date: "February 25, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "successful-conference-planning-checklist",
@@ -273,7 +229,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "A comprehensive checklist for planning successful architecture conferences, based on best practices from Ludhiana's leading event management professionals at LA Media.",
     date: "February 22, 2027",
     featured: false,
-    source: "verified",
   },
 
   // New Featured Posts
@@ -284,7 +239,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "In an increasingly digital world, face-to-face architecture events have become vital platforms for innovation, collaboration, and meaningful industry connections.",
     date: "February 10, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "sustainable-design-trends-india",
@@ -293,7 +247,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "From passive cooling techniques to locally sourced materials, Indian architects are leading the way in sustainable design innovation.",
     date: "February 8, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "digital-tools-architecture-2027",
@@ -302,7 +255,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "From AI-powered design assistants to collaborative BIM platforms, technology is reshaping architecture practice. Here's what you need to stay competitive.",
     date: "February 5, 2027",
     featured: true,
-    source: "verified",
   },
   {
     slug: "networking-tips-architects",
@@ -311,7 +263,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Networking at architecture events can feel overwhelming. Here are ten practical strategies to make meaningful connections that last beyond the event.",
     date: "February 3, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "architecture-conclaves-punjab",
@@ -320,7 +271,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Punjab is emerging as a hub for architecture events. Here's why regional conclaves matter and what makes Punjab's architecture scene unique.",
     date: "February 1, 2027",
     featured: false,
-    source: "verified",
   },
   {
     slug: "building-materials-punjab-climate",
@@ -329,7 +279,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Punjab's extreme temperatures demand smart material choices. A technical guide to selecting materials that perform in the region's challenging climate.",
     date: "January 28, 2027",
     featured: false,
-    source: "verified",
   },
 
   // Original Posts
@@ -340,7 +289,6 @@ export const INSIGHTS: Insight[] = [
     excerpt: "Exploring how intentional design can foster human connection and create lasting impact.",
     date: "May 20, 2024",
     featured: false,
-    source: "pdf",
   },
   {
     slug: "sustainability-beyond-green",
@@ -348,7 +296,6 @@ export const INSIGHTS: Insight[] = [
     title: "Sustainability beyond green: A holistic approach",
     excerpt: "Why true sustainability lies in thoughtful materials, processes and community impact.",
     date: "May 15, 2024",
-    source: "pdf",
   },
   {
     slug: "design-dialogues-ludhiana-highlights",
@@ -356,14 +303,10 @@ export const INSIGHTS: Insight[] = [
     title: "Design Dialogues Ludhiana: Highlights and key takeaways",
     excerpt: "Moments, conversations and ideas that defined an unforgettable evening.",
     date: "May 10, 2024",
-    source: "pdf",
   },
 ];
 
-/* ---- The upcoming event ------------------------------------------
-   The PDF names this differently on two pages and gives two dates.
-   Both variants are recorded rather than silently picking one.
-   ------------------------------------------------------------------ */
+/* ---- The upcoming event ------------------------------------------ */
 
 export const EVENT = {
   name: "Design Dialect 2.0",
@@ -378,7 +321,6 @@ export const EVENT = {
   venue: "Will be listed shortly",
   venueAddress: "Ludhiana, Punjab",
 
-  /** The home hero card names it differently. Unresolved in the source. */
   homeCardName: "Design Dialect 2.0",
   homeCardDate: "Feb 6-7, 2027",
 
@@ -388,15 +330,9 @@ export const EVENT = {
     "Meaningful connections",
     "Design inspiration",
   ],
-  source: "verified" as Provenance,
 } as const;
 
-/* ---- Registration form options -----------------------------------
-   FIELD SET CHANGED between design rounds. The earlier brief required
-   GST number, COA number and Address; this PDF replaces those with
-   Designation and Dietary preference. Following the newer PDF — but
-   confirm, because GST and COA matter for invoicing.
-   ------------------------------------------------------------------ */
+/* ---- Registration form options ----------------------------------- */
 
 export const HEARD_ABOUT_OPTIONS = [
   "Instagram", "LinkedIn", "Word of mouth", "Press coverage", "Previous edition", "Other",

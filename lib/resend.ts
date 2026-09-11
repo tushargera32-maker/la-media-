@@ -2,8 +2,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM_EMAIL = process.env.FROM_EMAIL || 'onboarding@resend.dev';
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'ravinder1993singh12@gmail.com';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'lamediacommunications@gmail.com';
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'lamediacommunications@gmail.com';
 
 // Send email to admin when new registration received
 export async function sendAdminNotification(data: {

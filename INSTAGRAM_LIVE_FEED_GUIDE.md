@@ -109,4 +109,17 @@ git push
 
 ---
 
+## 📸 **BUILD RIGHT FEED (@buildrightadvisors)**
+
+The Build Right page already has an Instagram section with a profile card +
+Follow button. To switch on the **live posts grid** inside it:
+
+1. Go to https://snapwidget.com → Instagram Grid → enter `@buildrightadvisors`
+2. Copy the embed URL (looks like `https://snapwidget.com/embed/XXXXXXX`)
+3. Paste it into `INSTAGRAM_WIDGET_URL` at the top of
+   `app/(site)/build-right/page.tsx`
+4. Deploy — live posts appear automatically, no code change needed.
+
+---
+
 **Batao kya karna hai - SnapWidget quick setup ya full Instagram API?** 🚀

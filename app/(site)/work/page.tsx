@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { Media, Eyebrow, ArrowCircle, Button, Unverified } from "@/components/ui/Primitives";
+import { Media, Eyebrow, ArrowCircle, Button } from "@/components/ui/Primitives";
 import { CAPABILITIES, EVENT } from "@/lib/content";
 
 export const metadata: Metadata = {

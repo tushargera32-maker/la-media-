@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { Media, Eyebrow, ArrowLink, Unverified, Arrow } from "@/components/ui/Primitives";
+import { Media, Eyebrow, ArrowLink, Arrow } from "@/components/ui/Primitives";
 import { INSIGHT_CATEGORIES } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 
@@ -158,10 +158,6 @@ export default async function InsightsPage({
             })}
           </RevealGroup>
           )}
-
-          <p className="mt-8 text-[12px] text-slate">
-            Articles managed via admin panel
-          </p>
         </div>
       </section>
 

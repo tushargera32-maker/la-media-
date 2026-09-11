@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { Media, Eyebrow, Unverified } from "@/components/ui/Primitives";
+import { Media, Eyebrow } from "@/components/ui/Primitives";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { BRAND, CONTACT_ROUTES } from "@/lib/content";
 
@@ -56,12 +56,6 @@ export default function ContactPage() {
                 </div>
               ))}
             </dl>
-
-            {/* These details changed between design rounds. */}
-            <p className="mt-8 text-[12px] text-slate">
-              Contact details differ from the earlier design round
-              <Unverified>Confirm which is current</Unverified>
-            </p>
           </Reveal>
 
           <Reveal delay={0.1}>

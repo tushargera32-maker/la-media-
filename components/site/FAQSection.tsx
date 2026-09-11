@@ -34,7 +34,7 @@ const FAQ_ITEMS: FAQItem[] = [
   },
   {
     question: "What if I need to cancel my registration?",
-    answer: "If you need to cancel, please email us at hello@lamediacommunications.com at least 7 days before the event. We'll process your cancellation and provide further instructions."
+    answer: "If you need to cancel, please email us at lamediacommunications@gmail.com at least 7 days before the event. We'll process your cancellation and provide further instructions."
   },
   {
     question: "Will food and beverages be provided?",
@@ -59,7 +59,7 @@ export function FAQSection() {
           </h2>
           <p className="mt-5 text-[15px] text-mist">
             Find answers to common questions about the event. Still have questions?{' '}
-            <a href="mailto:hello@lamediacommunications.com" className="text-copper hover:underline">
+            <a href="mailto:lamediacommunications@gmail.com" className="text-copper hover:underline">
               Contact us
             </a>
           </p>
@@ -112,7 +112,7 @@ export function FAQSection() {
             Still have questions? We're here to help!
           </p>
           <a
-            href="mailto:hello@lamediacommunications.com"
+            href="mailto:lamediacommunications@gmail.com"
             className="btn btn-line mt-4 inline-flex"
           >
             Contact Us

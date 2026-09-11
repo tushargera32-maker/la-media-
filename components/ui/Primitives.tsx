@@ -70,15 +70,6 @@ export function Eyebrow({ children, className = "" }: { children: ReactNode; cla
   );
 }
 
-/** Visible marker for anything transcribed but not yet verified. */
-export function Unverified({ children = "Unverified" }: { children?: ReactNode }) {
-  return (
-    <span className="ml-2 inline-block border border-copper/40 px-1.5 py-0.5 align-middle text-[9px] font-semibold uppercase tracking-[0.14em] text-copper">
-      {children}
-    </span>
-  );
-}
-
 export function Button({
   href,
   children,

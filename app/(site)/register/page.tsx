@@ -177,7 +177,7 @@ export default function RegisterPage() {
                 </div>
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value="15" />+
+                    <CountUp value="50" />+
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
                 </div>
@@ -479,8 +479,8 @@ export default function RegisterPage() {
                   </div>
                   <div>
                     <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Email</p>
-                    <a href="mailto:events@lamediacommunications.com" className="mt-1 text-[16px] text-copper hover:text-copper-soft">
-                      events@lamediacommunications.com
+                    <a href="mailto:lamediacommunications@gmail.com" className="mt-1 text-[16px] text-copper hover:text-copper-soft">
+                      lamediacommunications@gmail.com
                     </a>
                   </div>
                 </div>
@@ -539,8 +539,8 @@ export default function RegisterPage() {
 
               <div className="mt-8 border-t border-hairline pt-8">
                 <p className="text-[14px] font-semibold">For Sponsorship Opportunities:</p>
-                <a href="mailto:collab@lamediacommunications.com" className="mt-2 block text-[15px] text-copper hover:text-copper-soft">
-                  collab@lamediacommunications.com
+                <a href="mailto:lamediacommunications@gmail.com" className="mt-2 block text-[15px] text-copper hover:text-copper-soft">
+                  lamediacommunications@gmail.com
                 </a>
               </div>
             </div>

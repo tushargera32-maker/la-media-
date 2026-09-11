@@ -333,7 +333,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="w-full rounded-lg bg-cobalt px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:bg-cobalt-soft disabled:opacity-50"
+                      className="w-full rounded-[14px] bg-cobalt px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-all duration-300 hover:bg-cobalt-soft disabled:opacity-50"
                     >
                       {submitting ? "SUBMITTING..." : "REQUEST A CONSULTATION"}
                     </button>

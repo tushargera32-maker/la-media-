@@ -133,7 +133,7 @@ export default function Sidebar() {
       <div className="border-t border-gray-800/50 p-4">
         <div className="rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 p-4 text-center">
           <p className="text-xs text-gray-400 mb-2">Need help?</p>
-          <a href="mailto:hello@lamediacommunications.com" className="text-xs text-blue-400 hover:text-blue-300 font-medium">
+          <a href="mailto:lamediacommunications@gmail.com" className="text-xs text-blue-400 hover:text-blue-300 font-medium">
             Contact Support
           </a>
         </div>
