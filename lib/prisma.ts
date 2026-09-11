@@ -7,9 +7,14 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function makeClient(): PrismaClient {
+  // Pasted env values sometimes carry stray whitespace or surrounding
+  // quotes (e.g. copied as KEY="value"). Normalise before using.
+  const clean = (v: string | undefined): string =>
+    (v ?? "").trim().replace(/^["']|["']$/g, "").trim();
+
   const url =
-    process.env.TURSO_DATABASE_URL ||
-    process.env.DATABASE_URL ||
+    clean(process.env.TURSO_DATABASE_URL) ||
+    clean(process.env.DATABASE_URL) ||
     '';
 
   // Build-safe fallback: during `next build` on Vercel, env vars may be
@@ -29,11 +34,12 @@ function makeClient(): PrismaClient {
   }
 
   // Turso / libSQL
+  const authToken = clean(
+    process.env.TURSO_AUTH_TOKEN || process.env.DATABASE_AUTH_TOKEN
+  );
   const libsql = createClient({
     url,
-    authToken:
-      process.env.TURSO_AUTH_TOKEN ||
-      process.env.DATABASE_AUTH_TOKEN,
+    authToken: authToken || undefined,
   });
 
   return new PrismaClient({

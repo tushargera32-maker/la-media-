@@ -7,9 +7,19 @@ import { prisma } from "@/lib/prisma";
  * Remove once the production DB connection is confirmed working.
  */
 export async function GET() {
-  const hasTursoUrl = !!(process.env.TURSO_DATABASE_URL ?? "").trim();
-  const hasTursoToken = !!(process.env.TURSO_AUTH_TOKEN ?? "").trim();
-  const hasDatabaseUrl = !!(process.env.DATABASE_URL ?? "").trim();
+  const rawTursoUrl = (process.env.TURSO_DATABASE_URL ?? "").trim();
+  const rawToken = (process.env.TURSO_AUTH_TOKEN ?? "").trim();
+  const rawDatabaseUrl = (process.env.DATABASE_URL ?? "").trim();
+
+  const hasTursoUrl = rawTursoUrl.length > 0;
+  const hasTursoToken = rawToken.length > 0;
+  const hasDatabaseUrl = rawDatabaseUrl.length > 0;
+
+  // Format diagnostics only — never return values.
+  const tursoUrlLooksValid =
+    rawTursoUrl.startsWith("libsql://") || rawTursoUrl.startsWith("http");
+  const tursoUrlHasStrayQuotes =
+    /^["']/.test(rawTursoUrl) || /["']$/.test(rawTursoUrl);
 
   let reachable: boolean | null = null;
   let error: string | null = null;
@@ -25,6 +35,9 @@ export async function GET() {
     hasTursoUrl,
     hasTursoToken,
     hasDatabaseUrl,
+    tursoUrlLooksValid,
+    tursoUrlHasStrayQuotes,
+    tursoUrlLength: rawTursoUrl.length,
     reachable,
     error,
   });
