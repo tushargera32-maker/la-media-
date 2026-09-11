@@ -97,12 +97,12 @@ export function EventPopup() {
                 onClick={handleClose}
                 className="block transition-transform hover:scale-[1.02]"
               >
-                <div className="relative aspect-[3/2] w-full overflow-hidden bg-navy-2">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-2">
                   <Image
-                    src="/DD 2.0_Page (1).png"
+                    src="/event-popup-poster.png"
                     alt="Design Dialect 2.0 - Architecture Event in Ludhiana"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     priority
                     unoptimized
                   />
@@ -127,12 +127,12 @@ export function EventPopup() {
                 onClick={handleClose}
                 className="block transition-transform hover:scale-[1.02]"
               >
-                <div className="relative aspect-[3/2] w-full overflow-hidden bg-navy-2">
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-2">
                   <Image
-                    src="/BUILD RIGHT COVER PIC SUB PAGE .png"
+                    src="/event-popup-poster.png"
                     alt="Build Right Advisors - Construction Advisory Services"
                     fill
-                    className="object-cover"
+                    className="object-cover object-bottom"
                     unoptimized
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />

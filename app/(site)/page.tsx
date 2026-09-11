@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Reveal, RevealGroup, HeadingLines, CountUp, Magnetic, Parallax,
@@ -26,12 +27,18 @@ export const dynamic = "force-dynamic";
    ================================================================== */
 
 export default async function HomePage() {
-  // Fetch latest 3 published blog posts
-  const insights = await prisma.blogPost.findMany({
-    where: { published: true },
-    orderBy: { publishedAt: "desc" },
-    take: 3,
-  });
+  // Fetch latest 3 published blog posts — never crash the homepage if DB is down
+  let insights: Awaited<ReturnType<typeof prisma.blogPost.findMany>> = [];
+  try {
+    insights = await prisma.blogPost.findMany({
+      where: { published: true },
+      orderBy: { publishedAt: "desc" },
+      take: 3,
+    });
+  } catch (error) {
+    console.error("Homepage: failed to fetch insights, rendering without them:", error);
+    insights = [];
+  }
   return (
     <>
       {/* Event Popup */}
@@ -110,9 +117,19 @@ export default async function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-br from-copper/10 via-transparent to-cobalt/10" />
                   <div className="relative">
                     <p className="eyebrow text-copper">Don't miss out</p>
-                    <h2 className="mt-3 text-[clamp(1.2rem,2.8vw,2rem)] font-bold uppercase tracking-[0.02em] md:mt-4">
-                      {EVENT.homeCardName}
-                    </h2>
+                    <div className="mt-3 flex items-center gap-5 md:mt-4 md:gap-8">
+                      <h2 className="flex-1 text-[clamp(1.2rem,2.8vw,2rem)] font-bold uppercase tracking-[0.02em]">
+                        {EVENT.homeCardName}
+                      </h2>
+                      <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full shadow-xl ring-2 ring-copper/60 sm:h-24 sm:w-24 md:h-32 md:w-32">
+                        <Image
+                          src="/event-logo-badge.jpg"
+                          alt="Design Dialect 2.0 event logo"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
                     <p className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-mist sm:gap-x-6 sm:text-[14.5px] md:mt-4">
                       <span className="flex items-center gap-2">
                         <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

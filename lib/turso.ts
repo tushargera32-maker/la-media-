@@ -1,12 +1,7 @@
-import { createClient } from '@libsql/client';
-import { PrismaLibSQL } from '@prisma/adapter-libsql';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from './prisma';
 
-const libsql = createClient({
-  url: process.env.DATABASE_URL!,
-  authToken: process.env.TURSO_AUTH_TOKEN!,
-});
-
-const adapter = new PrismaLibSQL(libsql);
-
-export const prisma = new PrismaClient({ adapter });
+// Deprecated: kept for backwards-compat imports.
+// Use `@/lib/prisma` directly — it handles Turso/libSQL + local SQLite
+// and is safe when env vars are missing at build time.
+export { prisma };
+export default prisma;

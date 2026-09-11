@@ -33,16 +33,22 @@ export default async function InsightsPage({
       (c) => c.toLowerCase() === (params.category ?? "").toLowerCase(),
     ) ?? "All";
 
-  // Fetch posts from database
-  const posts = await prisma.blogPost.findMany({
-    where: {
-      published: true,
-      ...(active !== "All" && { category: active }),
-    },
-    orderBy: {
-      publishedAt: "desc",
-    },
-  });
+  // Fetch posts from database — never crash the page if DB is down
+  let posts: Awaited<ReturnType<typeof prisma.blogPost.findMany>> = [];
+  try {
+    posts = await prisma.blogPost.findMany({
+      where: {
+        published: true,
+        ...(active !== "All" && { category: active }),
+      },
+      orderBy: {
+        publishedAt: "desc",
+      },
+    });
+  } catch (error) {
+    console.error("Insights: failed to fetch posts, rendering empty state:", error);
+    posts = [];
+  }
 
   const insightImages = [
     "/blog-cover-1.png",
@@ -61,7 +67,7 @@ export default async function InsightsPage({
       {/* 01 - LEAD -------------------------------------------------- */}
       <section className="relative overflow-hidden pb-section-sm pt-40">
         <div className="absolute right-0 top-0 hidden h-full w-1/2 lg:block">
-          <Media label="INSIGHTS - ANGULAR FORM, BLUE LIGHT - 4:3" ratio="4/3" src="/insights-header.jpg" className="h-full border-0 ring-0" />
+          <Media label="INSIGHTS - ANGULAR FORM, BLUE LIGHT - 4:3" ratio="4/3" src="/insights-header.png" className="h-full border-0 ring-0" />
           <span className="absolute inset-0 bg-gradient-to-r from-navy via-navy/55 to-transparent" />
         </div>
 

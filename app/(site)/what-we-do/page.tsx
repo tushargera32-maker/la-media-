@@ -15,7 +15,7 @@ export default function WhatWeDoPage() {
       {/* 01 - LEAD with the stat rail, as in the reference ----------- */}
       <section className="relative overflow-hidden pb-section-sm pt-40">
         <div className="absolute right-0 top-0 hidden h-full w-1/2 lg:block">
-          <Media label="WHAT WE DO - STAIRCASE, LIT EDGE - 4:3" ratio="4/3" src="/what-we-do-header.jpg" className="h-full border-0 ring-0" />
+          <Media label="WHAT WE DO - STAIRCASE, LIT EDGE - 4:3" ratio="4/3" src="/what-we-do-cover.png" className="h-full border-0 ring-0" />
           <span className="absolute inset-0 bg-gradient-to-r from-navy via-navy/55 to-transparent" />
         </div>
 
@@ -56,10 +56,10 @@ export default function WhatWeDoPage() {
           <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {CAPABILITIES.map((c, i) => {
               const capabilityImages = [
-                "/capability-1.jpg",
-                "/capability-2.jpg",
-                "/capability-3.jpg",
-                "/capability-4.jpg"
+                "/blog-cover-4.png",
+                "/blog-cover-5.png",
+                "/blog-cover-6.png",
+                "/blog-cover-7.png"
               ];
               return (
                 <article key={c.slug} className="panel flex h-full flex-col overflow-hidden">

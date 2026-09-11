@@ -5,26 +5,40 @@ import { Reveal } from "@/components/motion/Motion";
 import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  const posts = await prisma.blogPost.findMany({
-    where: { published: true },
-    select: { slug: true },
-  });
+  // Must never fail the Vercel build: if DATABASE_URL is missing/invalid
+  // at build time (URL_INVALID), fall back to no pre-rendered params and
+  // render on demand at request time (force-dynamic above).
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: { published: true },
+      select: { slug: true },
+    });
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch {
+    return { title: "Insights | LA Media & Communications" };
+  }
 
   if (!post) {
     return {
@@ -52,30 +66,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
-  const post = await prisma.blogPost.findUnique({
-    where: { slug },
-  });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({
+      where: { slug },
+    });
+  } catch (error) {
+    console.error("BlogPost: failed to fetch post, showing 404:", error);
+    notFound();
+  }
 
   if (!post || !post.published) {
     notFound();
   }
 
   const insightImages = [
-    "/capability-1.jpg",
-    "/capability-2.jpg",
-    "/capability-3.jpg"
+    "/blog-cover-1.png",
+    "/blog-cover-2.png",
+    "/blog-cover-3.png"
   ];
 
-  // Get related posts
-  const relatedPosts = await prisma.blogPost.findMany({
-    where: {
-      category: post.category,
-      published: true,
-      NOT: { slug: post.slug },
-    },
-    take: 3,
-    orderBy: { publishedAt: "desc" },
-  });
+  // Get related posts — never crash the page if DB is down
+  let relatedPosts: Awaited<ReturnType<typeof prisma.blogPost.findMany>> = [];
+  try {
+    relatedPosts = await prisma.blogPost.findMany({
+      where: {
+        category: post.category,
+        published: true,
+        NOT: { slug: post.slug },
+      },
+      take: 3,
+      orderBy: { publishedAt: "desc" },
+    });
+  } catch (error) {
+    console.error("BlogPost: failed to fetch related posts:", error);
+    relatedPosts = [];
+  }
 
   const publishedDate = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })

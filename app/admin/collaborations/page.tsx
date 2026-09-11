@@ -10,9 +10,15 @@ const STATUSES = ["pending", "reviewing", "accepted", "declined"];
 
 /** Applications from the Partner With Us page: brands and architects. */
 export default async function AdminCollaborationsPage() {
-  const requests = await prisma.collaborationRequest.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let requests: Awaited<ReturnType<typeof prisma.collaborationRequest.findMany>> = [];
+  try {
+    requests = await prisma.collaborationRequest.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.error("Admin collaborations: failed to fetch requests:", error);
+    requests = [];
+  }
 
   const brands = requests.filter((r) => r.type === "brand").length;
   const architects = requests.filter((r) => r.type === "architect").length;
