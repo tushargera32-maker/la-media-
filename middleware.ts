@@ -27,6 +27,8 @@ const PUBLIC_POST_ROUTES = [
   // the webhook authenticates via Cashfree HMAC signature instead.
   '/api/payments/create-order',
   '/api/payments/webhook',
+  // Free Build Right inquiry from the site form (validated server-side).
+  '/api/build-right-inquiry',
 ];
 
 export default async function middleware(request: NextRequest) {
