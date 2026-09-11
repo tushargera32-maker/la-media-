@@ -40,6 +40,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "A valid 10-digit mobile number is required." }, { status: 422 });
   }
 
+  if (!process.env.TURSO_DATABASE_URL && !process.env.DATABASE_URL) {
+    return NextResponse.json(
+      { error: "Payments temporarily unavailable (database not configured)." },
+      { status: 503 }
+    );
+  }
+
   const orderId = `BR-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
   const origin = siteUrl(request);
 

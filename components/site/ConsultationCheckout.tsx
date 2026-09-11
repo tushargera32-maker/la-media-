@@ -14,7 +14,7 @@ function field(form: HTMLFormElement, name: string): string {
 function loadCashfree(): Promise<{
   checkout: (opts: { paymentSessionId: string; redirectTarget: string }) => Promise<unknown>;
 }> {
-  const mode = process.env.NEXT_PUBLIC_CASHFREE_ENV === "production" ? "production" : "sandbox";
+  const mode = (process.env.NEXT_PUBLIC_CASHFREE_ENV ?? "").toLowerCase() === "production" ? "production" : "sandbox";
   return new Promise((resolve, reject) => {
     const init = (): unknown => {
       const CF = (window as unknown as Record<string, unknown>).Cashfree;

@@ -127,7 +127,9 @@ export function verifyCashfreeWebhook(
 }
 
 export function cashfreeMode(): "sandbox" | "production" {
-  return process.env.CASHFREE_ENV === "production" ? "production" : "sandbox";
+  return (process.env.CASHFREE_ENV ?? "").toLowerCase() === "production"
+    ? "production"
+    : "sandbox";
 }
 
 function parseNotes(notes: string | null): Record<string, string> {
