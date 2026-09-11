@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
+// Always run live — never serve a build-time cached snapshot.
+export const dynamic = "force-dynamic";
+
 /**
  * Temporary diagnostics: reports whether the LIVE deployment can see
  * database env vars and reach Turso. Returns booleans only — never values.
