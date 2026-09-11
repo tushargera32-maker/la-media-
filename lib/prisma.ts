@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import { PrismaLibSQL } from '@prisma/adapter-libsql';
-import { createClient } from '@libsql/client';
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -33,17 +32,14 @@ function makeClient(): PrismaClient {
     return new PrismaClient();
   }
 
-  // Turso / libSQL
+  // Turso / libSQL — the adapter takes a Config ({ url, authToken }),
+  // NOT a Client instance. Passing a Client silently breaks the connection
+  // (config.url reads as undefined → URL_INVALID at query time).
   const authToken = clean(
     process.env.TURSO_AUTH_TOKEN || process.env.DATABASE_AUTH_TOKEN
   );
-  const libsql = createClient({
-    url,
-    authToken: authToken || undefined,
-  });
-
   return new PrismaClient({
-    adapter: new PrismaLibSQL(libsql),
+    adapter: new PrismaLibSQL({ url, authToken: authToken || undefined }),
   });
 }
 

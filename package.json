@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
-    "@libsql/client": "^0.17.4",
+    "@libsql/client": "^0.8.1",
     "@prisma/adapter-libsql": "^6.19.3",
     "@prisma/client": "^6.19.0",
     "@studio-freight/lenis": "^1.0.42",
