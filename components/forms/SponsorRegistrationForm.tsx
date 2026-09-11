@@ -17,6 +17,7 @@ type Values = {
   state: string;
   pincode: string;
   stallSize: string;
+  customDimensions: string;
   requirements: string;
   heardAbout: string;
   consent: boolean;
@@ -33,6 +34,7 @@ const EMPTY: Values = {
   state: "",
   pincode: "",
   stallSize: "",
+  customDimensions: "",
   requirements: "",
   heardAbout: "",
   consent: false,
@@ -74,6 +76,9 @@ export function SponsorRegistrationForm() {
     if (!values.pincode.trim()) found.pincode = "Required";
     else if (!isPincode(values.pincode)) found.pincode = "Enter a valid 6-digit pincode";
     if (!values.stallSize) found.stallSize = "Please select a stall size";
+    else if (values.stallSize === "Custom Size" && !values.customDimensions.trim()) {
+      found.customDimensions = "Please enter your required dimensions";
+    }
     if (!values.heardAbout) found.heardAbout = "Please pick one";
     if (!values.consent) found.consent = "Please accept the terms to continue";
 
@@ -87,11 +92,15 @@ export function SponsorRegistrationForm() {
     setServerError(null);
 
     try {
+      const isCustom = values.stallSize === "Custom Size";
       const res = await fetch("/api/registrations/sponsor", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...values,
+          stallSize: isCustom
+            ? `Custom Size (${values.customDimensions.trim().slice(0, 40)})`
+            : values.stallSize,
           phone: `+91${values.phone.replace(/[\s-]/g, "").slice(-10)}`,
           gstNumber: values.gstNumber.toUpperCase().replace(/\s/g, ""),
         }),
@@ -268,11 +277,34 @@ export function SponsorRegistrationForm() {
             required
             value={values.stallSize}
             error={errors.stallSize}
-            onChange={(v) => set("stallSize", v)}
+            onChange={(v) => {
+              set("stallSize", v);
+              if (v !== "Custom Size") {
+                setValues((p) => ({ ...p, customDimensions: "" }));
+                setErrors((p) => (p.customDimensions ? { ...p, customDimensions: undefined } : p));
+              }
+            }}
             options={STALL_SIZES}
             placeholder="Select stall size"
           />
         </div>
+
+        {values.stallSize === "Custom Size" && (
+          <div className="mt-5">
+            <Text
+              label="Custom Dimensions"
+              required
+              value={values.customDimensions}
+              error={errors.customDimensions}
+              onChange={(v) => set("customDimensions", v)}
+              autoComplete="off"
+              placeholder="e.g., 5 × 4 m"
+            />
+            <p className="mt-1.5 text-[12px] text-slate">
+              Tell us the length × width you need and we&apos;ll confirm availability
+            </p>
+          </div>
+        )}
 
         <div className="mt-5">
           <label htmlFor="requirements" className="field-label">
