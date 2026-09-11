@@ -196,6 +196,27 @@ model EventRegistration {
   @@index([email])
 }
 
+/// Paid consultation payments via Cashfree
+model Payment {
+  id            String   @id @default(cuid())
+  cfOrderId     String   @unique
+  cfPaymentId   String?
+  amount        Float
+  currency      String   @default("INR")
+  status        String   @default("created")
+  purpose       String   @default("consultation")
+  name          String
+  email         String
+  phone         String
+  notes         String?
+  fulfilled     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
 /// Site visitor tracking - tracks all visitors even without form submission
 model SiteVisitor {
   id              String   @id @default(cuid())

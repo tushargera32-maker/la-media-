@@ -23,6 +23,10 @@ const PUBLIC_POST_ROUTES = [
   '/api/registrations/architect',
   '/api/registrations/sponsor',
   '/api/track-visitor',
+  // Public payment flow: order creation is validated server-side;
+  // the webhook authenticates via Cashfree HMAC signature instead.
+  '/api/payments/create-order',
+  '/api/payments/webhook',
 ];
 
 export default async function middleware(request: NextRequest) {

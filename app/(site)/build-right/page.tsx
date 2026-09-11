@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow, Button } from "@/components/ui/Primitives";
+import { ConsultationCheckout } from "@/components/site/ConsultationCheckout";
 
 export const metadata: Metadata = {
   title: "Build Right Advisors - Construction Advisory Services | Ludhiana",
@@ -728,9 +729,7 @@ export default function BuildRightPage() {
               />
             </div>
 
-            <button type="submit" className="btn btn-fill w-full text-[16px]">
-              Submit Inquiry
-            </button>
+            <ConsultationCheckout />
 
             <p className="text-center text-[13px] text-slate">
               We typically respond within 24 hours. For urgent queries, call us directly.
