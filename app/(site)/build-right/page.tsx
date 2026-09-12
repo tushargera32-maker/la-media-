@@ -137,7 +137,7 @@ export default function BuildRightPage() {
             </div>
           </Link>
           <a href="#inquiry" className="btn btn-fill px-4 text-[11px] md:px-6 md:text-[11px]">
-            Book Expert Consultation — ₹10,000
+            Book Free Consultation
           </a>
         </div>
       </header>
@@ -211,7 +211,7 @@ export default function BuildRightPage() {
 
             <div className="mt-8 flex flex-wrap gap-3 md:mt-12 md:gap-4">
               <a href="#inquiry" className="btn btn-fill text-[13px] md:text-[16px]">
-                Book Expert Consultation — ₹10,000
+                Book Free Consultation
               </a>
               <a href="tel:+919888078580" className="btn btn-line text-[13px] md:text-[16px]">
                 Call Now
@@ -618,10 +618,11 @@ export default function BuildRightPage() {
           <Reveal>
             <Eyebrow>Get Started</Eyebrow>
             <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
-              Book Your Expert Consultation
+              Book Your Free Consultation
             </h2>
             <p className="mt-4 text-[17px] text-mist">
-              One session with senior architects. Clear guidance before you build. Fee: ₹10,000. We respond within 24 hours.
+              First consultation is absolutely free. A senior architect will call you within 24 hours.
+              In a hurry? Opt for the priority paid consultation below.
             </p>
           </Reveal>
 
@@ -733,6 +734,16 @@ export default function BuildRightPage() {
             </div>
 
             <ConsultationCheckout />
+
+            <a
+              href="tel:+919888078580"
+              className="btn btn-line w-full justify-center text-[16px]"
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              Prefer talking? Call Now — +91 98880 78580
+            </a>
 
             <p className="text-center text-[13px] text-slate">
               We typically respond within 24 hours. For urgent queries, call us directly.

@@ -179,7 +179,7 @@ export function ConsultationCheckout() {
               ? "Opening payment…"
               : paid
                 ? "Proceed to Payment — ₹10,000"
-                : "Submit Inquiry"}
+                : "Book Free Consultation"}
       </button>
     </>
   );
