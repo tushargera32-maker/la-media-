@@ -90,14 +90,14 @@ RESEND_API_KEY="re_your_actual_key_here"
 # Resend API Key (REPLACE THIS!)
 RESEND_API_KEY="re_xxxxxxxxx"
 
-# Where admin notifications go (already set to your email)
-NOTIFICATION_EMAIL="ravinder1993singh12@gmail.com"
+# Where admin notifications go (your inbox address)
+NOTIFICATION_EMAIL="your-inbox@gmail.com"
 
-# From address (Resend default - works immediately)
-FROM_EMAIL="onboarding@resend.dev"
+# From address (verified domain — use this in production)
+FROM_EMAIL="LA Media <noreply@lamedia.co.in>"
 ```
 
-### Optional: Use Your Own Domain
+### Optional: Use Your Own Domain (done — lamedia.co.in is verified)
 
 If you want emails from `hello@lamedia.in` instead of `onboarding@resend.dev`:
 
