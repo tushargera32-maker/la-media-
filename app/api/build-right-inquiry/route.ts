@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendAdminNotification } from "@/lib/resend";
+import { rateLimit, rateLimitResponse } from "@/lib/ratelimit";
 
 export async function POST(request: Request) {
+  if (!rateLimit(request, "build-right-inquiry", 10)) return rateLimitResponse();
   try {
     const body = await request.json();
     const { name, phone, email, location, service, stage, size, query } = body;

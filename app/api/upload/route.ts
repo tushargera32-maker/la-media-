@@ -15,10 +15,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate file type
-    if (!file.type.startsWith("image/")) {
+    // Validate file type against an allowlist. Notably SVG is excluded:
+    // inline scripts in an SVG run when the file URL is opened directly
+    // (stored XSS), and a client-supplied MIME prefix alone proves nothing.
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif'];
+    if (!allowedTypes.includes(file.type)) {
       return NextResponse.json(
-        { error: "Only image files are allowed" },
+        { error: "Only JPEG, PNG, WebP, and GIF images are allowed" },
+        { status: 400 }
+      );
+    }
+
+    // Validate file size (5MB limit) so uploads can't fill the disk.
+    const maxSize = 5 * 1024 * 1024;
+    if (file.size > maxSize) {
+      return NextResponse.json(
+        { error: "File size exceeds 5MB limit" },
         { status: 400 }
       );
     }
@@ -29,10 +41,24 @@ export async function POST(request: NextRequest) {
       await mkdir(uploadsDir, { recursive: true });
     }
 
-    // Generate unique filename
+    // Generate unique filename. file.name is attacker-controlled, so strip
+    // path separators / traversal and force a safe extension matching the
+    // validated MIME type.
+    const mimeToExt: Record<string, string> = {
+      'image/jpeg': '.jpg',
+      'image/jpg': '.jpg',
+      'image/png': '.png',
+      'image/webp': '.webp',
+      'image/gif': '.gif',
+    };
     const timestamp = Date.now();
-    const originalName = file.name.replace(/[^a-zA-Z0-9.-]/g, "-");
-    const filename = `${timestamp}-${originalName}`;
+    const safeBase = (file.name.split(/[\\/]/).pop() || 'upload')
+      .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9_-]/g, '')
+      .replace(/^\.+/g, '')
+      .toLowerCase()
+      .slice(0, 80) || 'upload';
+    const filename = `${timestamp}-${safeBase}${mimeToExt[file.type]}`;
     const filepath = path.join(uploadsDir, filename);
 
     // Convert file to buffer and save

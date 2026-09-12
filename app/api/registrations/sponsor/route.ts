@@ -2,12 +2,14 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { HEARD_ABOUT_OPTIONS } from "@/lib/content";
 import { sendAdminNotification, sendUserConfirmation } from "@/lib/resend";
+import { rateLimit, rateLimitResponse } from "@/lib/ratelimit";
 
 function str(value: unknown, max = 300): string {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
 export async function POST(request: Request) {
+  if (!rateLimit(request, "registrations:sponsor", 10)) return rateLimitResponse();
   let body: unknown;
   try {
     body = await request.json();

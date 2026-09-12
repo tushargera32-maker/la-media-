@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { HEARD_ABOUT_OPTIONS } from "@/lib/content";
 import { sendAdminNotification, sendUserConfirmation } from "@/lib/resend";
+import { rateLimit, rateLimitResponse } from "@/lib/ratelimit";
 
 /*
   Server-side validation is not a duplicate of the client's - it is the
@@ -13,6 +14,7 @@ function str(value: unknown, max = 300): string {
 }
 
 export async function POST(request: Request) {
+  if (!rateLimit(request, "registrations", 10)) return rateLimitResponse();
   let body: unknown;
   try {
     body = await request.json();

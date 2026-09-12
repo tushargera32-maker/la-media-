@@ -1,8 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { sendAdminNotification } from "@/lib/resend";
+import { rateLimit, rateLimitResponse } from "@/lib/ratelimit";
 
 export async function GET(request: NextRequest) {
+  // Contact submissions contain personal data - admin only.
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     const searchParams = request.nextUrl.searchParams;
     const page = parseInt(searchParams.get("page") || "1");
@@ -41,6 +49,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!rateLimit(request, "contacts", 10)) return rateLimitResponse();
   try {
     const body = await request.json();
     const { name, email, phone, company, message } = body;

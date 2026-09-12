@@ -1,15 +1,21 @@
 import { NextResponse } from "next/server";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
 // Always run live — never serve a build-time cached snapshot.
 export const dynamic = "force-dynamic";
 
 /**
- * Temporary diagnostics: reports whether the LIVE deployment can see
- * database env vars and reach Turso. Returns booleans only — never values.
- * Remove once the production DB connection is confirmed working.
+ * Diagnostics: reports whether the deployment can see database env vars
+ * and reach Turso. Returns booleans only — never values.
+ * Admin-gated: schema/table names and DB error text must not be public.
  */
 export async function GET() {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   const rawTursoUrl = (process.env.TURSO_DATABASE_URL ?? "").trim();
   const rawToken = (process.env.TURSO_AUTH_TOKEN ?? "").trim();
   const rawDatabaseUrl = (process.env.DATABASE_URL ?? "").trim();

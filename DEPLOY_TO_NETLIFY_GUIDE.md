@@ -234,8 +234,8 @@ Later can change to:
 2. **Admin access:**
    ```
    URL: https://your-site.netlify.app/admin/login
-   Email: admin@lamedia.com
-   Password: admin123
+   Email: (your ADMIN_EMAIL from env)
+   Password: (your ADMIN_PASSWORD from env - never commit it)
    ```
 
 3. **Update later:**

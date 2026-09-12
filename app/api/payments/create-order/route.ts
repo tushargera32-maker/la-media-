@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { createCashfreeOrder } from "@/lib/cashfree";
+import { rateLimit, rateLimitResponse } from "@/lib/ratelimit";
 
 /** Paid Build Right consultation fee (INR). GST-inclusive flat price. */
 export const CONSULTATION_FEE = 10000;
@@ -16,6 +17,7 @@ function siteUrl(request: Request): string {
 }
 
 export async function POST(request: Request) {
+  if (!rateLimit(request, "payments:create-order", 10)) return rateLimitResponse();
   let body: unknown;
   try {
     body = await request.json();

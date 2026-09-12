@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { rateLimit, rateLimitResponse } from '@/lib/ratelimit';
 
 export async function POST(request: NextRequest) {
+  // Analytics ping fires on every page view, so the budget is generous —
+  // it only needs to stop abusive loops, not humans.
+  if (!rateLimit(request, "track-visitor", 180)) return rateLimitResponse();
   try {
     const body = await request.json();
     const { sessionId, path, title } = body;
