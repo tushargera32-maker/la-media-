@@ -8,6 +8,8 @@ function getResend(): Resend | null {
 
 const FROM_EMAIL = process.env.FROM_EMAIL || 'lamediacommunications@gmail.com';
 const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'lamediacommunications@gmail.com';
+// Public site URL for links inside emails (never localhost in production).
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "") || "https://lamedia.co.in";
 
 // Send email to admin when new registration received
 export async function sendAdminNotification(data: {
@@ -44,7 +46,7 @@ export async function sendAdminNotification(data: {
               <div class="detail"><span class="label">Email:</span> ${data.email}</div>
               <div class="detail"><span class="label">Details:</span><br/>${data.details}</div>
               <p style="margin-top: 30px;">
-                <a href="http://localhost:3000/admin/dashboard"
+                <a href="${SITE_URL}/admin/dashboard"
                    style="background: #d4a574; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">
                   View in Admin Dashboard
                 </a>
@@ -66,6 +68,8 @@ export async function sendAdminNotification(data: {
     await client.emails.send({
       from: FROM_EMAIL,
       to: NOTIFICATION_EMAIL,
+      // Admin hits reply → goes straight to the lead, not the noreply inbox.
+      replyTo: data.email,
       subject,
       html,
     });
@@ -151,9 +155,9 @@ export async function sendUserConfirmation(data: {
               ` : ''}
               <p>We'll send you more details closer to the event date.</p>
               <p>In the meantime, feel free to reach out if you have any questions.</p>
-              <p style="text-align: center;">
-                <a href="http://localhost:3000" class="button">Visit Our Website</a>
-              </p>
+                <p style="text-align: center;">
+                  <a href="${SITE_URL}" class="button">Visit Our Website</a>
+                </p>
               <p style="margin-top: 30px;">${copy.closing}</p>
               <p><strong>Team LA Media</strong></p>
             </div>
@@ -175,6 +179,7 @@ export async function sendUserConfirmation(data: {
     await client.emails.send({
       from: FROM_EMAIL,
       to: data.email,
+      replyTo: NOTIFICATION_EMAIL,
       subject: copy.subject,
       html,
     });
@@ -233,6 +238,7 @@ export async function sendNewsletterWelcome(email: string) {
     await client.emails.send({
       from: FROM_EMAIL,
       to: email,
+      replyTo: NOTIFICATION_EMAIL,
       subject: 'Welcome to LA Media Newsletter!',
       html,
     });
