@@ -151,7 +151,7 @@ export default function BuildRightPage() {
               src="/BUILD RIGHT COVER PIC SUB PAGE .png"
               alt="Build Right Advisory"
               fill
-              className="object-contain object-center md:object-cover"
+              className="object-contain object-center md:object-cover bleed-img"
               priority
             />
           </div>

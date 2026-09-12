@@ -120,8 +120,8 @@ export function SiteHeader() {
         <nav
           id="mobile-nav"
           inert={!open}
-          className={`fixed right-0 top-0 z-50 h-full w-[90%] max-w-sm transform bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl transition-transform duration-300 ease-out will-change-transform sm:w-[85%] ${
-            open ? "translate-x-0" : "translate-x-full"
+          className={`fixed right-0 top-0 z-50 h-full w-[90%] max-w-sm transform bg-gradient-to-br from-navy via-navy-2 to-abyss shadow-2xl transition-[transform,visibility] duration-300 ease-out will-change-transform sm:w-[85%] ${
+            open ? "translate-x-0 visible" : "translate-x-full invisible"
           }`}
         >
             {/* Header */}

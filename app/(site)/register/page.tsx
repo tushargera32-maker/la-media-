@@ -46,7 +46,7 @@ export default function RegisterPage() {
               src="/herodd.png"
               alt="Design Dialect Hero"
               fill
-              className="object-contain object-center md:object-cover"
+              className="object-contain object-center md:object-cover bleed-img"
               priority
             />
           </div>

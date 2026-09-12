@@ -9,8 +9,11 @@
   which is what stops the figures reading as dashboard chrome.
 */
 
-/* Global rounded corners - subtle curves throughout */
-img, video, iframe, embed, object, picture, canvas {
+/* Global rounded corners - subtle curves throughout.
+   Full-bleed imagery is exempt: rounding a hero background punches
+   visible notches into the screen edges (very obvious on phones). */
+img:not(.bleed-img),
+video, iframe, embed, object, picture, canvas {
   border-radius: 12px;
 }
 
@@ -68,6 +71,18 @@ a.btn {
 }
 
 html { background: var(--color-navy); color-scheme: dark; }
+
+/* Mobile viewport final-pass:
+   - overflow-x clip kills horizontal bleed (off-canvas nav, wide decor)
+     that makes phone layouts look shifted with uneven edges. clip (not
+     hidden) preserves position: sticky.
+   - text-size-adjust stops iOS from inflating text blocks, which reads
+     as "everything is zoomed in". */
+html, body {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   background: var(--color-navy);

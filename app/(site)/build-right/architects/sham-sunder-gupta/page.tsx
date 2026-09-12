@@ -14,7 +14,7 @@ export default function ShamSunderGuptaPage() {
     <>
       {/* HEADER */}
       <header className="fixed top-0 z-50 w-full border-b border-hairline bg-navy/95 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4">
+        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-3 md:py-4">
           <Link href="/build-right" className="flex items-center gap-3 text-[14px] text-mist hover:text-copper transition-colors">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -22,7 +22,7 @@ export default function ShamSunderGuptaPage() {
             Back to Build Right
           </Link>
           <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-12 w-40">
+            <div className="relative h-10 w-32 md:h-12 md:w-40">
               <Image
                 src="/firm-la-media.png"
                 alt="LA Media & Communications"
@@ -43,7 +43,7 @@ export default function ShamSunderGuptaPage() {
               src="/team/ar-sham-gupta.jpg"
               alt="Ar. Sham Sunder Gupta"
               fill
-              className="object-cover"
+              className="object-cover bleed-img"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/60" />
