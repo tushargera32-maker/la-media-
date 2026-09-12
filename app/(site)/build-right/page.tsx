@@ -774,15 +774,18 @@ export default function BuildRightPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Phone</p>
-                    <a href="tel:+919888078580" className="mt-2 block text-[18px] font-bold text-copper hover:text-copper-soft">
-                      98880 78580
+                    <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Call Our Senior Architects</p>
+                    <a href="tel:+919888078580" className="mt-2 block text-[16px] text-mist transition-colors hover:text-copper">
+                      <span className="font-bold text-copper">98880 78580</span>
+                      <span className="text-slate"> — Ar. Arjun Deep, LAA President</span>
                     </a>
-                    <a href="tel:+919988800389" className="block text-[16px] text-mist hover:text-copper">
-                      99888 00389
+                    <a href="tel:+919988800389" className="mt-1.5 block text-[16px] text-mist transition-colors hover:text-copper">
+                      <span className="font-bold text-copper">99888 00389</span>
+                      <span className="text-slate"> — Ar. Neeraj Sharma, LAA Treasurer</span>
                     </a>
-                    <a href="tel:+919815100385" className="block text-[16px] text-mist hover:text-copper">
-                      98151 00385
+                    <a href="tel:+919815100385" className="mt-1.5 block text-[16px] text-mist transition-colors hover:text-copper">
+                      <span className="font-bold text-copper">98151 00385</span>
+                      <span className="text-slate"> — Ar. Sham Sunder Gupta, LAA Gen Sec</span>
                     </a>
                   </div>
                 </div>
