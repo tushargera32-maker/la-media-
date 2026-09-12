@@ -400,8 +400,8 @@ export default function BuildRightPage() {
                         <p className="text-[10px] uppercase tracking-wider text-slate">Projects</p>
                       </div>
                       <div>
-                        <p className="text-[20px] font-bold text-copper">17+</p>
-                        <p className="text-[10px] uppercase tracking-wider text-slate">Awards</p>
+                        <p className="text-[20px] font-bold text-copper">LAA</p>
+                        <p className="text-[10px] uppercase tracking-wider text-slate">President</p>
                       </div>
                     </div>
 

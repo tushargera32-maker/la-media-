@@ -6,7 +6,7 @@ import { Media, Eyebrow } from "@/components/ui/Primitives";
 
 export const metadata: Metadata = {
   title: "Ar. Arjun Deep - Principal Architect | Build Right Advisors",
-  description: "Ar. Arjun Deep brings 25+ years of architectural excellence. Principal Architect at Arjun Sharma & Associates with 180+ projects and 17+ awards.",
+  description: "Ar. Arjun Deep brings 25+ years of architectural excellence. Principal Architect at Arjun Sharma & Associates, President of LAA Ludhiana, with 180+ projects.",
 };
 
 export default function ArjunDeepPage() {
@@ -59,7 +59,7 @@ export default function ArjunDeepPage() {
               Ar. Arjun Deep
             </h1>
             <p className="mt-6 max-w-[50ch] text-[18px] leading-relaxed text-mist">
-              25+ years of architectural excellence. 180+ projects. 17+ awards. Building Punjab's future, one project at a time.
+              25+ years of architectural excellence. 180+ projects. President, LAA Ludhiana. Building Punjab&apos;s future, one project at a time.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-6">
@@ -113,8 +113,8 @@ export default function ArjunDeepPage() {
               <p className="mt-2 text-[12px] font-semibold uppercase tracking-wider text-slate">Projects Completed</p>
             </div>
             <div className="panel p-6 text-center">
-              <p className="text-[3rem] font-bold text-copper">17+</p>
-              <p className="mt-2 text-[12px] font-semibold uppercase tracking-wider text-slate">Awards Won</p>
+              <p className="text-[3rem] font-bold text-copper">LAA</p>
+              <p className="mt-2 text-[12px] font-semibold uppercase tracking-wider text-slate">President · Ludhiana</p>
             </div>
             <div className="panel p-6 text-center">
               <p className="text-[3rem] font-bold text-copper">59</p>
@@ -138,7 +138,10 @@ export default function ArjunDeepPage() {
 
               <div className="mt-8 space-y-6 text-[17px] leading-relaxed text-mist">
                 <p>
-                  <strong className="text-bone">Ar. Arjun Deep</strong> brings over 25 years of distinguished experience serving as Principal Architect at Arjun Sharma & Associates. With 180+ projects completed and 59 institutional clients, he has established himself as a trusted name in architectural design across Punjab.
+                  <strong className="text-bone">Ar. Arjun Deep</strong> brings over 25 years of distinguished experience serving as Principal Architect at Arjun Sharma & Associates M/s Fusion Infrastructure. With 180+ projects completed and 59 institutional clients, he has established himself as a trusted name in architectural design across Punjab.
+                </p>
+                <p>
+                  He currently serves as <strong className="text-bone">President of LAA, Ludhiana</strong>, leading the city&apos;s architecture fraternity and shaping the discourse around the built environment through platforms like Design Dialect.
                 </p>
                 <p>
                   His practice is renowned for designing spaces that serve the people who inhabit them—from intimate residences to large-scale institutions and commercial landmarks. Registered with the Council of Architecture, Indian Institute of Architects, and All India Institute of Valuers, his comprehensive expertise spans architecture, interiors, structural design, and property valuation.
@@ -156,6 +159,15 @@ export default function ArjunDeepPage() {
                   <p className="text-[15px] text-mist">Council of Architecture: CA/99/25313</p>
                   <p className="text-[15px] text-mist">Indian Institute of Architects: 16030</p>
                   <p className="text-[15px] text-mist">All India Institute of Valuers: A-1447</p>
+                </div>
+              </div>
+
+              <div className="panel p-6">
+                <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Leadership</p>
+                <div className="mt-4 space-y-2">
+                  <p className="text-[15px] font-semibold text-copper">President — LAA, Ludhiana</p>
+                  <p className="text-[15px] text-mist">Cofounder — Fusion Infrastructure</p>
+                  <p className="text-[15px] text-mist">Cofounder — LA Media & Communications LLP</p>
                 </div>
               </div>
 
