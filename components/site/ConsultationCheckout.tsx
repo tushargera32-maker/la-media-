@@ -154,7 +154,7 @@ export function ConsultationCheckout() {
           className="mt-1 h-4 w-4 accent-[var(--color-copper)]"
         />
         <span className="text-[14px] leading-relaxed text-mist">
-          I&apos;m opting for <span className="font-bold text-bone">paid consultation (₹10,000)</span> —
+          I&apos;m opting for <span className="font-bold text-bone">paid consultation</span> —
           priority scheduling with a senior architect.
         </span>
       </label>
@@ -178,7 +178,7 @@ export function ConsultationCheckout() {
             : phase === "paying"
               ? "Opening payment…"
               : paid
-                ? "Proceed to Payment — ₹10,000"
+                ? "Proceed to Payment"
                 : "Book Free Consultation"}
       </button>
     </>

@@ -15,7 +15,7 @@ export default function RegisterPage() {
     <>
       {/* PREMIUM HEADER */}
       <header className="fixed top-0 z-50 w-full border-b border-copper/20 bg-navy/98 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-shell items-center justify-between px-gutter py-4 md:py-5">
+        <div className="mx-auto flex max-w-shell items-center justify-between py-4 pl-3 pr-gutter md:py-5 md:pl-5">
           <Link href="/" className="flex items-center gap-2 md:gap-3">
             <div className="relative h-10 w-32 md:h-14 md:w-44">
               <Image
@@ -110,23 +110,23 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4 sm:mt-14 sm:gap-5">
+            <div className="mt-10 flex flex-wrap items-center gap-3 sm:mt-14 sm:gap-4">
               <a
                 href="#register"
-                className="group flex items-center gap-2 rounded-2xl border-2 border-copper/30 bg-white/5 px-6 py-3.5 text-[14px] font-semibold backdrop-blur-sm transition-all hover:border-copper hover:bg-white/10 sm:gap-3 sm:px-8 sm:py-4 sm:text-[16px]"
+                className="group flex items-center gap-2 rounded-xl border-2 border-copper/30 bg-white/5 px-5 py-3 text-[13px] font-semibold backdrop-blur-sm transition-all hover:border-copper hover:bg-white/10 sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[15px]"
               >
                 <span className="relative z-10">Register Now</span>
-                <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
 
               <a
                 href="/register/sponsor"
-                className="group relative flex items-center gap-2 overflow-hidden rounded-2xl bg-copper px-6 py-4 text-[15px] font-bold text-white shadow-2xl shadow-copper/40 transition-all hover:scale-105 hover:shadow-3xl hover:shadow-copper/60 sm:px-10 sm:py-5 sm:text-[17px]"
+                className="group relative flex items-center gap-2 overflow-hidden rounded-xl bg-copper px-5 py-3 text-[13px] font-bold text-white shadow-xl shadow-copper/40 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-copper/60 sm:gap-2 sm:px-7 sm:py-3.5 sm:text-[15px]"
               >
                 <span className="relative z-10">Exhibit With Us</span>
-                <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform group-hover:translate-x-full"></div>
