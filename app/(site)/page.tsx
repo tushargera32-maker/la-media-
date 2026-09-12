@@ -58,21 +58,21 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/25" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-navy/70" />
 
-        <div className="relative mx-auto flex min-h-[100svh] max-w-shell flex-col justify-center px-gutter pb-16 pt-32">
+        <div className="relative mx-auto flex min-h-[100svh] max-w-shell flex-col justify-center px-gutter pb-12 pt-28 md:pb-16 md:pt-32">
           <p className="eyebrow">{HERO.eyebrow}</p>
 
           <HeadingLines
             lines={HERO.lines}
             accentIndex={2}
-            className="h-display mt-7 text-[clamp(2.6rem,7.5vw,6.5rem)]"
+            className="h-display mt-7 text-[clamp(2rem,11vw,6.5rem)]"
           />
 
-          <p className="mt-8 max-w-[44ch] text-[17px] leading-relaxed text-mist">
+          <p className="mt-5 max-w-[44ch] text-[15px] leading-relaxed text-mist sm:mt-8 sm:text-[17px]">
             {HERO.body}
           </p>
 
           {/* Event card + stats */}
-          <div className="mt-12 grid gap-6 md:mt-16 md:gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-end">
+          <div className="mt-8 grid gap-6 md:mt-16 md:gap-8 lg:grid-cols-[1fr_1.05fr] lg:items-end">
             <Reveal>
               <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate sm:text-[10.5px]">
                 LA Media & Communications
@@ -182,7 +182,7 @@ export default async function HomePage() {
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <Eyebrow>What we do</Eyebrow>
-                <h2 className="h-tight mt-6 max-w-[18ch] text-[clamp(1.9rem,4vw,3.2rem)]">
+                <h2 className="h-tight mt-6 max-w-[18ch] text-[clamp(1.6rem,6vw,3.2rem)]">
                   We design platforms that spark ideas and{" "}
                   <span className="text-copper">drive impact</span>.
                 </h2>
@@ -227,7 +227,7 @@ export default async function HomePage() {
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
                 <Eyebrow>Insights</Eyebrow>
-                <h2 className="h-tight mt-6 max-w-[16ch] text-[clamp(1.9rem,4vw,3.2rem)]">
+                <h2 className="h-tight mt-6 max-w-[16ch] text-[clamp(1.6rem,6vw,3.2rem)]">
                   Ideas, perspectives and knowledge.
                 </h2>
               </div>
@@ -277,7 +277,7 @@ export default async function HomePage() {
         <span className="bloom opacity-70" />
         <div className="relative mx-auto flex max-w-shell flex-wrap items-center justify-between gap-10 px-gutter">
           <div>
-            <h2 className="h-tight max-w-[18ch] text-[clamp(1.9rem,4vw,3.2rem)]">
+            <h2 className="h-tight max-w-[18ch] text-[clamp(1.6rem,6vw,3.2rem)]">
               Be part of the conversation.
             </h2>
             <p className="mt-5 max-w-[44ch] text-[17px] text-mist">

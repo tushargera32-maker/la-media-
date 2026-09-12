@@ -60,7 +60,7 @@ export default function DesignDialectsPage() {
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-copper/60 text-[16px] font-bold tracking-[0.08em] text-copper">
               DD
             </div>
-            <h1 className="h-display text-[clamp(2.5rem,6vw,5rem)]">
+            <h1 className="h-display text-[clamp(1.9rem,6vw,5rem)]">
               Design Dialect
             </h1>
             <p className="mx-auto mt-6 max-w-[60ch] text-[18px] leading-relaxed text-mist">

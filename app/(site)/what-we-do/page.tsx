@@ -22,7 +22,7 @@ export default function WhatWeDoPage() {
         <div className="relative mx-auto grid max-w-shell gap-12 px-gutter lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
             <Eyebrow>What we do</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.2vw,4.2rem)]">
+            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(1.8rem,5.2vw,4.2rem)]">
               We design platforms that spark ideas and{" "}
               <span className="text-copper">drive impact</span>.
             </h1>

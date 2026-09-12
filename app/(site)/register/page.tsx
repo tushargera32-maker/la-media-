@@ -55,17 +55,17 @@ export default function RegisterPage() {
               <span className="text-[12px] font-bold uppercase tracking-[0.15em] text-copper">Limited Seats Available</span>
             </div>
 
-            <h1 className="mt-8 text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.95] tracking-tight">
+            <h1 className="mt-6 text-[clamp(2.1rem,11vw,6.5rem)] font-bold leading-[0.95] tracking-tight sm:mt-8">
               Design<br />
               <span className="bg-gradient-to-r from-copper via-copper-soft to-bone bg-clip-text text-transparent">Dialect 2.0</span>
             </h1>
 
-            <p className="mt-8 max-w-[55ch] text-[clamp(1.1rem,2vw,1.4rem)] leading-relaxed text-mist">
+            <p className="mt-5 max-w-[55ch] text-[15px] leading-relaxed text-mist sm:mt-8 sm:text-[clamp(1.1rem,2vw,1.4rem)]">
               India's most anticipated architecture and design conference returns. Two days of groundbreaking ideas,
               industry leaders, and career-defining connections.
             </p>
 
-            <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-8 lg:w-2/3">
+            <div className="mt-6 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-8 lg:w-2/3">
               <div className="group">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-copper/10 backdrop-blur-sm transition-all group-hover:scale-110 group-hover:bg-copper/20 sm:h-14 sm:w-14">
@@ -150,7 +150,7 @@ export default function RegisterPage() {
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
               <div>
                 <Eyebrow>About the Conference</Eyebrow>
-                <h2 className="mt-8 text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight">
+                <h2 className="mt-6 text-[clamp(1.9rem,7vw,4rem)] font-bold leading-tight sm:mt-8">
                   Where India's Architecture<br />
                   <span className="text-copper">Elite Gather</span>
                 </h2>
@@ -166,25 +166,25 @@ export default function RegisterPage() {
 
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
+                  <div className="text-[2.3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="300" />+
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
                 </div>
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
+                  <div className="text-[2.3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="50" />+
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Industry Leaders</p>
                 </div>
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
+                  <div className="text-[2.3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="50" />+
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Brand Partners</p>
                 </div>
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
-                  <div className="text-[3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
+                  <div className="text-[2.3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
                     <CountUp value="2" />
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Days of Excellence</p>
@@ -200,7 +200,7 @@ export default function RegisterPage() {
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Why Attend</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Transform Your Practice
             </h2>
           </Reveal>
@@ -286,7 +286,7 @@ export default function RegisterPage() {
         <div className="mx-auto max-w-3xl px-gutter">
           <Reveal>
             <Eyebrow>Register Now</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Secure Your Spot
             </h2>
             <p className="mt-4 text-[17px] text-mist">
@@ -306,7 +306,7 @@ export default function RegisterPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow>Contact Us</Eyebrow>
-              <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
                 Have Questions?
               </h2>
               <p className="mt-6 text-[17px] leading-relaxed text-mist">

@@ -55,7 +55,7 @@ export default function ArjunDeepPage() {
             <div className="inline-block rounded-full border border-copper/50 bg-copper/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-copper">
               Principal Architect
             </div>
-            <h1 className="mt-6 text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1]">
+            <h1 className="mt-6 text-[clamp(2rem,10vw,5rem)] font-bold leading-[1.1]">
               Ar. Arjun Deep
             </h1>
             <p className="mt-6 max-w-[50ch] text-[18px] leading-relaxed text-mist">
@@ -131,7 +131,7 @@ export default function ArjunDeepPage() {
             <div>
               <Reveal>
                 <Eyebrow>About</Eyebrow>
-                <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+                <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
                   Designing Spaces That <span className="text-copper">Serve People</span>
                 </h2>
               </Reveal>
@@ -186,7 +186,7 @@ export default function ArjunDeepPage() {
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Portfolio</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Selected Projects
             </h2>
           </Reveal>
@@ -241,7 +241,7 @@ export default function ArjunDeepPage() {
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Gallery</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Project Gallery
             </h2>
             <p className="mt-4 text-[17px] text-mist">
@@ -269,7 +269,7 @@ export default function ArjunDeepPage() {
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-3xl px-gutter text-center">
           <Reveal>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Work With Ar. Arjun Deep
             </h2>
             <p className="mt-6 text-[17px] text-mist">

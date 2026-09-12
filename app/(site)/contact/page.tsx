@@ -28,7 +28,7 @@ export default function ContactPage() {
         <div className="relative mx-auto grid max-w-shell gap-12 px-gutter lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <Eyebrow>Contact us</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[12ch] text-[clamp(2.2rem,5vw,4rem)]">
+            <h1 className="h-display mt-7 max-w-[12ch] text-[clamp(1.8rem,5vw,4rem)]">
               Let&rsquo;s start a conversation<span className="text-copper">.</span>
             </h1>
             <p className="mt-7 max-w-[36ch] text-[17px] leading-relaxed text-mist">

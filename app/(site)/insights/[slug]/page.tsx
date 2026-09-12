@@ -147,7 +147,7 @@ export default async function BlogPost({ params }: Props) {
               )}
             </div>
 
-            <h1 className="h-display mt-6 max-w-[20ch] text-[clamp(2.2rem,6vw,4.6rem)]">
+            <h1 className="h-display mt-6 max-w-[20ch] text-[clamp(1.8rem,6vw,4.6rem)]">
               {post.title}
             </h1>
 

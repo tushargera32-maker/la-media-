@@ -30,7 +30,7 @@ export default function BlogPost() {
           <span>February 10, 2027</span>
         </div>
 
-        <h1 className="h-tight text-[clamp(2rem,5vw,3.5rem)]">
+        <h1 className="h-tight text-[clamp(1.7rem,5vw,3.5rem)]">
           Why Architecture Events Matter More Than Ever in 2027
         </h1>
 

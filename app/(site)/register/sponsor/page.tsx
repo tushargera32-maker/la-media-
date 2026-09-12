@@ -20,7 +20,7 @@ export default function SponsorRegisterPage() {
         <div className="relative mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Exhibit Your Brand</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.5vw,4.4rem)]">
+            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(1.8rem,5.5vw,4.4rem)]">
               Book Your Stall at Design Dialect 2.0.
             </h1>
             <span className="mt-8 block h-px w-14 bg-copper" />

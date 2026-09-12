@@ -143,7 +143,7 @@ export default function BuildRightPage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[62vh] overflow-hidden pt-24 md:min-h-[80vh] md:pt-32">
+      <section className="relative min-h-[62vh] overflow-hidden pt-20 md:min-h-[80vh] md:pt-32">
         <div className="absolute inset-0 bg-navy-2">
           <div className="relative h-full w-full">
             <Image
@@ -162,11 +162,11 @@ export default function BuildRightPage() {
             <div className="inline-block rounded-full border border-copper/50 bg-copper/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-copper">
               Build Right Advisors
             </div>
-            <h1 className="mt-6 text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.1]">
+            <h1 className="mt-6 text-[clamp(2rem,10vw,5rem)] font-bold leading-[1.1]">
               Expert Construction<br />
               <span className="text-copper">Advisory Services</span>
             </h1>
-            <p className="mt-6 max-w-[50ch] text-[18px] leading-relaxed text-mist">
+            <p className="mt-4 max-w-[50ch] text-[15px] leading-relaxed text-mist md:mt-6 md:text-[18px]">
               Comprehensive construction guidance from pre-build planning to post-construction support.
               Your trusted partner for building projects in Ludhiana and Punjab.
             </p>
@@ -209,7 +209,7 @@ export default function BuildRightPage() {
               </div>
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3 md:mt-12 md:gap-4">
+            <div className="mt-6 flex flex-wrap gap-3 md:mt-12 md:gap-4">
               <a href="#inquiry" className="btn btn-fill text-[13px] md:text-[16px]">
                 Book Free Consultation
               </a>
@@ -226,7 +226,7 @@ export default function BuildRightPage() {
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Our Services</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Comprehensive Construction Advisory
             </h2>
             <p className="mt-6 max-w-[60ch] text-[17px] text-mist">
@@ -287,7 +287,7 @@ export default function BuildRightPage() {
                 <div className="h-2 w-2 animate-pulse rounded-full bg-copper" />
                 <span className="text-[12px] font-bold uppercase tracking-[0.2em] text-copper">Meet The Visionaries</span>
               </div>
-              <h2 className="mt-10 text-[clamp(2.5rem,7vw,6rem)] font-bold leading-[0.95] tracking-tight">
+              <h2 className="mt-10 text-[clamp(2rem,12vw,6rem)] font-bold leading-[0.95] tracking-tight">
                 Building Punjab's<br />
                 <span className="relative inline-block -rotate-1">
                   <span className="bg-gradient-to-r from-copper via-copper-soft to-copper bg-clip-text text-transparent">
@@ -518,7 +518,7 @@ export default function BuildRightPage() {
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Instagram</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Watch Us Build, <span className="text-copper">Live on Instagram</span>
             </h2>
             <p className="mt-4 max-w-[60ch] text-[17px] text-mist">
@@ -617,7 +617,7 @@ export default function BuildRightPage() {
         <div className="mx-auto max-w-3xl px-gutter">
           <Reveal>
             <Eyebrow>Get Started</Eyebrow>
-            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+            <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
               Book Your Free Consultation
             </h2>
             <p className="mt-4 text-[17px] text-mist">
@@ -758,7 +758,7 @@ export default function BuildRightPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow>Contact Build Right</Eyebrow>
-              <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              <h2 className="mt-6 text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
                 Let's Build Right Together
               </h2>
               <p className="mt-6 text-[17px] leading-relaxed text-mist">

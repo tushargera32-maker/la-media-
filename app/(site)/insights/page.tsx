@@ -74,7 +74,7 @@ export default async function InsightsPage({
         <div className="relative mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Insights</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[14ch] text-[clamp(2.2rem,6vw,4.6rem)]">
+            <h1 className="h-display mt-7 max-w-[14ch] text-[clamp(1.8rem,6vw,4.6rem)]">
               Ideas.<br />Perspectives.<br /><span className="text-copper">Knowledge.</span>
             </h1>
             <p className="mt-8 max-w-[42ch] text-[17px] leading-relaxed text-mist">

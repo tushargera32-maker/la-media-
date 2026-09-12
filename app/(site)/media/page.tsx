@@ -45,7 +45,7 @@ export default async function MediaPage() {
         <div className="relative mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Our Projects</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(2.2rem,5.5vw,4.4rem)]">
+            <h1 className="h-display mt-7 max-w-[16ch] text-[clamp(1.8rem,5.5vw,4.4rem)]">
               Stories.<br />Moments.<br /><span className="text-copper">Impact.</span>
             </h1>
             <p className="mt-8 max-w-[44ch] text-[17px] leading-relaxed text-mist">

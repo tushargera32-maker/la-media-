@@ -23,7 +23,7 @@ export default function PartnerPage() {
         <div className="px-gutter pb-section-sm pt-16 lg:pt-24">
           <Reveal>
             <Eyebrow>Partner with us</Eyebrow>
-            <h1 className="display mt-8 max-w-[13ch] text-[clamp(2.2rem,5.4vw,4.6rem)] uppercase">
+            <h1 className="display mt-8 max-w-[13ch] text-[clamp(1.8rem,5.4vw,4.6rem)] uppercase">
               Let&rsquo;s build something meaningful together.
             </h1>
             <p className="mt-9 max-w-[40ch] border-l border-wine pl-6 text-[17px] text-ink-body">
@@ -47,7 +47,7 @@ export default function PartnerPage() {
         <div className="grid gap-10 px-gutter py-section lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <Reveal>
             <p className="eyebrow text-wine">I am a</p>
-            <h2 className="display mt-4 text-[clamp(2.2rem,5vw,4rem)] uppercase">Brand</h2>
+            <h2 className="display mt-4 text-[clamp(1.8rem,5vw,4rem)] uppercase">Brand</h2>
             <span className="mt-7 block h-px w-12 bg-wine" />
             <p className="mt-8 max-w-[42ch] text-[17px] text-ink-body">
               Partner with us to showcase your products, connect with the right
@@ -79,7 +79,7 @@ export default function PartnerPage() {
         <div className="grid gap-10 px-gutter py-section lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <Reveal>
             <p className="eyebrow text-wine">I am an</p>
-            <h2 className="display mt-4 text-[clamp(2.2rem,5vw,4rem)] uppercase">Architect</h2>
+            <h2 className="display mt-4 text-[clamp(1.8rem,5vw,4rem)] uppercase">Architect</h2>
             <span className="mt-7 block h-px w-12 bg-wine" />
             <p className="mt-8 max-w-[42ch] text-[17px] text-ink-body">
               Join our network, collaborate on meaningful initiatives and be part of

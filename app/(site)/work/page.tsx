@@ -21,7 +21,7 @@ export default function WorkPage() {
         <div className="relative mx-auto max-w-shell px-gutter">
           <Reveal>
             <Eyebrow>Our work</Eyebrow>
-            <h1 className="h-display mt-7 max-w-[15ch] text-[clamp(2.2rem,5.5vw,4.4rem)]">
+            <h1 className="h-display mt-7 max-w-[15ch] text-[clamp(1.8rem,5.5vw,4.4rem)]">
               Platforms that bring an industry together.
             </h1>
             <p className="mt-8 max-w-[44ch] text-[17px] leading-relaxed text-mist">
