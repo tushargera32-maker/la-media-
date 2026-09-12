@@ -15,9 +15,9 @@ export default function RegisterPage() {
     <>
       {/* PREMIUM HEADER */}
       <header className="fixed top-0 z-50 w-full border-b border-copper/20 bg-navy/98 backdrop-blur-2xl">
-        <div className="mx-auto flex max-w-shell items-center justify-between py-4 pl-3 pr-gutter md:py-5 md:pl-5">
-          <Link href="/" className="flex items-center gap-2 md:gap-3">
-            <div className="relative h-10 w-32 md:h-14 md:w-44">
+        <div className="mx-auto flex max-w-shell items-center justify-between gap-2 py-3 pl-2 pr-gutter md:py-4 md:pl-4">
+          <Link href="/" className="flex shrink-0 items-center gap-2 md:gap-3">
+            <div className="relative h-[43px] w-[138px] md:h-[59px] md:w-[185px]">
               <Image
                 src="/firm-la-media.png"
                 alt="LA Media & Communications"
@@ -27,9 +27,14 @@ export default function RegisterPage() {
               />
             </div>
           </Link>
-          <a href="#register" className="btn btn-fill px-4 text-[13px] md:px-8 md:text-[15px] shadow-lg shadow-copper/30 transition-all hover:shadow-xl hover:shadow-copper/40">
-            Register
-          </a>
+          <div className="flex shrink-0 items-center gap-2">
+            <a href="#register" className="rounded-xl px-3.5 py-2 text-[12px] font-semibold text-mist transition-all hover:border-copper hover:text-copper md:px-4 md:text-[13px] border border-transparent">
+              Register
+            </a>
+            <a href="/register/sponsor" className="rounded-xl bg-copper px-3.5 py-2 text-[12px] font-bold text-white shadow-lg shadow-copper/30 transition-all hover:shadow-xl hover:shadow-copper/40 md:px-5 md:text-[13px]">
+              Exhibit With Us
+            </a>
+          </div>
         </div>
       </header>
 
