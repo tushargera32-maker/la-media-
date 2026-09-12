@@ -62,10 +62,10 @@ function generateFullContent(post: any): string {
   <li><strong>Post-Event Analytics</strong> - Measuring success and impact</li>
 </ul>
 
-<h3>Design Dialects: Setting the Standard</h3>
-<p>Our flagship event, <strong>Design Dialects</strong>, has become Punjab's premier architecture conference, attracting 200+ professionals and establishing Ludhiana as a hub for architectural discourse.</p>
+<h3>Design Dialect: Setting the Standard</h3>
+<p>Our flagship event, <strong>Design Dialect</strong>, has become Punjab's premier architecture conference, attracting 200+ professionals and establishing Ludhiana as a hub for architectural discourse.</p>
 
-<p>The success of Design Dialects demonstrates our ability to create events that are not just gatherings, but platforms for meaningful dialogue, innovation, and industry advancement.</p>
+<p>The success of Design Dialect demonstrates our ability to create events that are not just gatherings, but platforms for meaningful dialogue, innovation, and industry advancement.</p>
 
 <h3>Why Choose Professional Event Management in Ludhiana?</h3>
 <p>Working with Ludhiana's top event management firm ensures your conference or corporate event achieves maximum impact through professional planning, seamless execution, and strategic networking opportunities.</p>
@@ -98,7 +98,7 @@ function generateFullContent(post: any): string {
 <h3>Making the Most of Events</h3>
 <p>To maximize the value of professional events, come prepared with clear goals, be open to conversations, and follow up with new connections after the event.</p>
 
-<p>At LA Media events like Design Dialects, we create structured networking opportunities alongside formal sessions to ensure you make meaningful connections.</p>
+<p>At LA Media events like Design Dialect, we create structured networking opportunities alongside formal sessions to ensure you make meaningful connections.</p>
     `.trim();
   } else {
     return `
@@ -119,7 +119,7 @@ function generateFullContent(post: any): string {
 </ul>
 
 <h3>Join the Conversation</h3>
-<p>LA Media & Communications creates platforms for professionals to engage, learn, and grow. From Design Dialects conferences to our insights platform, we're committed to advancing the architecture and design community in Punjab and beyond.</p>
+<p>LA Media & Communications creates platforms for professionals to engage, learn, and grow. From Design Dialect conferences to our insights platform, we're committed to advancing the architecture and design community in Punjab and beyond.</p>
 
 <p><strong>Stay Connected:</strong> Follow us for more insights and join us at our next event.</p>
     `.trim();

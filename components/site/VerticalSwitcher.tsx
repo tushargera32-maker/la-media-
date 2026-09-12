@@ -19,7 +19,7 @@ export function VerticalSwitcher() {
               DD
             </span>
             <span className="text-[8px] font-semibold uppercase tracking-[0.12em] text-mist group-hover:text-bone">
-              Design<br />Dialects
+              Design<br />Dialect
             </span>
           </button>
 

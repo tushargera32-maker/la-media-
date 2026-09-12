@@ -57,7 +57,7 @@ export default function RegisterPage() {
 
             <h1 className="mt-8 text-[clamp(3rem,8vw,6.5rem)] font-bold leading-[0.95] tracking-tight">
               Design<br />
-              <span className="bg-gradient-to-r from-copper via-copper-soft to-bone bg-clip-text text-transparent">Dialects 2.0</span>
+              <span className="bg-gradient-to-r from-copper via-copper-soft to-bone bg-clip-text text-transparent">Dialect 2.0</span>
             </h1>
 
             <p className="mt-8 max-w-[55ch] text-[clamp(1.1rem,2vw,1.4rem)] leading-relaxed text-mist">
