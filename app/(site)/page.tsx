@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/Primitives";
 import { VerticalSwitcher } from "@/components/site/VerticalSwitcher";
 import { EventPopup } from "@/components/site/EventPopup";
+import { VideoReel } from "@/components/site/VideoReel";
 import { HERO, STATS, EVENT, CAPABILITIES } from "@/lib/content";
 import { prisma } from "@/lib/prisma";
 
@@ -269,6 +270,34 @@ export default async function HomePage() {
           <p className="mt-8 text-[12px] text-slate">
             Latest insights from LA Media & Communications
           </p>
+        </div>
+      </section>
+
+      {/* 03b - VIBE STRIP -------------------------------------------- */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <div className="panel flex flex-col gap-8 p-6 sm:p-8 md:flex-row md:items-center md:gap-12 md:p-10">
+              <VideoReel
+                src="/videos/dd-vibe-3.mp4"
+                label="Design Dialect 2.0 vibe reel"
+                className="mx-auto w-full max-w-[240px] shrink-0 md:mx-0 md:max-w-[220px]"
+              />
+              <div className="flex-1 text-center md:text-left">
+                <Eyebrow className="justify-center md:justify-start">The Vibe</Eyebrow>
+                <h2 className="h-tight mt-6 text-[clamp(1.9rem,4vw,3rem)]">
+                  Feel the energy.
+                </h2>
+                <p className="mx-auto mt-4 max-w-[44ch] text-[15px] leading-relaxed text-mist md:mx-0">
+                  Thirty seconds on the floor of Design Dialect — the crowd,
+                  the conversations, the moments. This is what you are signing up for.
+                </p>
+                <ArrowLink href="/design-dialects" className="mt-6 justify-center md:justify-start">
+                  Watch all reels
+                </ArrowLink>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

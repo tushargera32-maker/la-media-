@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Arrow } from "@/components/ui/Primitives";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
+import { VideoReel } from "@/components/site/VideoReel";
 import { EVENT } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -166,6 +167,40 @@ export default function DesignDialectsPage() {
             />
           </div>
         </Reveal>
+
+        {/* Watch the Vibe - intro reels above past events */}
+        <section className="mt-24">
+          <Reveal>
+            <div className="text-center">
+              <p className="eyebrow">The Vibe</p>
+              <h2 className="h-tight mt-6 text-[clamp(2rem,4vw,3.5rem)]">
+                Watch the <span className="text-copper">Vibe</span>
+              </h2>
+              <p className="mx-auto mt-6 max-w-[54ch] text-[17px] text-mist">
+                Thirty-second glimpses from the floor — the energy, the people,
+                the moments that make Design Dialect what it is.
+              </p>
+            </div>
+          </Reveal>
+
+          <RevealGroup className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-3">
+            {[
+              { src: "/videos/dd-vibe-1.mp4", caption: "Reel 01" },
+              { src: "/videos/dd-vibe-2.mp4", caption: "Reel 02" },
+              { src: "/videos/dd-vibe-3.mp4", caption: "Reel 03" },
+            ].map((reel) => (
+              <figure key={reel.src}>
+                <VideoReel src={reel.src} label={`Design Dialect 2.0 ${reel.caption}`} />
+                <figcaption className="mt-3 flex items-center justify-between gap-3 text-[12px]">
+                  <span className="font-semibold uppercase tracking-[0.14em] text-copper">
+                    {reel.caption}
+                  </span>
+                  <span className="text-slate">Design Dialect 2.0 • Ludhiana</span>
+                </figcaption>
+              </figure>
+            ))}
+          </RevealGroup>
+        </section>
 
         {/* Past Events Section */}
         <section className="mt-24">
