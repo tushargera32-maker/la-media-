@@ -735,15 +735,40 @@ export default function BuildRightPage() {
 
             <ConsultationCheckout />
 
-            <a
-              href="tel:+919888078580"
-              className="btn btn-line w-full justify-center text-[16px]"
-            >
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              Prefer talking? Call Now — +91 98880 78580
-            </a>
+            <div className="panel p-5 sm:p-6">
+              <p className="text-center text-[15px] font-bold">
+                Rather talk it through? Call a senior architect directly.
+              </p>
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-3">
+                <a
+                  href="tel:+919888078580"
+                  className="group flex items-center justify-center gap-2 rounded-xl border border-copper/30 bg-copper/10 px-3 py-3 text-[14px] font-bold text-copper transition-all hover:border-copper hover:bg-copper/20"
+                >
+                  <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-center leading-tight">Ar. Arjun Deep<br />98880 78580</span>
+                </a>
+                <a
+                  href="tel:+919988800389"
+                  className="group flex items-center justify-center gap-2 rounded-xl border border-copper/30 bg-copper/10 px-3 py-3 text-[14px] font-bold text-copper transition-all hover:border-copper hover:bg-copper/20"
+                >
+                  <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-center leading-tight">Ar. Neeraj Sharma<br />99888 00389</span>
+                </a>
+                <a
+                  href="tel:+919815100385"
+                  className="group flex items-center justify-center gap-2 rounded-xl border border-copper/30 bg-copper/10 px-3 py-3 text-[14px] font-bold text-copper transition-all hover:border-copper hover:bg-copper/20"
+                >
+                  <svg className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="text-center leading-tight">Ar. Sham Sunder Gupta<br />98151 00385</span>
+                </a>
+              </div>
+            </div>
 
             <p className="text-center text-[13px] text-slate">
               We typically respond within 24 hours. For urgent queries, call us directly.
