@@ -146,10 +146,10 @@ export default function DesignDialectsPage() {
         <Reveal delay={0.2}>
           <div className="panel relative mx-auto mt-12 max-w-4xl overflow-hidden">
             <Image
-              src="/DD 2.0_Page (1).png"
+              src="/Neon Bridge Design Dialect Poster.png"
               alt="Design Dialect 2.0 Event Poster"
-              width={1200}
-              height={1600}
+              width={941}
+              height={1672}
               className="h-auto w-full"
             />
           </div>

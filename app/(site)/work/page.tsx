@@ -47,9 +47,9 @@ export default function WorkPage() {
             <div className="relative grid lg:grid-cols-[1.1fr_1fr]">
               <div className="relative">
                 {/* Main Poster */}
-                <div className="relative aspect-[2/3] w-full overflow-hidden">
+                <div className="relative aspect-[941/1672] w-full overflow-hidden">
                   <Image
-                    src="/event-popup-poster.png"
+                    src="/Neon Bridge Design Dialect Poster.png"
                     alt="Design Dialect 2.0"
                     fill
                     className="object-cover"
