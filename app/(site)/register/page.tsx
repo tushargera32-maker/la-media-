@@ -66,8 +66,9 @@ export default function RegisterPage() {
             </h1>
 
             <p className="mt-5 max-w-[55ch] text-[15px] leading-relaxed text-mist sm:mt-8 sm:text-[clamp(1.1rem,2vw,1.4rem)]">
-              India's most anticipated architecture and design conference returns. Two days of groundbreaking ideas,
-              industry leaders, and career-defining connections.
+              Where Architecture Meets Conversation. Design Dialect returns for its second edition — bringing
+              architects, designers, brands and industry voices together for two days of ideas, perspectives and
+              meaningful exchange.
             </p>
 
             <div className="mt-6 grid gap-4 sm:mt-12 sm:grid-cols-3 sm:gap-8 lg:w-2/3">
@@ -132,6 +133,17 @@ export default function RegisterPage() {
               >
                 <span className="relative z-10">Exhibit With Us</span>
                 <svg className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform group-hover:translate-x-full"></div>
+              </a>
+
+              <a
+                href="#stalls"
+                className="group flex items-center gap-2 rounded-2xl border-2 border-cobalt/40 bg-cobalt/10 px-6 py-3.5 text-[14px] font-semibold text-cobalt-soft backdrop-blur-sm transition-all hover:border-cobalt hover:bg-cobalt/20 sm:gap-3 sm:px-8 sm:py-4 sm:text-[16px]"
+              >
+                Book Your Stall
+                <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
                 <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform group-hover:translate-x-full"></div>
@@ -305,6 +317,57 @@ export default function RegisterPage() {
         </div>
       </section>
 
+      {/* BRAND STALLS */}
+      <section id="stalls" className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Exhibit & Sponsor</Eyebrow>
+            <h2 className="mt-6 text-[clamp(2rem,4vw,3rem)] font-bold leading-tight">
+              Book Your Stall
+            </h2>
+            <p className="mt-4 max-w-[55ch] text-[17px] leading-relaxed text-mist">
+              Showcase your brand, materials, and innovations to 300+ architecture and design professionals.
+              Limited exhibition stalls available for brands and manufacturers.
+            </p>
+          </Reveal>
+
+          <RevealGroup className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Exhibition Stall",
+                desc: "Showcase your products to a curated audience of architects and designers.",
+                price: "Contact for pricing",
+              },
+              {
+                title: "Brand Sponsorship",
+                desc: "Maximum visibility through logo placement, speaking slots, and dedicated space.",
+                price: "Custom packages available",
+              },
+              {
+                title: "Partnership Opportunities",
+                desc: "Long-term association with Design Dialect and LA Media events.",
+                price: "Let's discuss",
+              },
+            ].map((item) => (
+              <div key={item.title} className="panel p-8">
+                <h3 className="text-[18px] font-bold">{item.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-mist">{item.desc}</p>
+                <p className="mt-4 text-[14px] font-semibold text-copper">{item.price}</p>
+                <a
+                  href="mailto:collab@lamediacommunications.com"
+                  className="mt-5 inline-flex items-center gap-2 text-[14px] font-semibold text-cobalt-soft hover:underline"
+                >
+                  Enquire now
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
       {/* CONTACT US */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
@@ -344,6 +407,12 @@ export default function RegisterPage() {
                     <p className="text-[13px] font-semibold uppercase tracking-wider text-slate">Phone</p>
                     <a href="tel:+919888078580" className="mt-1 block text-[16px] text-copper hover:text-copper-soft">
                       +91 98880 78580
+                    </a>
+                    <a href="tel:+919988800389" className="mt-1 block text-[16px] text-copper hover:text-copper-soft">
+                      +91 99888 00389
+                    </a>
+                    <a href="tel:+919815100385" className="mt-1 block text-[16px] text-copper hover:text-copper-soft">
+                      +91 98151 00385
                     </a>
                   </div>
                 </div>
