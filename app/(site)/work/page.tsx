@@ -44,19 +44,9 @@ export default function WorkPage() {
 
           <article className="panel-solid relative overflow-hidden">
             <span className="bloom opacity-50" />
-            <div className="relative grid lg:grid-cols-[1.1fr_1fr]">
+            <div className="relative grid lg:grid-cols-[1fr_1.2fr]">
               <div className="relative">
-                {/* Main Poster */}
-                <div className="relative aspect-[941/1672] w-full overflow-hidden">
-                  <Image
-                    src="/Neon Bridge Design Dialect Poster.png"
-                    alt="Design Dialect 2.0"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
-                {/* Supported By Banner - Below Poster */}
+                {/* Supported By Banner - Poster removed */}
                 <div className="relative w-full bg-navy-2 p-4">
                   <Image
                     src="/supported-by.png"
