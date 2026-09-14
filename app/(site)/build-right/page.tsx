@@ -214,28 +214,35 @@ export default function BuildRightPage() {
               <a href="#inquiry" className="btn btn-fill text-[13px] md:text-[16px]">
                 Book Free Consultation
               </a>
-              <details className="group relative">
-                <summary className="btn btn-line cursor-pointer list-none text-[13px] [&::-webkit-details-marker]:hidden md:text-[16px]">
-                  Call Now
-                  <svg className="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </div>
+
+            <div className="mt-6 md:mt-8">
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-copper md:text-[13px]">
+                Or call our senior architects directly
+              </p>
+              <div className="mt-3 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:gap-x-7">
+                <a href="tel:+919888078580" className="flex items-center gap-2 text-[14px] text-mist transition-colors hover:text-copper md:text-[15px]">
+                  <svg className="h-4 w-4 shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                </summary>
-                <div className="absolute left-0 top-full z-20 mt-2 w-72 overflow-hidden rounded-xl border border-hairline bg-navy shadow-2xl">
-                  <a href="tel:+919888078580" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
-                    <span className="font-bold text-copper">98880 78580</span>
-                    <span className="text-slate"> — Ar. Arjun Deep</span>
-                  </a>
-                  <a href="tel:+919988800389" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
-                    <span className="font-bold text-copper">99888 00389</span>
-                    <span className="text-slate"> — Ar. Sham Sunder Gupta</span>
-                  </a>
-                  <a href="tel:+919815100385" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
-                    <span className="font-bold text-copper">98151 00385</span>
-                    <span className="text-slate"> — Ar. Neeraj Sharma</span>
-                  </a>
-                </div>
-              </details>
+                  <span className="font-bold text-copper">98880 78580</span>
+                  <span className="text-slate">— Ar. Arjun Deep</span>
+                </a>
+                <a href="tel:+919988800389" className="flex items-center gap-2 text-[14px] text-mist transition-colors hover:text-copper md:text-[15px]">
+                  <svg className="h-4 w-4 shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="font-bold text-copper">99888 00389</span>
+                  <span className="text-slate">— Ar. Sham Sunder Gupta</span>
+                </a>
+                <a href="tel:+919815100385" className="flex items-center gap-2 text-[14px] text-mist transition-colors hover:text-copper md:text-[15px]">
+                  <svg className="h-4 w-4 shrink-0 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="font-bold text-copper">98151 00385</span>
+                  <span className="text-slate">— Ar. Neeraj Sharma</span>
+                </a>
+              </div>
             </div>
           </Reveal>
         </div>
