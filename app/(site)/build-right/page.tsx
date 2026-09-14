@@ -214,9 +214,28 @@ export default function BuildRightPage() {
               <a href="#inquiry" className="btn btn-fill text-[13px] md:text-[16px]">
                 Book Free Consultation
               </a>
-              <a href="tel:+919888078580" className="btn btn-line text-[13px] md:text-[16px]">
-                Call Now
-              </a>
+              <details className="group relative">
+                <summary className="btn btn-line cursor-pointer list-none text-[13px] [&::-webkit-details-marker]:hidden md:text-[16px]">
+                  Call Now
+                  <svg className="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div className="absolute left-0 top-full z-20 mt-2 w-72 overflow-hidden rounded-xl border border-hairline bg-navy shadow-2xl">
+                  <a href="tel:+919888078580" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
+                    <span className="font-bold text-copper">98880 78580</span>
+                    <span className="text-slate"> — Ar. Arjun Deep</span>
+                  </a>
+                  <a href="tel:+919988800389" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
+                    <span className="font-bold text-copper">99888 00389</span>
+                    <span className="text-slate"> — Ar. Sham Sunder Gupta</span>
+                  </a>
+                  <a href="tel:+919815100385" className="block px-5 py-3 text-[14px] text-mist transition-colors hover:bg-white/5 hover:text-copper">
+                    <span className="font-bold text-copper">98151 00385</span>
+                    <span className="text-slate"> — Ar. Neeraj Sharma</span>
+                  </a>
+                </div>
+              </details>
             </div>
           </Reveal>
         </div>
@@ -774,11 +793,11 @@ export default function BuildRightPage() {
                     </a>
                     <a href="tel:+919988800389" className="mt-1.5 block text-[16px] text-mist transition-colors hover:text-copper">
                       <span className="font-bold text-copper">99888 00389</span>
-                      <span className="text-slate"> — Ar. Neeraj Sharma, LAA Treasurer</span>
+                      <span className="text-slate"> — Ar. Sham Sunder Gupta, LAA Gen Sec</span>
                     </a>
                     <a href="tel:+919815100385" className="mt-1.5 block text-[16px] text-mist transition-colors hover:text-copper">
                       <span className="font-bold text-copper">98151 00385</span>
-                      <span className="text-slate"> — Ar. Sham Sunder Gupta, LAA Gen Sec</span>
+                      <span className="text-slate"> — Ar. Neeraj Sharma, LAA Treasurer</span>
                     </a>
                   </div>
                 </div>

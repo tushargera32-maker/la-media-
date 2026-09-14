@@ -11,6 +11,7 @@ export function RegistrationForm() {
     firmName: '',
     designation: '',
     attendeeType: '',
+    coaNumber: '',
     message: '',
     terms: false,
   });
@@ -19,14 +20,29 @@ export function RegistrationForm() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
-    }));
+    setFormData(prev => {
+      const next = {
+        ...prev,
+        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
+      };
+      // Clear COA number when switching away from architect
+      if (name === 'attendeeType' && value !== 'architect') {
+        next.coaNumber = '';
+      }
+      return next;
+    });
   };
+
+  const isArchitect = formData.attendeeType === 'architect';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Require COA number for architects (in case native validation is bypassed)
+    if (isArchitect && !formData.coaNumber.trim()) {
+      setStatus('error');
+      setMessage('Please enter your COA registration number.');
+      return;
+    }
     setStatus('sending');
     setMessage('');
 
@@ -55,6 +71,7 @@ export function RegistrationForm() {
         firmName: '',
         designation: '',
         attendeeType: '',
+        coaNumber: '',
         message: '',
         terms: false,
       });
@@ -220,6 +237,28 @@ export function RegistrationForm() {
             <option value="other">Other</option>
           </select>
         </div>
+
+        {isArchitect && (
+          <div>
+            <label htmlFor="coaNumber" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
+              COA Number *
+            </label>
+            <input
+              type="text"
+              id="coaNumber"
+              name="coaNumber"
+              required
+              value={formData.coaNumber}
+              onChange={handleChange}
+              disabled={status === 'sending'}
+              placeholder="e.g. CA/2015/12345"
+              className="field-input mt-2"
+            />
+            <p className="mt-1.5 text-[12px] text-slate">
+              Council of Architecture registration number (required for architects)
+            </p>
+          </div>
+        )}
 
         <div>
           <label htmlFor="message" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">

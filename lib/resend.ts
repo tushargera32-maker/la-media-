@@ -164,7 +164,7 @@ export async function sendUserConfirmation(data: {
             <div class="footer">
               <p>LA Media & Communications</p>
               <p>12 A, Basant City, Sua Road, Ludhiana, Punjab – 142022</p>
-              <p>+91 98151 00385 | lamediacommunications@gmail.com</p>
+              <p>+91 98880 78580 / 99888 00389 / 98151 00385 | lamediacommunications@gmail.com</p>
             </div>
           </div>
         </body>

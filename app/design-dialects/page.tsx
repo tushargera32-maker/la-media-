@@ -15,8 +15,8 @@ const PAST_EVENTS = [
   {
     id: "dd-1",
     title: "Design Dialect",
-    date: "July 2025",
-    location: "Ludhiana, Punjab",
+    date: "July 25, 2026",
+    location: "Nirvana Luxury Hotel, Ludhiana",
     attendees: "200+",
     image: "/past-event-1.jpg",
     videoUrl: "https://youtube.com/...",
@@ -31,7 +31,7 @@ const PAST_EVENTS = [
 
 export default function DesignDialectsPage() {
   // Calculate time remaining for upcoming event
-  const eventDate = new Date("2027-02-13T00:00:00");
+  const eventDate = new Date("2027-02-06T00:00:00");
   const now = new Date();
   const timeRemaining = eventDate.getTime() - now.getTime();
   const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));

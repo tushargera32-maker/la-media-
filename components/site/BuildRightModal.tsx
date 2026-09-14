@@ -155,7 +155,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
                   <svg className="h-4 w-4 text-cobalt-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
-                  <span>98880 78580 / 99888 00389</span>
+                  <span>98880 78580 / 99888 00389 / 98151 00385</span>
                 </div>
                 <div className="flex items-start justify-center gap-2">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-cobalt-soft" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -343,7 +343,7 @@ export function BuildRightModal({ isOpen, onClose }: BuildRightModalProps) {
                   <div className="mt-8 space-y-3 border-t border-hairline pt-6 text-[12px] text-mist md:hidden">
                     <p className="flex items-center gap-2">
                       <span className="font-semibold text-cobalt-soft">Phone:</span>
-                      98880 78580 / 99888 00389
+                      98880 78580 / 99888 00389 / 98151 00385
                     </p>
                     <p className="flex items-start gap-2">
                       <span className="shrink-0 font-semibold text-cobalt-soft">Address:</span>

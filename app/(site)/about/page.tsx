@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 // Top Projects Data
 const TOP_PROJECTS = [
   {
-    id: "design-dialect-2024",
+    id: "design-dialect-1-0",
     title: "Design Dialect",
     description: "Pan-India architecture conference bringing together 300+ architects and designers",
     image: "/project-dd-2024.jpg",

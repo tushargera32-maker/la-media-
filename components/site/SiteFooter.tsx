@@ -185,7 +185,6 @@ export function SiteFooter() {
 
       <div className="mx-auto flex max-w-shell flex-wrap justify-between gap-3 border-t border-hairline px-gutter py-5 text-[11.5px] text-slate sm:py-6 sm:text-[12.5px]">
         <span>&copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.</span>
-        <span className="hidden sm:inline">{BRAND.promise}</span>
       </div>
     </footer>
   );

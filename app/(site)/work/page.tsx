@@ -47,12 +47,13 @@ export default function WorkPage() {
             <div className="relative grid lg:grid-cols-[1.1fr_1fr]">
               <div className="relative">
                 {/* Main Poster */}
-                <div className="aspect-video lg:aspect-auto">
+                <div className="relative aspect-[2/3] w-full overflow-hidden">
                   <Image
-                    src="/DD 2.0_Page (1).png"
+                    src="/event-popup-poster.png"
                     alt="Design Dialect 2.0"
                     fill
                     className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
                 {/* Supported By Banner - Below Poster */}
@@ -134,7 +135,7 @@ export default function WorkPage() {
 
               <div className="p-6">
                 <div className="mb-4 flex items-center gap-4 text-[12px] text-slate">
-                  <span>May 2024</span>
+                  <span>July 2026</span>
                   <span>•</span>
                   <span>Ludhiana, Punjab</span>
                   <span>•</span>

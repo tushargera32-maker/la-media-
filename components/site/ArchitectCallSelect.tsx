@@ -7,8 +7,8 @@
 
 const ARCHITECTS = [
   { name: "Ar. Arjun Deep", phone: "98880 78580", tel: "tel:+919888078580" },
-  { name: "Ar. Neeraj Sharma", phone: "99888 00389", tel: "tel:+919988800389" },
-  { name: "Ar. Sham Sunder Gupta", phone: "98151 00385", tel: "tel:+919815100385" },
+  { name: "Ar. Sham Sunder Gupta", phone: "99888 00389", tel: "tel:+919988800389" },
+  { name: "Ar. Neeraj Sharma", phone: "98151 00385", tel: "tel:+919815100385" },
 ];
 
 export function ArchitectCallSelect() {

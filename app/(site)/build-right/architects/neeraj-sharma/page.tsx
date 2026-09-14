@@ -288,8 +288,8 @@ export default function NeerajSharmaPage() {
               <Link href="/build-right#inquiry" className="btn btn-fill">
                 Request Consultation
               </Link>
-              <a href="tel:+919988800389" className="btn btn-line">
-                Call: 99888 00389
+              <a href="tel:+919815100385" className="btn btn-line">
+                Call: 98151 00385
               </a>
             </div>
           </Reveal>

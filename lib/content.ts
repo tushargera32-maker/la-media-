@@ -8,7 +8,6 @@ export const BRAND = {
   name: "LA Media & Communications",
   short: "LA Media",
   tagline: "Ideas. Conversations. Impact.",
-  promise: "Designed with purpose. Built for impact.",
   intro:
     "We create platforms and experiences that bring the architecture, design and built environment community together.",
   story: "Founded with a vision to bridge the gap between ideas and implementation, LA Media & Communications has grown into a leading platform for architectural discourse and industry collaboration. Our journey began with a simple belief: that meaningful conversations can shape the future of design and the built environment.",
@@ -21,7 +20,7 @@ export const BRAND = {
     { title: "Community", description: "We build lasting relationships and foster a sense of belonging among professionals." },
   ],
   address: "12 A, Basant City, Sua Road, Ludhiana, Punjab, India – 142022",
-  phone: "+91 98151 00385 / 98880 78580 / 99888 00389",
+  phone: "+91 98880 78580 / 99888 00389 / 98151 00385",
   email: "lamediacommunications@gmail.com",
   hours: "Monday – Saturday, 10:00 AM – 7:00 PM",
 } as const;
@@ -315,7 +314,7 @@ export const EVENT = {
   intro:
     "An evening of meaningful conversations with leaders, architects and changemakers shaping the future of design and the built environment.",
   date: "February 6-7, 2027",
-  day: "Thursday-Friday",
+  day: "Saturday-Sunday",
   time: "To be announced",
   timeNote: "Registration opens soon",
   venue: "Will be listed shortly",
