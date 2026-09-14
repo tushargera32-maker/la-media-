@@ -332,65 +332,79 @@ export default function BuildRightPage() {
           </Reveal>
 
           {/* Stats Grid - BENTO STYLE WITH DIFFERENT SIZES */}
-          <div className="mt-12 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
+          <RevealGroup className="mt-12 grid grid-cols-2 gap-3 md:mt-20 md:grid-cols-4 md:gap-4">
             {/* Stat 1 - Combined Years */}
-            <Reveal>
-              <div className="col-span-2 md:col-span-2">
-                <div className="group relative h-full overflow-hidden rounded-2xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-5 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20 md:rounded-3xl md:p-8">
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
-                  <div className="relative flex h-full flex-col justify-between">
-                    <div className="text-[2rem] opacity-80 md:text-[3rem]">⏱️</div>
-                    <div>
-                      <p className="text-[2.5rem] font-black leading-none text-copper transition-all duration-500 group-hover:scale-110 md:text-[4rem]">75+</p>
-                      <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.15em] text-slate md:mt-3 md:text-[13px]">Combined Years</p>
-                    </div>
+            <div className="col-span-2 md:col-span-2">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-5 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20 md:p-8">
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
+                <div className="relative flex h-full flex-col justify-between gap-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-copper/10 text-copper md:h-14 md:w-14">
+                    <svg className="h-5 w-5 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[2.5rem] font-black leading-none text-copper md:text-[4rem]">75+</p>
+                    <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.15em] text-slate md:mt-3 md:text-[13px]">Combined Years</p>
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
 
             {/* Stat 2 - Projects */}
-            <Reveal>
-              <div className="col-span-1 md:col-span-1">
-                <div className="group relative overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-6 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20">
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
-                  <div className="relative text-center">
-                    <div className="mb-3 text-[2.5rem] opacity-80">🏗️</div>
-                    <p className="text-[3.5rem] font-black leading-none text-copper transition-all duration-500 group-hover:scale-110">500+</p>
-                    <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.15em] text-slate">Projects</p>
+            <div className="col-span-1 md:col-span-1">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-5 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20 md:p-8">
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
+                <div className="relative flex h-full flex-col justify-between gap-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-copper/10 text-copper md:h-14 md:w-14">
+                    <svg className="h-5 w-5 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[2.5rem] font-black leading-none text-copper md:text-[4rem]">500+</p>
+                    <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.15em] text-slate md:mt-3 md:text-[13px]">Projects</p>
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
 
             {/* Stat 3 - Awards */}
-            <Reveal>
-              <div className="col-span-1 md:col-span-1">
-                <div className="group relative overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-6 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20">
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
-                  <div className="relative text-center">
-                    <div className="mb-3 text-[2.5rem] opacity-80">🏆</div>
-                    <p className="text-[3.5rem] font-black leading-none text-copper transition-all duration-500 group-hover:scale-110">25+</p>
-                    <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.15em] text-slate">Awards</p>
+            <div className="col-span-1 md:col-span-1">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-5 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20 md:p-8">
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
+                <div className="relative flex h-full flex-col justify-between gap-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-copper/10 text-copper md:h-14 md:w-14">
+                    <svg className="h-5 w-5 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[2.5rem] font-black leading-none text-copper md:text-[4rem]">25+</p>
+                    <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.15em] text-slate md:mt-3 md:text-[13px]">Awards</p>
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
 
             {/* Stat 4 - Founding Partners */}
-            <Reveal>
-              <div className="col-span-2 md:col-span-4">
-                <div className="group relative overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-6 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20">
-                  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
-                  <div className="relative text-center">
-                    <div className="mb-3 text-[2.5rem] opacity-80">👥</div>
-                    <p className="text-[3.5rem] font-black leading-none text-copper transition-all duration-500 group-hover:scale-110">3</p>
-                    <p className="mt-3 text-[12px] font-bold uppercase tracking-[0.15em] text-slate">Founding Partners</p>
+            <div className="col-span-2 md:col-span-4">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-copper/20 bg-gradient-to-br from-navy-2/50 via-navy/50 to-navy-2/50 p-5 backdrop-blur-sm transition-all duration-500 hover:border-copper hover:shadow-2xl hover:shadow-copper/20 md:p-8">
+                <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-copper/5 blur-3xl transition-all duration-500 group-hover:bg-copper/20" />
+                <div className="relative flex items-center gap-5 md:gap-8">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-copper/10 text-copper md:h-14 md:w-14">
+                    <svg className="h-5 w-5 md:h-7 md:w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-[2.5rem] font-black leading-none text-copper md:text-[4rem]">3</p>
+                    <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.15em] text-slate md:mt-3 md:text-[13px]">Founding Partners</p>
                   </div>
                 </div>
               </div>
-            </Reveal>
-          </div>
+            </div>
+          </RevealGroup>
 
 
           {/* Team Section - VERTICAL INTERACTIVE CARDS */}
