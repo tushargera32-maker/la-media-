@@ -173,7 +173,7 @@ export default function RegisterPage() {
               <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div className="group panel panel-solid p-6 sm:p-8 transition-all hover:scale-105 hover:border-copper">
                   <div className="text-[2.3rem] sm:text-[4.5rem] font-bold leading-none text-copper">
-                    <CountUp value="300" />+
+                    <CountUp value="1000" />+
                   </div>
                   <p className="mt-3 sm:mt-4 text-[11px] sm:text-[13px] font-bold uppercase tracking-[0.12em] text-slate">Architects & Designers</p>
                 </div>
