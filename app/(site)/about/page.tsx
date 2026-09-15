@@ -19,7 +19,7 @@ const TOP_PROJECTS = [
     description: "Pan-India architecture conference bringing together 300+ architects and designers",
     image: "/project-dd-2024.jpg",
     instagram: "https://www.instagram.com/designdialect.india/",
-    stats: { attendees: "300+", speakers: "15+", brands : "50+" }
+    stats: { attendees: "1000+", speakers: "15+", brands : "50+" }
   },
 ];
 
