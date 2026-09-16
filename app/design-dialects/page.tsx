@@ -42,11 +42,17 @@ export default function DesignDialectsPage() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-hairline bg-navy/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-shell items-center justify-between gap-6 px-gutter py-4">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="text-[24px] font-bold leading-none tracking-[0.08em]">LA</span>
-            <span className="hidden text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em] sm:block">
-              Media &amp;<br />Communications
-            </span>
+          <Link href="/" className="flex items-center gap-3" aria-label="LA Media and Communications, home">
+            <div className="relative h-10 w-32">
+              <Image
+                src="/firm-la-media.png"
+                alt="LA Media & Communications"
+                fill
+                className="object-contain"
+                style={{ mixBlendMode: 'screen' }}
+                priority
+              />
+            </div>
           </Link>
           <Link href="/" className="link-arrow">
             <span className="rotate-180"><Arrow /></span> Back to site
@@ -142,7 +148,7 @@ export default function DesignDialectsPage() {
           </div>
         </Reveal>
 
-        {/* Event Poster */}
+        {/* TEMP-DISABLED: Event Poster - file has spaces in name, causes 404. Rename to kebab-case to restore.
         <Reveal delay={0.2}>
           <div className="panel relative mx-auto mt-12 max-w-4xl overflow-hidden">
             <Image
@@ -154,6 +160,7 @@ export default function DesignDialectsPage() {
             />
           </div>
         </Reveal>
+        */}
 
         {/* Supported By Section */}
         <Reveal delay={0.25}>
