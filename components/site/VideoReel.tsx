@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Autoplaying local reel clip with tap-to-unmute.
- * No poster file needed: preload="metadata" shows the first frame
- * immediately so no black box lingers before playback starts.
+ * Mobile-first loading: nothing is fetched until the reel nears the
+ * viewport (preload="none"), then it streams and plays only while
+ * visible - six reels never decode at once.
  */
 export function VideoReel({
   src,
@@ -18,6 +19,34 @@ export function VideoReel({
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (typeof IntersectionObserver === "undefined") {
+      video.preload = "auto";
+      video.play().catch(() => {});
+      return;
+    }
+    let started = false;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!started) {
+            started = true;
+            video.preload = "auto";
+            video.load();
+          }
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25, rootMargin: "200px" }
+    );
+    io.observe(video);
+    return () => io.disconnect();
+  }, [src]);
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -35,11 +64,11 @@ export function VideoReel({
         src={src}
         aria-label={label}
         className="h-full w-full object-cover"
-        autoPlay
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="none"
+        disablePictureInPicture
       />
       <span className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-navy/70 to-transparent" />
       <button
