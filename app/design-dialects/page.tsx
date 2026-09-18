@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Arrow } from "@/components/ui/Primitives";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
-import { VibeCarousel } from "@/components/site/VibeCarousel";
+import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
 import { EVENT } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -28,16 +28,6 @@ const PAST_EVENTS = [
     ],
   },
   // Add more past events here
-];
-
-// Vibe reels - rendered through VibeCarousel (snap rail + focus transitions)
-const VIBE_VIDEOS = [
-  { src: "/videos/dd-vibe-1.mp4", label: "Design Dialect vibe reel 1" },
-  { src: "/videos/dd-vibe-2.mp4", label: "Design Dialect vibe reel 2" },
-  { src: "/videos/dd-vibe-3.mp4", label: "Design Dialect vibe reel 3" },
-  { src: "/videos/dd-vibe-4.mp4", label: "Design Dialect vibe reel 4" },
-  { src: "/videos/dd-vibe-5.mp4", label: "Design Dialect vibe reel 5" },
-  { src: "/videos/dd-vibe-6.mp4", label: "Design Dialect vibe reel 6" },
 ];
 
 export default function DesignDialectsPage() {

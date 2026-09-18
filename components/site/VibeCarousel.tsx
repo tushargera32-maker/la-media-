@@ -5,6 +5,16 @@ import { VideoReel } from "@/components/site/VideoReel";
 
 export type VibeVideo = { src: string; label: string };
 
+/** Shared reel set - used on Design Dialect + Media pages. */
+export const VIBE_VIDEOS: VibeVideo[] = [
+  { src: "/videos/dd-vibe-1.mp4", label: "Design Dialect vibe reel 1" },
+  { src: "/videos/dd-vibe-2.mp4", label: "Design Dialect vibe reel 2" },
+  { src: "/videos/dd-vibe-3.mp4", label: "Design Dialect vibe reel 3" },
+  { src: "/videos/dd-vibe-4.mp4", label: "Design Dialect vibe reel 4" },
+  { src: "/videos/dd-vibe-5.mp4", label: "Design Dialect vibe reel 5" },
+  { src: "/videos/dd-vibe-6.mp4", label: "Design Dialect vibe reel 6" },
+];
+
 const AUTOPLAY_MS = 7000;
 
 /**

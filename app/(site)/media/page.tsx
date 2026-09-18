@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow } from "@/components/ui/Primitives";
+import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
 
 export const metadata: Metadata = {
   title: "Media & Gallery - Events & Projects | LA Media",
@@ -52,6 +53,25 @@ export default async function MediaPage() {
               A visual journey through our conferences, events, and the connections we've built.
               From Design Dialect to architecture summits, explore the moments that shaped India's design community.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* EVENT REELS */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Event Reels</Eyebrow>
+            <h2 className="h-tight mt-6 max-w-[18ch] text-[clamp(1.8rem,4vw,3rem)]">
+              Design Dialect in <span className="text-copper">motion</span>.
+            </h2>
+            <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-mist">
+              Thirty-second glimpses from the floor — the energy, the people,
+              the moments that make our events what they are.
+            </p>
+          </Reveal>
+          <Reveal className="mt-12">
+            <VibeCarousel videos={VIBE_VIDEOS} />
           </Reveal>
         </div>
       </section>

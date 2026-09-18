@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
 import { Eyebrow, Button } from "@/components/ui/Primitives";
 import { RegistrationForm } from "@/components/site/RegistrationForm";
+import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
 
 export const metadata: Metadata = {
   title: "Design Dialect 2.0 - Register Now | India's Premier Architecture Conference",
@@ -284,6 +285,26 @@ export default function RegisterPage() {
               </p>
             </div>
           </RevealGroup>
+        </div>
+      </section>
+
+      {/* FEEL THE VIBE - reels before registration */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>The Vibe</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] text-[clamp(1.65rem,6vw,3rem)] font-bold leading-tight">
+              Feel the energy before you{" "}
+              <span className="text-copper">register</span>.
+            </h2>
+            <p className="mt-4 max-w-[54ch] text-[16px] leading-relaxed text-mist">
+              Thirty seconds on the floor of Design Dialect — the crowd,
+              the conversations, the moments. This is what you are signing up for.
+            </p>
+          </Reveal>
+          <Reveal className="mt-12">
+            <VibeCarousel videos={VIBE_VIDEOS} />
+          </Reveal>
         </div>
       </section>
 
