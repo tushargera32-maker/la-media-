@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { HEARD_ABOUT_OPTIONS } from '@/lib/content';
 
 export function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export function RegistrationForm() {
     attendeeType: '',
     coaNumber: '',
     message: '',
+    heardAbout: '',
     terms: false,
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -47,10 +49,30 @@ export function RegistrationForm() {
     setMessage('');
 
     try {
+      // API expects E.164 Indian mobile (+91XXXXXXXXXX), a whitelisted
+      // heardAbout value, and consent:true - normalise here so a valid
+      // form can never 422 on payload shape.
+      const digits = formData.phone.replace(/\D/g, '').slice(-10);
+      if (digits.length !== 10) {
+        setStatus('error');
+        setMessage('Please enter a valid 10-digit Indian mobile number.');
+        return;
+      }
       const res = await fetch('/api/registrations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: `+91${digits}`,
+          firmName: formData.firmName,
+          designation: formData.designation,
+          coaNumber: formData.coaNumber,
+          heardAbout: formData.heardAbout,
+          message: formData.message,
+          consent: formData.terms,
+        }),
       });
 
       const data = await res.json();
@@ -73,6 +95,7 @@ export function RegistrationForm() {
         attendeeType: '',
         coaNumber: '',
         message: '',
+        heardAbout: '',
         terms: false,
       });
 
@@ -273,6 +296,26 @@ export function RegistrationForm() {
             disabled={status === 'sending'}
             className="field-input mt-2"
           />
+        </div>
+
+        <div>
+          <label htmlFor="heardAbout" className="block text-[13px] font-semibold uppercase tracking-wider text-slate">
+            How did you hear about us? *
+          </label>
+          <select
+            id="heardAbout"
+            name="heardAbout"
+            required
+            value={formData.heardAbout}
+            onChange={handleChange}
+            disabled={status === 'sending'}
+            className="field-input mt-2"
+          >
+            <option value="">Select an option</option>
+            {HEARD_ABOUT_OPTIONS.map((opt) => (
+              <option key={opt} value={opt}>{opt}</option>
+            ))}
+          </select>
         </div>
 
         <div className="flex items-start gap-3">

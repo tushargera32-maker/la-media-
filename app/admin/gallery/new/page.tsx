@@ -3,7 +3,6 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function NewGalleryImagePage() {
   const router = useRouter();
@@ -117,14 +116,15 @@ export default function NewGalleryImagePage() {
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
               {previewUrl ? (
                 <div className="space-y-4">
-                  <div className="relative h-64 bg-gray-100 rounded-lg overflow-hidden">
-                    <Image
-                      src={previewUrl}
-                      alt="Preview"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+                    <div className="relative h-64 bg-gray-100 rounded-lg overflow-hidden">
+                      {/* Plain img: preview is a data: URL which next/image cannot optimize */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={previewUrl}
+                        alt="Preview"
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
                   <button
                     type="button"
                     onClick={() => {

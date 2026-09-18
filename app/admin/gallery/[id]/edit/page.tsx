@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface GalleryImage {
   id: string;
@@ -172,14 +171,15 @@ export default function EditGalleryImagePage() {
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-6">
               {previewUrl && (
                 <div className="space-y-4">
-                  <div className="relative h-64 bg-gray-100 rounded-lg overflow-hidden">
-                    <Image
-                      src={previewUrl}
-                      alt="Preview"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
+                    <div className="relative h-64 bg-gray-100 rounded-lg overflow-hidden">
+                      {/* Plain img: preview can be a data: URL which next/image cannot optimize */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={previewUrl}
+                        alt="Preview"
+                        className="h-full w-full object-contain"
+                      />
+                    </div>
                   <div className="text-center">
                     <input
                       ref={fileInputRef}

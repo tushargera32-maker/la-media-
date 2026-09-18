@@ -28,21 +28,36 @@ export async function GET() {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  const rows = await prisma.eventRegistration.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  const [general, architects, sponsors] = await Promise.all([
+    prisma.eventRegistration.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.architectRegistration.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.sponsorRegistration.findMany({ orderBy: { createdAt: "desc" } }),
+  ]);
 
   const headers = [
-    "First name", "Last name", "Email", "Phone", "Organisation",
-    "Designation", "Heard about", "Dietary", "Received",
+    "Type", "Name", "Email", "Phone", "Firm / Company", "Designation / Contact",
+    "COA", "GST", "Stall Size", "City", "Heard About", "Handled", "Received",
   ];
 
-  const body = rows.map((r) =>
-    [
-      r.firstName, r.lastName, r.email, r.phone, r.organisation,
-      r.designation, r.heardAbout, r.dietary, r.createdAt.toISOString(),
-    ].map(cell).join(","),
-  );
+  const iso = (d: Date) => d.toISOString();
+
+  const body: string[] = [
+    ...general.map((r) =>
+      ["General", `${r.firstName} ${r.lastName}`, r.email, r.phone,
+        r.firmName, r.designation, r.coaNumber, r.gstNumber, "",
+        "", r.heardAbout, r.handled ? "Yes" : "No", iso(r.createdAt),
+      ].map(cell).join(",")),
+    ...architects.map((r) =>
+      ["Architect", `${r.firstName} ${r.lastName}`, r.email, r.phone,
+        r.firmName, r.designation, r.coaNumber, "", "", "",
+        r.heardAbout, r.handled ? "Yes" : "No", iso(r.createdAt),
+      ].map(cell).join(",")),
+    ...sponsors.map((r) =>
+      ["Sponsor", r.companyName, r.email, r.phone, r.companyName,
+        r.contactName, "", r.gstNumber, r.stallSize, r.city,
+        r.heardAbout, r.handled ? "Yes" : "No", iso(r.createdAt),
+      ].map(cell).join(",")),
+  ];
 
   // BOM so Excel opens UTF-8 names correctly instead of mangling them.
   const csv = "\uFEFF" + [headers.map(cell).join(","), ...body].join("\r\n");

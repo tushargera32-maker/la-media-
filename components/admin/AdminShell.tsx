@@ -52,6 +52,13 @@ const NAV: NavGroup[] = [
       { href: "/admin/newsletter", label: "Newsletter", icon: "◎" },
     ],
   },
+  {
+    title: "More",
+    items: [
+      { href: "/admin/payments", label: "Payments", icon: "₹" },
+      { href: "/admin/visitors", label: "Visitors", icon: "◍" },
+    ],
+  },
 ];
 
 export function AdminShell({ children }: { children: ReactNode }) {
@@ -180,9 +187,10 @@ function SidebarContent({
               {group.items.map((item) => {
                 // Exact match for the dashboard, prefix match elsewhere -
                 // otherwise /admin stays highlighted on every single page.
+                // (/admin redirects to /admin/dashboard, so match both.)
                 const active =
                   item.href === "/admin"
-                    ? pathname === "/admin"
+                    ? pathname === "/admin" || pathname === "/admin/dashboard"
                     : pathname?.startsWith(item.href);
 
                 return (

@@ -33,6 +33,7 @@ export async function POST(request: Request) {
   const coaNumber    = str(d.coaNumber, 60);
   const gstNumber    = str(d.gstNumber, 60);
   const heardAbout   = str(d.heardAbout, 60);
+  const message      = str(d.message, 1000);
   const consent      = d.consent === true;
 
   const errors: string[] = [];
@@ -88,6 +89,7 @@ export async function POST(request: Request) {
         ${coaNumber ? `COA: ${coaNumber}` : ''}
         ${gstNumber ? `GST: ${gstNumber}` : ''}
         Heard About: ${heardAbout}
+        ${message ? `Message: ${message}` : ''}
       `,
     }).catch(err => console.error('Failed to send admin notification:', err));
 

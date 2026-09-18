@@ -9,13 +9,13 @@ export async function GET() {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
   try {
-    const registrations = await prisma.eventRegistration.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+    const [general, architects, sponsors] = await Promise.all([
+      prisma.eventRegistration.findMany({ orderBy: { createdAt: 'desc' } }),
+      prisma.architectRegistration.findMany({ orderBy: { createdAt: 'desc' } }),
+      prisma.sponsorRegistration.findMany({ orderBy: { createdAt: 'desc' } }),
+    ]);
 
-    return NextResponse.json({ registrations });
+    return NextResponse.json({ general, architects, sponsors });
   } catch (error) {
     console.error('Error fetching registrations:', error);
     return NextResponse.json(

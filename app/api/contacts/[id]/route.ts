@@ -37,12 +37,16 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     const body = await request.json();
     const { status } = body;
 
-    // Validate status
-    const validStatuses = ["new", "read", "responded", "archived"];
+    // Must match the UI in app/admin/contacts/page.tsx + app/admin/actions.ts
+    const validStatuses = ["new", "read", "replied", "archived"];
     if (status && !validStatuses.includes(status)) {
       return NextResponse.json(
         { error: "Invalid status value" },
@@ -69,6 +73,10 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const session = await getServerSession(authOptions);
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
   try {
     await prisma.contactSubmission.delete({
       where: { id: (await params).id },

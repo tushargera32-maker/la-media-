@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 interface UploadFile {
   id: string;
@@ -323,11 +322,12 @@ export default function BulkUploadPage() {
                   {/* Preview */}
                   <div className="relative mb-3 aspect-video overflow-hidden rounded-lg bg-gray-100">
                     {fileData.file.type.startsWith('image/') ? (
-                      <Image
+                      /* Plain img: next/image cannot optimize blob: preview URLs */
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
                         src={fileData.preview}
                         alt={fileData.title}
-                        fill
-                        className="object-cover"
+                        className="h-full w-full object-cover"
                       />
                     ) : (
                       <video

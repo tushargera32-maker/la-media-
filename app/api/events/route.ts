@@ -52,6 +52,10 @@ export async function POST(request: NextRequest) {
 
     const validatedData = eventSchema.parse(body);
 
+    // Preserve explicit 0 (|| would turn it into null); only empty/NaN becomes null.
+    const numOrNull = (v: unknown) =>
+      typeof v === 'number' && !Number.isNaN(v) ? v : null;
+
     const event = await prisma.event.create({
       data: {
         ...validatedData,
@@ -59,10 +63,10 @@ export async function POST(request: NextRequest) {
         endDate: new Date(validatedData.endDate),
         image: validatedData.image || null,
         video: validatedData.video || null,
-        expectedAttendees: validatedData.expectedAttendees || null,
-        registeredCount: validatedData.registeredCount || null,
-        brandPartners: validatedData.brandPartners || null,
-        speakers: validatedData.speakers || null,
+        expectedAttendees: numOrNull(validatedData.expectedAttendees),
+        registeredCount: numOrNull(validatedData.registeredCount),
+        brandPartners: numOrNull(validatedData.brandPartners),
+        speakers: numOrNull(validatedData.speakers),
       },
     });
 

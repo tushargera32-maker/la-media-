@@ -68,14 +68,14 @@ export default function AdminDashboard() {
             value={stats?.architectRegistrations || 0}
             icon="🏛️"
             color="blue"
-            link="/admin/registrations/architects"
+            link="/admin/registrations"
           />
           <StatCard
             title="Sponsors"
             value={stats?.sponsorRegistrations || 0}
             icon="🤝"
             color="green"
-            link="/admin/registrations/sponsors"
+            link="/admin/registrations"
           />
           <StatCard
             title="Newsletter"
@@ -134,16 +134,16 @@ export default function AdminDashboard() {
               icon="📧"
             />
             <ActionButton
-              href="/admin/export"
+              href="/api/registrations/export"
               title="Export Data"
               description="Download as CSV/Excel"
               icon="📥"
             />
             <ActionButton
-              href="/admin/settings"
-              title="Email Settings"
-              description="Configure notifications"
-              icon="⚙️"
+              href="/admin/payments"
+              title="Payments"
+              description="View payment records"
+              icon="💳"
             />
           </div>
         </div>

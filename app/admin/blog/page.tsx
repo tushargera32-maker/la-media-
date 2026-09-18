@@ -49,10 +49,13 @@ export default function BlogListPage() {
       if (filter.published) params.append("published", filter.published);
 
       const response = await fetch(`/api/blog?${params}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch posts');
+      }
       const data = await response.json();
 
-      setPosts(data.posts);
-      setPagination(data.pagination);
+      setPosts(data.posts || []);
+      setPagination(data.pagination || null);
     } catch (error) {
       console.error("Error fetching posts:", error);
       alert("Failed to fetch posts");
