@@ -192,16 +192,16 @@ export default function DesignDialectsPage() {
 
           <RevealGroup className="mx-auto mt-14 grid max-w-5xl gap-6 sm:grid-cols-3">
             {[
-              { src: "/videos/dd-vibe-1.mp4", caption: "Reel 01" },
-              { src: "/videos/dd-vibe-2.mp4", caption: "Reel 02" },
-              { src: "/videos/dd-vibe-3.mp4", caption: "Reel 03" },
-            ].map((reel) => (
-              <figure key={reel.src}>
-                <VideoReel src={reel.src} label={`Design Dialect 2.0 ${reel.caption}`} />
-                <figcaption className="mt-3 flex items-center justify-between gap-3 text-[12px]">
-                  <span className="font-semibold uppercase tracking-[0.14em] text-copper">
-                    {reel.caption}
-                  </span>
+              "/videos/dd-vibe-1.mp4",
+              "/videos/dd-vibe-2.mp4",
+              "/videos/dd-vibe-3.mp4",
+              "/videos/dd-vibe-4.mp4",
+              "/videos/dd-vibe-5.mp4",
+              "/videos/dd-vibe-6.mp4",
+            ].map((src, i) => (
+              <figure key={src}>
+                <VideoReel src={src} label={`Design Dialect vibe reel ${i + 1}`} />
+                <figcaption className="mt-3 text-center text-[12px]">
                   <span className="text-slate">Design Dialect 2.0 • Ludhiana</span>
                 </figcaption>
               </figure>
