@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   keywords: "Ludhiana best event management firm, event management Ludhiana, architecture events Ludhiana, Design Dialect, conference planning Punjab, LA Media Communications, corporate events Ludhiana",
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 /* ==================================================================
    HOME - follows the approved PDF: hero with the event card and
@@ -50,9 +50,9 @@ export default async function HomePage() {
         {/* Background Images */}
         <div className="absolute inset-0">
           {/* Desktop Hero */}
-          <Media label="LA Media Hero Desktop" ratio="16/9" src="/heromain.png" className="absolute inset-0 hidden h-full border-0 ring-0 md:block" priority />
+          <Media label="LA Media Hero Desktop" ratio="16/9" src="/heromain.jpg" className="absolute inset-0 hidden h-full border-0 ring-0 md:block" priority />
           {/* Mobile Hero */}
-          <Media label="LA Media Hero Mobile" ratio="9/16" src="/hero-mobile.png" className="absolute inset-0 h-full border-0 ring-0 md:hidden" priority />
+          <Media label="LA Media Hero Mobile" ratio="9/16" src="/hero-mobile.jpg" className="absolute inset-0 h-full border-0 ring-0 md:hidden" priority />
         </div>
 
         {/* Left-weighted scrim so the headline always holds contrast. */}
@@ -198,7 +198,7 @@ export default async function HomePage() {
               <Media
                 label="What We Do - LA Media"
                 ratio="21/9"
-                src="/what-we-do-cover.png"
+                src="/what-we-do-cover.jpg"
                 className="h-full border-0 ring-0"
               />
             </div>
@@ -239,9 +239,9 @@ export default async function HomePage() {
           <RevealGroup className="mt-14 grid gap-6 md:grid-cols-3">
             {insights.map((post, i) => {
               const insightImages = [
-                "/blog-cover-1.png",
-                "/blog-cover-2.png",
-                "/blog-cover-3.png"
+                "/blog-cover-1.jpg",
+                "/blog-cover-2.jpg",
+                "/blog-cover-3.jpg"
               ];
               const publishedDate = post.publishedAt
                 ? new Date(post.publishedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })

@@ -81,9 +81,9 @@ export default async function BlogPost({ params }: Props) {
   }
 
   const insightImages = [
-    "/blog-cover-1.png",
-    "/blog-cover-2.png",
-    "/blog-cover-3.png"
+    "/blog-cover-1.jpg",
+    "/blog-cover-2.jpg",
+    "/blog-cover-3.jpg"
   ];
 
   // Get related posts — never crash the page if DB is down

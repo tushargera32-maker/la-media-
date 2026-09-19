@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "Explore our portfolio of curated events, architecture conferences, and memorable moments from Design Dialect and LA Media projects across India.",
 };
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 300;
 
 // Static archive: Design Dialect previous edition 2026 (40 photos)
 const DD2026_PHOTOS = Array.from({ length: 40 }, (_, i) => ({

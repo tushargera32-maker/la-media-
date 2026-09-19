@@ -99,7 +99,7 @@ export function EventPopup() {
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-2">
                   <Image
-                    src="/event-popup-poster.png"
+                    src="/event-popup-poster.jpg"
                     alt="Design Dialect 2.0 - Architecture Event in Ludhiana"
                     fill
                     className="object-cover object-top"
@@ -129,7 +129,7 @@ export function EventPopup() {
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-navy-2">
                   <Image
-                    src="/event-popup-poster.png"
+                    src="/event-popup-poster.jpg"
                     alt="Build Right Advisors - Construction Advisory Services"
                     fill
                     className="object-cover object-bottom"

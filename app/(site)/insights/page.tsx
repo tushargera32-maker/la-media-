@@ -51,15 +51,15 @@ export default async function InsightsPage({
   }
 
   const insightImages = [
-    "/blog-cover-1.png",
-    "/blog-cover-2.png",
-    "/blog-cover-3.png",
-    "/blog-cover-4.png",
-    "/blog-cover-5.png",
-    "/blog-cover-6.png",
-    "/blog-cover-7.png",
-    "/blog-cover-8.png",
-    "/blog-cover-9.png",
+    "/blog-cover-1.jpg",
+    "/blog-cover-2.jpg",
+    "/blog-cover-3.jpg",
+    "/blog-cover-4.jpg",
+    "/blog-cover-5.jpg",
+    "/blog-cover-6.jpg",
+    "/blog-cover-7.jpg",
+    "/blog-cover-8.jpg",
+    "/blog-cover-9.jpg",
   ];
 
   return (
@@ -67,7 +67,7 @@ export default async function InsightsPage({
       {/* 01 - LEAD -------------------------------------------------- */}
       <section className="relative overflow-hidden pb-section-sm pt-40">
         <div className="absolute right-0 top-0 hidden h-full w-1/2 lg:block">
-          <Media label="INSIGHTS - ANGULAR FORM, BLUE LIGHT - 4:3" ratio="4/3" src="/insights-header.png" className="h-full border-0 ring-0" />
+          <Media label="INSIGHTS - ANGULAR FORM, BLUE LIGHT - 4:3" ratio="4/3" src="/insights-header.jpg" className="h-full border-0 ring-0" />
           <span className="absolute inset-0 bg-gradient-to-r from-navy via-navy/55 to-transparent" />
         </div>
 

@@ -11,33 +11,33 @@ async function main() {
 
   const imageMap: { [key: string]: string } = {
     // Events category
-    "design-dialects-20-unveiled": "/blog-cover-1.png",
-    "design-dialects-conference-ludhiana": "/blog-cover-2.png",
-    "architecture-conference-punjab-2027": "/blog-cover-3.png",
+    "design-dialects-20-unveiled": "/blog-cover-1.jpg",
+    "design-dialects-conference-ludhiana": "/blog-cover-2.jpg",
+    "architecture-conference-punjab-2027": "/blog-cover-3.jpg",
 
     // Industry category
-    "sustainable-architecture-future": "/blog-cover-4.png",
-    "modern-office-spaces-design": "/blog-cover-5.png",
-    "landscape-architecture-trends": "/blog-cover-6.png",
-    "commercial-interior-design": "/blog-cover-8.png",
-    "residential-architecture-ludhiana": "/blog-cover-9.png",
+    "sustainable-architecture-future": "/blog-cover-4.jpg",
+    "modern-office-spaces-design": "/blog-cover-5.jpg",
+    "landscape-architecture-trends": "/blog-cover-6.jpg",
+    "commercial-interior-design": "/blog-cover-8.jpg",
+    "residential-architecture-ludhiana": "/blog-cover-9.jpg",
 
     // News category
-    "la-media-expands-operations": "/blog-cover-1.png",
-    "build-right-advisory-launch": "/blog-cover-2.png",
+    "la-media-expands-operations": "/blog-cover-1.jpg",
+    "build-right-advisory-launch": "/blog-cover-2.jpg",
 
     // Insights category
-    "event-management-best-practices": "/blog-cover-3.png",
-    "conference-planning-guide": "/blog-cover-4.png",
-    "architecture-networking-events": "/blog-cover-5.png",
+    "event-management-best-practices": "/blog-cover-3.jpg",
+    "conference-planning-guide": "/blog-cover-4.jpg",
+    "architecture-networking-events": "/blog-cover-5.jpg",
 
     // Updates category
-    "design-dialects-sponsors": "/blog-cover-6.png",
-    "venue-announcement-2027": "/blog-cover-8.png",
-    "early-bird-registrations": "/blog-cover-9.png",
-    "speaker-lineup-2027": "/blog-cover-1.png",
-    "partnership-announcements": "/blog-cover-2.png",
-    "event-highlights-2026": "/blog-cover-3.png",
+    "design-dialects-sponsors": "/blog-cover-6.jpg",
+    "venue-announcement-2027": "/blog-cover-8.jpg",
+    "early-bird-registrations": "/blog-cover-9.jpg",
+    "speaker-lineup-2027": "/blog-cover-1.jpg",
+    "partnership-announcements": "/blog-cover-2.jpg",
+    "event-highlights-2026": "/blog-cover-3.jpg",
   };
 
   let updated = 0;

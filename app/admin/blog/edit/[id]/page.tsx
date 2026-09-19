@@ -330,7 +330,7 @@ export default function EditBlogPage() {
                       setFormData({ ...formData, image: e.target.value })
                     }
                     className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://example.com/image.jpg or /blog-cover-1.png"
+                    placeholder="https://example.com/image.jpg or /blog-cover-1.jpg"
                   />
                 </div>
 

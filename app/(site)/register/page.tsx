@@ -44,7 +44,7 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-navy-2">
           <div className="relative h-full w-full">
             <Image
-              src="/herodd.png"
+              src="/herodd.jpg"
               alt="Design Dialect Hero"
               fill
               className="object-contain object-center md:object-cover bleed-img"
