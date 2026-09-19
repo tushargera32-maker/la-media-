@@ -128,15 +128,13 @@ export function SiteHeader() {
             <div className="flex items-center justify-between border-b border-hairline p-5 sm:p-6">
               <div className="flex items-center gap-3">
                 <Image
-                  src="/logo.png"
-                  alt="LA Media"
-                  width={40}
+                  src="/firm-la-media.png"
+                  alt="LA Media & Communications"
+                  width={140}
                   height={40}
-                  className="h-10 w-10"
+                  className="h-10 w-auto"
+                  style={{ mixBlendMode: 'screen' }}
                 />
-                <span className="text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em] text-bone">
-                  Media &amp;<br />Communications
-                </span>
               </div>
               <button
                 onClick={() => setOpen(false)}

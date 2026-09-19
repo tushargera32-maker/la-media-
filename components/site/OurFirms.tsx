@@ -22,7 +22,7 @@ const VERTICALS = [
     discipline: "Events · Content · Community · Platforms",
     blurb:
       "Thought-provoking talks, immersive experiences, and meaningful conversations that bring the architecture and design community together.",
-    image: "/firm-la-media.jpg",
+    image: "/firm-la-media.png",
     color: "copper",
   },
   {
