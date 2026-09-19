@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow } from "@/components/ui/Primitives";
 import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
+import { PhotoGrid } from "@/components/site/PhotoGrid";
 
 export const metadata: Metadata = {
   title: "Media & Gallery - Events & Projects | LA Media",
@@ -10,6 +11,12 @@ export const metadata: Metadata = {
 };
 
 export const dynamic = 'force-dynamic';
+
+// Static archive: Design Dialect previous edition 2026 (40 photos)
+const DD2026_PHOTOS = Array.from({ length: 40 }, (_, i) => ({
+  src: `/media/dd-2026/dd26-${String(i + 1).padStart(2, "0")}.jpg`,
+  alt: `Design Dialect 2026 previous edition photo ${i + 1}`,
+}));
 
 export default async function MediaPage() {
   let galleryImages: any[] = [];
@@ -53,6 +60,25 @@ export default async function MediaPage() {
               A visual journey through our conferences, events, and the connections we've built.
               From Design Dialect to architecture summits, explore the moments that shaped India's design community.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* PREVIOUS EDITION 2026 */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Previous Edition</Eyebrow>
+            <h2 className="h-tight mt-6 max-w-[20ch] text-[clamp(1.8rem,4vw,3rem)]">
+              Design Dialect <span className="text-copper">2026</span> in frames.
+            </h2>
+            <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-mist">
+              Glimpses from the previous edition — the stage, the crowd,
+              the speakers and the moments that made it special.
+            </p>
+          </Reveal>
+          <Reveal className="mt-12">
+            <PhotoGrid photos={DD2026_PHOTOS} initial={9} />
           </Reveal>
         </div>
       </section>
