@@ -27,7 +27,7 @@ const PRESS_HIGHLIGHTS: PressHighlight[] = [
     id: '3',
     source: 'Punjab Kesari',
     date: 'Aug 03, 2026',
-    excerpt: 'Architect Jafar Chaudhary joined the event as Chief Guest, with architect Sangeet Sharma and architectural journalist Apurva Bose Dutta sharing their perspectives on contemporary design.',
+    excerpt: 'Ar. Zafar Chaudhary joined the event as Chief Guest, with architect Sangeet Sharma and architectural journalist Apurva Bose Dutta sharing their perspectives on contemporary design.',
   },
   {
     id: '4',

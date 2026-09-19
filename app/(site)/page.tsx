@@ -2,12 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Reveal, RevealGroup, HeadingLines, CountUp, Magnetic, Parallax,
+  Reveal, RevealGroup, HeadingLines, CountUp,
 } from "@/components/motion/Motion";
 import {
   Media, Eyebrow, Button, ArrowLink, ArrowCircle,
 } from "@/components/ui/Primitives";
-import { VerticalSwitcher } from "@/components/site/VerticalSwitcher";
 import { EventPopup } from "@/components/site/EventPopup";
 import { VideoReel } from "@/components/site/VideoReel";
 import { HERO, STATS, EVENT, CAPABILITIES } from "@/lib/content";

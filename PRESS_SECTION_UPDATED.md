@@ -32,7 +32,7 @@
    - Future of profession and sustainable approaches explored
 
 3. **Punjab Kesari | Aug 03, 2026**
-   - Jafar Chaudhary, Sangeet Sharma, Apurva Bose Dutta featured
+   - Ar. Zafar Chaudhary, Sangeet Sharma, Apurva Bose Dutta featured
 
 4. **Media Highlight | Aug 2026**
    - Platform for ideas, perspectives, opportunities

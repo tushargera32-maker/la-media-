@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
-import { Eyebrow, Button } from "@/components/ui/Primitives";
+import { Eyebrow } from "@/components/ui/Primitives";
 import { RegistrationForm } from "@/components/site/RegistrationForm";
 import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
 

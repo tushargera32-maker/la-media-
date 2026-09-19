@@ -19,7 +19,7 @@ const PAST_EVENTS = [
     date: "July 25, 2026",
     location: "Nirvana Luxury Hotel, Ludhiana",
     attendees: "200+",
-    image: "/past-event-1.jpg",
+    image: "/media/dd-2026/dd26-02.jpg",
     videoUrl: "https://youtube.com/...",
     highlights: [
       "Industry thought leaders",
@@ -147,20 +147,6 @@ export default function DesignDialectsPage() {
             </div>
           </div>
         </Reveal>
-
-        {/* TEMP-DISABLED: Event Poster - file has spaces in name, causes 404. Rename to kebab-case to restore.
-        <Reveal delay={0.2}>
-          <div className="panel relative mx-auto mt-12 max-w-4xl overflow-hidden">
-            <Image
-              src="/Neon Bridge Design Dialect Poster.png"
-              alt="Design Dialect 2.0 Event Poster"
-              width={941}
-              height={1672}
-              className="h-auto w-full"
-            />
-          </div>
-        </Reveal>
-        */}
 
         {/* Supported By Section */}
         <Reveal delay={0.25}>

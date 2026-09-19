@@ -109,7 +109,7 @@ export default function WorkPage() {
             <article className="panel group overflow-hidden">
               <div className="relative aspect-video overflow-hidden bg-navy-2">
                 <Image
-                  src="/past-event-1.jpg"
+                  src="/media/dd-2026/dd26-01.jpg"
                   alt="Design Dialect 1.0"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
