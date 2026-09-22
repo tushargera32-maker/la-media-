@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 export const revalidate = 300;
 
-// Static archive: Design Dialect previous edition 2026 (40 photos)
-const DD2026_PHOTOS = Array.from({ length: 40 }, (_, i) => ({
+// Static archive: Design Dialect previous edition 2026 (32 photos)
+const DD2026_PHOTOS = Array.from({ length: 32 }, (_, i) => ({
   src: `/media/dd-2026/dd26-${String(i + 1).padStart(2, "0")}.jpg`,
   alt: `Design Dialect 2026 previous edition photo ${i + 1}`,
 }));
