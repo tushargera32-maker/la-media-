@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Reveal, RevealGroup } from "@/components/motion/Motion";
 import { Media, Eyebrow } from "@/components/ui/Primitives";
 import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
+import { InvitationFlipbook } from "@/components/site/InvitationFlipbook";
 import { PhotoGrid } from "@/components/site/PhotoGrid";
 
 export const metadata: Metadata = {
@@ -18,19 +19,36 @@ const DD2026_PHOTOS = Array.from({ length: 32 }, (_, i) => ({
   alt: `Design Dialect 2026 previous edition photo ${i + 1}`,
 }));
 
+type GalleryImage = {
+  id: string;
+  title: string | null;
+  image: string;
+  category: string | null;
+};
+
 export default async function MediaPage() {
-  let galleryImages: any[] = [];
+  // Gallery fetch must NEVER block the page: Turso can hang for 10s+
+  // when unreachable, which used to leave /media blank ("load ni hora").
+  // Race the query against a short timeout and fall back to [].
+  let galleryImages: GalleryImage[] = [];
 
   try {
     // Dynamically import prisma only at runtime
     const { prisma } = await import("@/lib/prisma");
 
-    // Fetch published gallery images
-    galleryImages = await prisma.galleryImage.findMany({
-      where: { published: true },
-      orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
-      take: 50, // Limit to 50 recent images
-    });
+    const query: Promise<GalleryImage[]> = prisma.galleryImage
+      .findMany({
+        where: { published: true },
+        orderBy: [{ order: 'asc' }, { createdAt: 'desc' }],
+        take: 50, // Limit to 50 recent images
+      })
+      .catch(() => []);
+
+    const timeout = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error("gallery-timeout")), 3500)
+    );
+
+    galleryImages = await Promise.race([query, timeout]).catch(() => []);
   } catch (error) {
     console.error('Failed to fetch gallery images:', error);
     // Return empty array during build or if DB unavailable
@@ -61,6 +79,29 @@ export default async function MediaPage() {
               From Design Dialect to architecture summits, explore the moments that shaped India's design community.
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* INVITATION CARD FLIPBOOK — previous edition, not DD 2.0 */}
+      <section className="border-t border-hairline py-section">
+        <div className="mx-auto max-w-shell px-gutter">
+          <Reveal>
+            <Eyebrow>Previous Edition Invite</Eyebrow>
+            <h2 className="h-tight mt-6 max-w-[20ch] text-[clamp(1.8rem,4vw,3rem)]">
+              The last edition&apos;s invitation, <span className="text-copper">page by page</span>.
+            </h2>
+            <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-mist">
+              This is the official invitation card from our previous Design
+              Dialect (2026) — not the upcoming DD 2.0. Flip through all
+              three pages just like the real booklet.
+            </p>
+          </Reveal>
+          {/* Rendered outside Reveal on purpose: the book must paint even
+              if the GSAP reveal ever fails — otherwise the whole section
+              looks like it never loads (opacity stays 0). */}
+          <div className="mt-12">
+            <InvitationFlipbook />
+          </div>
         </div>
       </section>
 
