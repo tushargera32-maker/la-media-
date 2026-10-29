@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal, RevealGroup, CountUp } from "@/components/motion/Motion";
 import { Eyebrow } from "@/components/ui/Primitives";
+import { EVENT } from "@/lib/content";
 import { RegistrationForm } from "@/components/site/RegistrationForm";
 import { VibeCarousel, VIBE_VIDEOS } from "@/components/site/VibeCarousel";
 
@@ -82,7 +83,8 @@ export default function RegisterPage() {
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-copper sm:text-[11px]">Date</p>
-                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">Feb 6-7, 2027</p>
+                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">{EVENT.homeCardDate}</p>
+                    <p className="text-[12px] text-mist sm:text-[13px]">{EVENT.time} · Sat & Sun</p>
                   </div>
                 </div>
               </div>
@@ -97,7 +99,8 @@ export default function RegisterPage() {
                   </div>
                   <div>
                     <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-copper sm:text-[11px]">Venue</p>
-                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">To be listed shortly</p>
+                    <p className="mt-1 text-[15px] font-bold sm:text-[17px]">{EVENT.venue}</p>
+                    <p className="text-[12px] text-mist sm:text-[13px]">{EVENT.venueAddress}</p>
                   </div>
                 </div>
               </div>

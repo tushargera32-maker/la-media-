@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { EVENT } from './content';
 
 function getResend(): Resend | null {
   const key = process.env.RESEND_API_KEY;
@@ -141,10 +142,11 @@ export async function sendUserConfirmation(data: {
               <p>We've received your details and you're now on the list. Here are the event details:</p>
               ${copy.showEventBox ? `
               <div style="background: white; padding: 20px; margin: 20px 0; border-left: 3px solid #d4a574;">
-                <p style="margin: 5px 0;"><strong>Event:</strong> Design Dialect 2.0</p>
-                <p style="margin: 5px 0;"><strong>Date:</strong> February 6-7, 2027</p>
-                <p style="margin: 5px 0;"><strong>Location:</strong> Ludhiana, Punjab</p>
-                <p style="margin: 5px 0;"><strong>Venue:</strong> To be announced</p>
+                <p style="margin: 5px 0;"><strong>Event:</strong> ${EVENT.name}</p>
+                <p style="margin: 5px 0;"><strong>Date:</strong> ${EVENT.date}</p>
+                <p style="margin: 5px 0;"><strong>Time:</strong> ${EVENT.time}</p>
+                <p style="margin: 5px 0;"><strong>Venue:</strong> ${EVENT.venue}</p>
+                <p style="margin: 5px 0;"><strong>Location:</strong> ${EVENT.venueAddress}</p>
               </div>
               ` : ''}
               ${data.details ? `
