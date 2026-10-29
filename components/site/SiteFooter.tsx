@@ -17,8 +17,17 @@ const WHAT = [
 ];
 
 const SOCIALS = [
-  { name: "Instagram", url: "https://www.instagram.com/designdialect.india/", icon: "I" },
-  { name: "Facebook", url: "https://www.facebook.com/people/Design-Dialect/61594233031244/", icon: "F" },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/designdialect.india/",
+    icon: (
+      <svg className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth={1.7} viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4.2" />
+        <circle cx="17.3" cy="6.7" r="1.15" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
 ];
 
 function NewsletterForm() {
@@ -121,12 +130,15 @@ export function SiteFooter() {
     <footer className="border-t border-hairline bg-abyss">
       <div className="mx-auto grid max-w-shell gap-10 px-gutter py-12 sm:gap-12 sm:py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
-          <div className="flex items-center gap-3">
-            <span className="text-[22px] font-bold leading-none tracking-[0.08em] sm:text-[26px]">LA</span>
-            <span className="text-[9px] font-semibold uppercase leading-[1.35] tracking-[0.14em]">
-              Media &amp;<br />Communications
-            </span>
-          </div>
+          <Link href="/" className="relative block h-28 w-36 sm:h-32 sm:w-40" aria-label="LA Media and Communications, home">
+            <Image
+              src="/firm-la-media-trimmed.png"
+              alt="LA Media & Communications"
+              fill
+              sizes="(min-width: 640px) 160px, 144px"
+              className="object-contain"
+            />
+          </Link>
           <p className="mt-5 max-w-[34ch] text-[13.5px] text-mist sm:mt-6 sm:text-[14.5px]">
             We create platforms for ideas, build meaningful connections and drive conversations
             that shape the future.
@@ -139,7 +151,8 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={s.name}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-hairline text-[10px] font-semibold text-slate transition-colors hover:border-copper hover:text-copper sm:h-9 sm:w-9"
+                  aria-label={s.name}
+                  className="grid h-10 w-10 place-items-center rounded-full border border-hairline text-slate transition-colors hover:border-copper hover:text-copper sm:h-9 sm:w-9"
                 >
                   {s.icon}
                 </a>
