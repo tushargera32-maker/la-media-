@@ -262,6 +262,18 @@ export default function BuildRightPage() {
             </p>
           </Reveal>
 
+          {/* Services poster (static image, non-clickable) */}
+          <Reveal className="mx-auto mt-12 max-w-3xl md:mt-16">
+            <Image
+              src="/build-right-services-poster.png"
+              alt="Build Right Advisors - Construction Advisory Services"
+              width={941}
+              height={1530}
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="h-auto w-full rounded-xl border border-hairline"
+            />
+          </Reveal>
+
           <RevealGroup className="mt-10 grid gap-4 md:mt-14 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {SERVICES.map((service) => (
               <div key={service.number} className="panel group p-5 transition-all hover:border-copper md:p-6">
