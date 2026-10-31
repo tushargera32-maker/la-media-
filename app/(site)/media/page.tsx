@@ -82,18 +82,19 @@ export default async function MediaPage() {
         </div>
       </section>
 
-      {/* INVITATION CARD FLIPBOOK — previous edition, not DD 2.0 */}
+      {/* INVITATION CARD FLIPBOOK — Design Dialect 2.0 official invite */}
       <section className="border-t border-hairline py-section">
         <div className="mx-auto max-w-shell px-gutter">
           <Reveal>
-            <Eyebrow>Previous Edition Invite</Eyebrow>
+            <Eyebrow>Official Invitation</Eyebrow>
             <h2 className="h-tight mt-6 max-w-[20ch] text-[clamp(1.8rem,4vw,3rem)]">
-              The last edition&apos;s invitation, <span className="text-copper">page by page</span>.
+              The Design Dialect <span className="text-copper">2.0</span> invite, page by page.
             </h2>
             <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-mist">
-              This is the official invitation card from our previous Design
-              Dialect (2026) — not the upcoming DD 2.0. Flip through all
-              three pages just like the real booklet.
+              The official invitation for Design Dialect 2.0 — two days on
+              6 &amp; 7 February 2027 at AIPL Adjoining Lakeside, Ludhiana.
+              Flip through the cover and both day-wise schedules just like the
+              real booklet.
             </p>
           </Reveal>
           {/* Rendered outside Reveal on purpose: the book must paint even

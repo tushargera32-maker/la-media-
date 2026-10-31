@@ -13,6 +13,7 @@ export const VIBE_VIDEOS: VibeVideo[] = [
   { src: "/videos/dd-vibe-4.mp4", label: "Design Dialect vibe reel 4" },
   { src: "/videos/dd-vibe-5.mp4", label: "Design Dialect vibe reel 5" },
   { src: "/videos/dd-vibe-6.mp4", label: "Design Dialect vibe reel 6" },
+  { src: "/videos/dd-vibe-7.mp4", label: "Design Dialect vibe reel 7" },
 ];
 
 const AUTOPLAY_MS = 7000;

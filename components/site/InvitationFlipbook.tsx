@@ -4,9 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 export const INVITATION_PAGES = [
-  { src: "/media/invitation/invite-1.jpg", alt: "Previous Design Dialect (2026) invitation card — Page 1" },
-  { src: "/media/invitation/invite-2.jpg", alt: "Previous Design Dialect (2026) invitation card — Page 2, event schedule" },
-  { src: "/media/invitation/invite-3.jpg", alt: "Previous Design Dialect (2026) invitation card — Page 3, panel discussion" },
+  { src: "/media/invitation/dd27-1.jpg", alt: "Design Dialect 2.0 invitation — cover, Day 1 (Architects' Special Day), 6 February 2027" },
+  { src: "/media/invitation/dd27-2.jpg", alt: "Design Dialect 2.0 invitation — Day 1 event schedule, 6 February 2027" },
+  { src: "/media/invitation/dd27-3.jpg", alt: "Design Dialect 2.0 invitation — Day 2 event schedule, 7 February 2027" },
 ];
 
 const FLIP_MS = 650;
@@ -112,7 +112,7 @@ export function InvitationFlipbook({
           {/* book frame */}
           <div className="panel-solid relative overflow-hidden p-2 sm:p-3">
             <div
-              className="relative aspect-[1613/2400] w-full overflow-hidden bg-navy-2"
+              className="relative aspect-[9/16] w-full overflow-hidden bg-navy-2"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* outgoing page — stays underneath during flip */}
@@ -196,7 +196,7 @@ export function InvitationFlipbook({
             {/* caption bar */}
             <div className="flex items-center justify-between px-2 pb-1 pt-3 sm:px-3">
               <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate">
-                Previous Edition Invitation
+                Design Dialect 2.0 Invitation
               </p>
               <p className="figure text-[15px] tabular-nums" aria-live="polite">
                 {String(index + 1).padStart(2, "0")}

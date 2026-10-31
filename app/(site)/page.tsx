@@ -284,7 +284,7 @@ export default async function HomePage() {
           <Reveal>
             <div className="panel flex flex-col gap-8 p-6 sm:p-8 md:flex-row md:items-center md:gap-12 md:p-10">
               <VideoReel
-                src="/videos/dd-vibe-3.mp4"
+                src="/videos/dd-vibe-7.mp4"
                 label="Design Dialect 2.0 vibe reel"
                 className="mx-auto w-full max-w-[240px] shrink-0 md:mx-0 md:max-w-[220px]"
               />
